@@ -106,7 +106,7 @@ public class AudioManager : MonoBehaviour
 
         audioSource.pitch = Random.Range(pitchMin, pitchMax);
         audioSource.volume = Random.Range(volumeMin, volumeMax);
-        audioSource.clip = soundInfo.audioClips[Random.Range(0, soundInfo.audioClips.Length - 1)];
+        audioSource.clip = soundInfo.audioClips[Random.Range(0, soundInfo.audioClips.Length)];
         audioSource.outputAudioMixerGroup = soundInfo.audioMixerGroup;
         audioSource.loop = loop;
         audioSource.Play();
