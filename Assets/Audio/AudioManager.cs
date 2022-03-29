@@ -155,7 +155,7 @@ public class AudioManager : MonoBehaviour
     {
         InitializeVolumes();
         Play("Ambiance/Background", true, volumeMin: 0.25f, volumeMax: 0.25f);
-        Play("Music/Background", true, volumeMin: 0.5f, volumeMax: 0.5f, isMusic: true);
+        //Play("Music/Background", true, volumeMin: 0.5f, volumeMax: 0.5f, isMusic: true);
     }
 
     float GetVolumeFromPrefs(string volumeKey)
