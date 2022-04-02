@@ -17,44 +17,49 @@ public enum ResourceType
     Research = 7
 }
 
-[CreateAssetMenu(fileName = "Building", menuName = "Game/Building", order = 1)]
-public class Building : ScriptableObject
+[System.Serializable]
+public class ResourceEffect
 {
-    [System.Serializable]
-    public class ResourceEffect
+    [SerializeField]
+    ResourceType AffectedResource;
+
+    [Range(-10, 10)]
+    public int EffectAmount;
+}
+
+[System.Serializable]
+public class SpecialResourceEffect
+{
+    public enum SpecialResourceEffectType
     {
-        [SerializeField]
-        ResourceType AffectedResource;
-
-        [Range(-10, 10)]
-        public int EffectAmount;
-    }
-
-    [System.Serializable]
-    public class SpecialEffect
-    {
-        public enum SpecialEffectType
-        {
-            // NOTE: If you add or remove to this, do *not* change the values of other
-            // enums. This will break all serialized scriptable objects.
-            EmptyBuilding = 0,
-            Test = 1,
-        }
-
-        public string Name;
-        public string Description;
-
-        [SerializeField]
-        SpecialEffectType Type;
+        // NOTE: If you add or remove to this, do *not* change the values of other
+        // enums. This will break all serialized scriptable objects.
+        EmptyBuilding = 0,
+        Test = 1,
     }
 
     public string Name;
     public string Description;
+
+    [SerializeField]
+    SpecialResourceEffectType Type;
+}
+
+[CreateAssetMenu(fileName = "Building", menuName = "Game/Building", order = 1)]
+public class Building : ScriptableObject
+{
+    public string Name;
+    public string Description;
     public GameObject VisualsPrefab;
     public Sprite PreviewImage;
-    public bool Buildable = true;
 
-    public int Cost;
+    public bool Buildable = true;
+    public bool Disableable = true;
+    public bool Deconstructable = true;
+
+    public int MoneyCost;
+    public int PopCost;
+
     public List<ResourceEffect> ResourceEffects;
-    public List<SpecialEffect> SpecialEffects;
+    public List<SpecialResourceEffect> SpecialEffects;
 }
