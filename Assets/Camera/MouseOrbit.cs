@@ -57,7 +57,7 @@ public class MouseOrbit : MonoBehaviour
     {
         distanceBetweenCameraAndTarget = Vector3.Distance(sceneCamera.transform.position, target.position);
         dir = new Vector3(0, 0, distanceBetweenCameraAndTarget);//assign value to the distance between the maincamera and the target
-        sceneCamera.transform.position = target.position + dir; //Initialize camera position
+        sceneCamera.transform.position = target.position - dir; //Initialize camera position
         cameraFOVDamp = sceneCamera.fieldOfView;
         cameraFieldOfView = sceneCamera.fieldOfView;
     }
