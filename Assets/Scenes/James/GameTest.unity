@@ -470,6 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e03551702474eff93b9b3253043883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Radius: 5
 --- !u!114 &646746829139898269 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2568560862407810586, guid: e21b0f578e011482e9b59a57c0338249, type: 3}
@@ -646,9 +647,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4286411489443503579, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
+      propertyPath: Buildings.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286411489443503579, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
+      propertyPath: Buildings.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7182b312e7cf41c2a9ccdd3d0b7a0e5, type: 2}
+    - target: {fileID: 4286411489443503579, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
+      propertyPath: Buildings.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7182b312e7cf41c2a9ccdd3d0b7a0e5, type: 2}
+    - target: {fileID: 4286411489443503579, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
+      propertyPath: Buildings.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7182b312e7cf41c2a9ccdd3d0b7a0e5, type: 2}
+    - target: {fileID: 4286411489443503579, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
+      propertyPath: Buildings.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7182b312e7cf41c2a9ccdd3d0b7a0e5, type: 2}
+    - target: {fileID: 4286411489443503579, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
+      propertyPath: Buildings.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7182b312e7cf41c2a9ccdd3d0b7a0e5, type: 2}
+    - target: {fileID: 4286411489443503579, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
+      propertyPath: Buildings.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7182b312e7cf41c2a9ccdd3d0b7a0e5, type: 2}
+    - target: {fileID: 4286411489443503579, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
+      propertyPath: BuildingDistanceFromCenter
+      value: 0.241
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286411489567173591, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
+      propertyPath: BuildingDistanceFromCenter
+      value: 0.241
+      objectReference: {fileID: 0}
     - target: {fileID: 5616137417547662544, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
       propertyPath: Buildings.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5616137417547662544, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
       propertyPath: Buildings.Array.data[0]
@@ -659,8 +696,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c7182b312e7cf41c2a9ccdd3d0b7a0e5, type: 2}
     - target: {fileID: 5616137417547662544, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
+      propertyPath: Buildings.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7182b312e7cf41c2a9ccdd3d0b7a0e5, type: 2}
+    - target: {fileID: 5616137417547662544, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
+      propertyPath: Buildings.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7182b312e7cf41c2a9ccdd3d0b7a0e5, type: 2}
+    - target: {fileID: 5616137417547662544, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
       propertyPath: BuildingDistanceFromCenter
-      value: 0.491
+      value: 0.241
       objectReference: {fileID: 0}
     - target: {fileID: 7014085622670160291, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
       propertyPath: m_RootOrder

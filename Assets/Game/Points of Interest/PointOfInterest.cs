@@ -43,7 +43,8 @@ public class PointOfInterest : MonoBehaviour
         {
             var visualsGo = Instantiate(building.VisualsPrefab);
 
-            var newPos = transform.position + ((Quaternion.AngleAxis(angle, transform.up) * transform.right) * BuildingDistanceFromCenter);
+            var newPos = transform.position + ((Quaternion.AngleAxis(angle, transform.forward) * transform.right) * BuildingDistanceFromCenter);
+            //newPos -= (transform.up * BuildingDistanceFromCenter * 0.5f);
             var dir = (newPos - _earth.transform.position).normalized;
             visualsGo.transform.position = _earth.transform.position + (dir * _earth.Radius);
 

@@ -53,6 +53,7 @@ public class Building : ScriptableObject
     public GameObject VisualsPrefab;
     public Sprite PreviewImage;
 
+    public bool RegionCapital = false;
     public bool Buildable = true;
     public bool Disableable = true;
     public bool Deconstructable = true;
