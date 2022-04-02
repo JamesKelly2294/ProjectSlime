@@ -2,13 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-public class Building
-{
-    public string Name { get; set; }
-}
-
 public class PointOfInterestManager : MonoBehaviour
 {
     public List<PointOfInterest> pointsOfInterest { get; private set; }

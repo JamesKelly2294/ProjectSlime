@@ -145,6 +145,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2089717127}
     m_Modifications:
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: Name
+      value: Mexico City
+      objectReference: {fileID: 0}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest (2)
@@ -362,6 +366,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2089717127}
     m_Modifications:
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: Name
+      value: Washington, D.C.
+      objectReference: {fileID: 0}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest
@@ -428,6 +436,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2089717127}
     m_Modifications:
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: Name
+      value: "Bras\xEDlia"
+      objectReference: {fileID: 0}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest (1)
@@ -819,6 +831,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2089717127}
     m_Modifications:
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: Name
+      value: Buenos Aires
+      objectReference: {fileID: 0}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest (4)
@@ -957,63 +973,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368a372c6b8c844f8ab50df028b7a358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &2303995512677420561
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2303995512245424588, guid: c642119de1f554b6a960a2e3a7b61d56, type: 3}
-      propertyPath: m_Name
-      value: GameResourceManagersDebug
-      objectReference: {fileID: 0}
-    - target: {fileID: 2303995512245424590, guid: c642119de1f554b6a960a2e3a7b61d56, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2303995512245424590, guid: c642119de1f554b6a960a2e3a7b61d56, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 934.86224
-      objectReference: {fileID: 0}
-    - target: {fileID: 2303995512245424590, guid: c642119de1f554b6a960a2e3a7b61d56, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 492.45947
-      objectReference: {fileID: 0}
-    - target: {fileID: 2303995512245424590, guid: c642119de1f554b6a960a2e3a7b61d56, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 108.06183
-      objectReference: {fileID: 0}
-    - target: {fileID: 2303995512245424590, guid: c642119de1f554b6a960a2e3a7b61d56, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2303995512245424590, guid: c642119de1f554b6a960a2e3a7b61d56, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2303995512245424590, guid: c642119de1f554b6a960a2e3a7b61d56, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2303995512245424590, guid: c642119de1f554b6a960a2e3a7b61d56, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2303995512245424590, guid: c642119de1f554b6a960a2e3a7b61d56, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2303995512245424590, guid: c642119de1f554b6a960a2e3a7b61d56, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2303995512245424590, guid: c642119de1f554b6a960a2e3a7b61d56, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c642119de1f554b6a960a2e3a7b61d56, type: 3}
 --- !u!1001 &3124628077015445895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1179,6 +1138,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2089717127}
     m_Modifications:
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: Name
+      value: "Bogot\xE1"
+      objectReference: {fileID: 0}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest

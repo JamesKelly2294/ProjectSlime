@@ -9,13 +9,14 @@ public enum Region
 
 public class PointOfInterest : MonoBehaviour
 {
-
-    public Region Region { get; set; }
-    public string Name { get; set; }
-    public Building Building { get; set; }
+    public string Name;
+    public Region Region;
+    public Building Building;
 
     public void Start()
     {
         FindObjectOfType<PointOfInterestManager>().RegisterPointOfInterest(this);
+
+        gameObject.transform.name = "POI " + Name;
     }
 }
