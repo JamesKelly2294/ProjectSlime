@@ -357,6 +357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8542452954770692635}
   - component: {fileID: 8542452954770692636}
+  - component: {fileID: 6497406993907060519}
   m_Layer: 0
   m_Name: Point of Interest
   m_TagString: Untagged
@@ -394,6 +395,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &6497406993907060519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8542452954770692634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7ca6e2a80b94bd2a4ec364c7e9ad4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8542452955213162741
 GameObject:
   m_ObjectHideFlags: 0

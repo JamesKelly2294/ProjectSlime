@@ -38,6 +38,29 @@ public class GameResourceManager : MonoBehaviour
     public int minBiodiversity { get; private set; } = 0;
     public int maxBiodiversity { get; private set; } = 10;
 
+    public void SetDebugValues(GameResourceManagerDebug debug)
+    {
+        money = debug.money;
+        moneyProduction = debug.moneyProduction;
+        scienceProduction = debug.scienceProduction;
+        biomassConsumption = debug.biomassConsumption;
+        biomassProduction = debug.biomassProduction;
+        energyConsumption = debug.energyConsumption;
+        energyProduction = debug.energyProduction;
+        energyCleanProduction = debug.energyCleanProduction;
+        energyDirtyProduction = debug.energyDirtyProduction;
+        steelConsumption = debug.steelConsumption;
+        steelProduction = debug.steelProduction;
+        titaniumConsumption = debug.titaniumConsumption;
+        titaniumProduction = debug.titaniumProduction;
+        currentSeaLevels = debug.currentSeaLevels;
+        maxSeaLevels = debug.maxSeaLevels;
+        minSeaLevels = debug.minSeaLevels;
+        currentBiodiversity = debug.currentBiodiversity;
+        minBiodiversity = debug.minBiodiversity;
+        maxBiodiversity = debug.maxBiodiversity;
+    }
+
     public int BiodiversityYearsRemaining
     {
         get
