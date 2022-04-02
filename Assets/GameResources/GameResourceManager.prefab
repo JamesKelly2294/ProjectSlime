@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1391367450955547962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1391367450955547960}
+  - component: {fileID: 1391367450955547963}
+  m_Layer: 0
+  m_Name: GameResourceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1391367450955547960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391367450955547962}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -27.176382, y: -114.68592, z: 292.44757}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1391367450955547963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391367450955547962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82065dcd5d62840c59f0e2691f520b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 1000
+  scienceProduction: 1
+  biomassConsumption: 5
+  biomassProduction: 10
+  energyConsumption: 5
+  energyProduction: 5
+  steelConsumption: 5
+  steelProduction: 10
+  titaniumConsumption: 5
+  titaniumProduction: 10
+  biomassSprite: {fileID: 21300000, guid: bd791905c315048af8cc32af99aa963a, type: 3}
+  biomassSprite2x: {fileID: 21300000, guid: cb3954042d85f4f50b7eae946211cb9a, type: 3}
+  biomassSprite3x: {fileID: 21300000, guid: fe1672120ed1a48eaa0dc7d02415624e, type: 3}
+  energySprite: {fileID: 21300000, guid: d69210e8ac8c34790b65c30fee217de6, type: 3}
+  energySprite2x: {fileID: 21300000, guid: 60e45cb4160fa4f749a475e9e72650a1, type: 3}
+  energySprite3x: {fileID: 21300000, guid: ce56c68ea7e0c4cb9927125141464fe0, type: 3}
+  moneySprite: {fileID: 21300000, guid: 305e9ea5eb07841b08346160af1f18e1, type: 3}
+  moneySprite2x: {fileID: 21300000, guid: 4ed9f1610f41d46ad99fae0074593ba6, type: 3}
+  moneySprite3x: {fileID: 21300000, guid: 968f0c1a9fcb247e3b86f68778effede, type: 3}
+  scienceSprite: {fileID: 21300000, guid: 77d736eb9e4784fafaed09446028336c, type: 3}
+  scienceSprite2x: {fileID: 21300000, guid: d168d58489be84bd28e16fcb2e3acda4, type: 3}
+  scienceSprite3x: {fileID: 21300000, guid: 7d5b627521fb646c6ba67713e79ddde4, type: 3}
+  steelSprite: {fileID: 21300000, guid: f9a94644e4a294ddeaf879898630e529, type: 3}
+  steelSprite2x: {fileID: 21300000, guid: 3fbe4bc1997024217b0caa00386c3e13, type: 3}
+  steelSprite3x: {fileID: 21300000, guid: 1e598f73344ec4dfb9d3e912ba79a50a, type: 3}
+  titaniumSprite: {fileID: 21300000, guid: df60d22e3c02d491a823c1069d8cd795, type: 3}
+  titaniumSprite2x: {fileID: 21300000, guid: 9317d45e99d3d47889164b30181c77a0, type: 3}
+  titaniumSprite3x: {fileID: 21300000, guid: 736ca0b6b05da4ac1b917a596a5c9c10, type: 3}
