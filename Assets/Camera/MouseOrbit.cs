@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MouseOrbit : MonoBehaviour
 {
+    public bool ProcessCameraOrbit;
+
     [Range(5f, 15f)]
     [Tooltip("How sensitive the mouse drag to camera rotation")]
     public float mouseRotateSpeed = 5f;
@@ -64,7 +66,7 @@ public class MouseOrbit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!canRotate)
+        if (!canRotate || !ProcessCameraOrbit)
         {
             return;
         }

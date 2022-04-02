@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class PointOfInterestManager : MonoBehaviour
 {
-    public List<PointOfInterest> pointsOfInterest { get; private set; }
+    public List<PointOfInterest> PointsOfInterest { get; private set; }
+
+    public PointOfInterest SelectedPointOfInterest { get; private set; }
 
     public void RegisterPointOfInterest(PointOfInterest pointOfInterest)
     {
-        pointsOfInterest.Add(pointOfInterest);
+        PointsOfInterest.Add(pointOfInterest);
+    }
+
+    public void SetSelectedPointOfInterest()
+    {
+
     }
 
     private void Awake()
     {
-        pointsOfInterest = new List<PointOfInterest>();
+        PointsOfInterest = new List<PointOfInterest>();
     }
 
     // Start is called before the first frame update

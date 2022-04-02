@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public enum Region
 {
@@ -21,7 +22,7 @@ public class PointOfInterest : MonoBehaviour
     public float BuildingDistanceFromCenter;
 
     private Earth _earth;
-    private List<GameObject> _buildingVisuals = new List<GameObject>();
+    private GameObject _buildingVisualsParentGO;
 
     public void Start()
     {
@@ -32,23 +33,46 @@ public class PointOfInterest : MonoBehaviour
 
         AvailablePopulation = StartingPopulation - ConsumedPopulation;
 
+        _buildingVisualsParentGO = new GameObject();
+        _buildingVisualsParentGO.transform.parent = transform;
+        _buildingVisualsParentGO.transform.position = transform.position;
+        _buildingVisualsParentGO.transform.name = "Building Visuals";
+
         UpdateBuildingVisuals();
     }
 
     public void UpdateBuildingVisuals()
     {
+        foreach (Transform child in _buildingVisualsParentGO.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
+        if (Buildings.Count == 0)
+        {
+            return;
+        }
+
         float angle = 0.0f;
         float angularSeparation = 360.0f / (Buildings.Count);
-        foreach (var building in Buildings)
+        var sortedBuildings = Buildings.OrderBy(o => o.RegionCapital).ToList();
+        for (int i = 0; i < sortedBuildings.Count; i++)
         {
+            var building = sortedBuildings[i];
             var visualsGo = Instantiate(building.VisualsPrefab);
 
-            var newPos = transform.position + ((Quaternion.AngleAxis(angle, transform.forward) * transform.right) * BuildingDistanceFromCenter);
-            //newPos -= (transform.up * BuildingDistanceFromCenter * 0.5f);
-            var dir = (newPos - _earth.transform.position).normalized;
-            visualsGo.transform.position = _earth.transform.position + (dir * _earth.Radius);
-
-            _buildingVisuals.Add(visualsGo);
+            if (i == 0)
+            {
+                var newPos = transform.position + ((Quaternion.AngleAxis(angle, transform.forward) * transform.right) * BuildingDistanceFromCenter);
+                var dir = (newPos - _earth.transform.position).normalized;
+                visualsGo.transform.position = transform.position;
+            } else
+            {
+                var newPos = transform.position + ((Quaternion.AngleAxis(angle, transform.forward) * transform.right) * BuildingDistanceFromCenter);
+                var dir = (newPos - _earth.transform.position).normalized;
+                visualsGo.transform.position = _earth.transform.position + (dir * _earth.Radius);
+            }
+            visualsGo.transform.parent = _buildingVisualsParentGO.transform;
 
             angle += angularSeparation;
         }

@@ -59,7 +59,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8542452953420387005
 Transform:
   m_ObjectHideFlags: 0
@@ -356,8 +356,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8542452954770692635}
-  - component: {fileID: 8542452954770692636}
   - component: {fileID: 6497406993907060519}
+  - component: {fileID: 3086497094928776269}
   m_Layer: 0
   m_Name: Point of Interest
   m_TagString: Untagged
@@ -382,19 +382,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8542452954770692636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8542452954770692634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26386d5530d0347e98a5223da9d6d450, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &6497406993907060519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,9 +396,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Point of Interest
   Region: 0
-  Buildings: []
-  StartingPopulation: 0
-  BuildingDistanceFromCenter: 0
+  Buildings:
+  - {fileID: 11400000, guid: 745565d1a37344549af916af54723fa4, type: 2}
+  StartingPopulation: 1
+  BuildingDistanceFromCenter: 0.25
+--- !u!114 &3086497094928776269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8542452954770692634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b0c7f66b50f4f7ea453223c5e601c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 1
 --- !u!1 &8542452955213162741
 GameObject:
   m_ObjectHideFlags: 0
