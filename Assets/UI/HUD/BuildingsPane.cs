@@ -45,7 +45,7 @@ public class BuildingsPane : MonoBehaviour
         }
 
         titleTMP.text = "Build in" + (pointOfInterest.needsThe ? " the " : " ") + "<b>" + pointOfInterest.Name + "</b>";
-        localPopulationTMP.text = pointOfInterest.ConsumedPopulation + " / " + pointOfInterest.TotalPopulation;
+        localPopulationTMP.text = pointOfInterest.AvailablePopulation + " / " + pointOfInterest.TotalPopulation;
         
         // Add the list of buildings
         foreach(Transform child in buildingsList.transform) {
