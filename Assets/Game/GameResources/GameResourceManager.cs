@@ -269,8 +269,6 @@ public class GameResourceManager : MonoBehaviour
                     break;
             }
         }
-
-        Debug.Log()
     }
 
     // Start is called before the first frame update
