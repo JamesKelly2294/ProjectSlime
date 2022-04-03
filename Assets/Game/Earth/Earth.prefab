@@ -197,9 +197,25 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingPopulation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: Buildings.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7d35d4a7b8a94f98a94adcc07e72405, type: 2}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest (4)
@@ -267,6 +283,10 @@ PrefabInstance:
       value: North America
       objectReference: {fileID: 0}
     - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingPopulation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: Buildings.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -278,6 +298,26 @@ PrefabInstance:
       propertyPath: Buildings.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7d200d1dbd44d4551a2830f845036991, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7d35d4a7b8a94f98a94adcc07e72405, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7d35d4a7b8a94f98a94adcc07e72405, type: 2}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest
@@ -345,9 +385,29 @@ PrefabInstance:
       value: Oceania
       objectReference: {fileID: 0}
     - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingPopulation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: Buildings.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: edb92a390673b4c9490c00752e4703f0, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7d35d4a7b8a94f98a94adcc07e72405, type: 2}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest (8)
@@ -415,9 +475,25 @@ PrefabInstance:
       value: North Africa
       objectReference: {fileID: 0}
     - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingPopulation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: Buildings.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7d35d4a7b8a94f98a94adcc07e72405, type: 2}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest (3)
@@ -485,9 +561,25 @@ PrefabInstance:
       value: Central America
       objectReference: {fileID: 0}
     - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingPopulation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: Buildings.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7d35d4a7b8a94f98a94adcc07e72405, type: 2}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest (1)
@@ -555,9 +647,33 @@ PrefabInstance:
       value: South America
       objectReference: {fileID: 0}
     - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingPopulation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: Buildings.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7d200d1dbd44d4551a2830f845036991, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7d35d4a7b8a94f98a94adcc07e72405, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7d35d4a7b8a94f98a94adcc07e72405, type: 2}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest (2)
@@ -625,9 +741,29 @@ PrefabInstance:
       value: South Asia
       objectReference: {fileID: 0}
     - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingPopulation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: Buildings.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6725d25c17c6f4cdda7900178cee365b, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7d35d4a7b8a94f98a94adcc07e72405, type: 2}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest (6)
@@ -695,9 +831,29 @@ PrefabInstance:
       value: East Asia
       objectReference: {fileID: 0}
     - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingPopulation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: Buildings.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7d35d4a7b8a94f98a94adcc07e72405, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7d35d4a7b8a94f98a94adcc07e72405, type: 2}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest (7)
@@ -765,9 +921,25 @@ PrefabInstance:
       value: Europe
       objectReference: {fileID: 0}
     - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingPopulation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: Buildings.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7d35d4a7b8a94f98a94adcc07e72405, type: 2}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest (9)
@@ -835,9 +1007,25 @@ PrefabInstance:
       value: South Africa
       objectReference: {fileID: 0}
     - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingPopulation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: Buildings.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: StartingBuildings.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7d35d4a7b8a94f98a94adcc07e72405, type: 2}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest (5)

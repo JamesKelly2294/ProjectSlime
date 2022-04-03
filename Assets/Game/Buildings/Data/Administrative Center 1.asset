@@ -23,5 +23,7 @@ MonoBehaviour:
   MoneyCost: 0
   ResourceEffects:
   - AffectedResource: 1
-    EffectAmount: -1
+    EffectAmount: -2
+  - AffectedResource: 0
+    EffectAmount: 20
   SpecialEffects: []
