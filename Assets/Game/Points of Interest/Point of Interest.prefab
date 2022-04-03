@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 5504589803491390920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 8542452954770692635}
   m_RootOrder: 2
@@ -357,7 +357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8542452954770692635}
   - component: {fileID: 6497406993907060519}
-  - component: {fileID: 3086497094928776269}
+  - component: {fileID: 4095905713303123161}
   m_Layer: 0
   m_Name: Point of Interest
   m_TagString: Untagged
@@ -400,7 +400,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 745565d1a37344549af916af54723fa4, type: 2}
   StartingPopulation: 1
   BuildingDistanceFromCenter: 0.25
---- !u!114 &3086497094928776269
+--- !u!114 &4095905713303123161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -409,10 +409,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8542452954770692634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9b0c7f66b50f4f7ea453223c5e601c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 65884fa70e64a436abb085500510c231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 1
 --- !u!1 &8542452955213162741
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,9 +6,10 @@ public class RotateTowardsEarth : MonoBehaviour
 {
     private GameObject _target;
 
-    public void Start()
+    public void Awake()
     {
         _target = GameObject.FindObjectOfType<Earth>().gameObject;
+        transform.rotation = Quaternion.LookRotation(transform.position - _target.transform.position);
     }
 
     private void LateUpdate()

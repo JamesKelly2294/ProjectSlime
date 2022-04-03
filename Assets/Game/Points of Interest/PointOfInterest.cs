@@ -41,6 +41,16 @@ public class PointOfInterest : MonoBehaviour
         UpdateBuildingVisuals();
     }
 
+    public void WasSelected()
+    {
+        Debug.Log(Name + " was selected");
+    }
+
+    public void WasDeselected()
+    {
+        Debug.Log(Name + " was deselected");
+    }
+
     public void UpdateBuildingVisuals()
     {
         foreach (Transform child in _buildingVisualsParentGO.transform)

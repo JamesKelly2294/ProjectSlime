@@ -16,6 +16,27 @@ public class GameResourceManager : MonoBehaviour
 
     public int energyConsumption { get; private set; } = 0;
 
+    public int energyCleanConsumption
+    {
+        get {
+            var cleanEnergyNeeded = energyConsumption;
+            if (cleanEnergyNeeded <= energyCleanProduction)
+            {
+                return cleanEnergyNeeded;
+            }
+            else
+            {
+                return energyCleanProduction;
+            }
+        }
+    }
+
+    public int energyDirtyConsumption {
+        get {
+            return energyConsumption - energyCleanConsumption;
+        }
+    }
+
     public int energyProduction { get; private set; } = 0;
 
     public int energyCleanProduction { get; private set; } = 0;

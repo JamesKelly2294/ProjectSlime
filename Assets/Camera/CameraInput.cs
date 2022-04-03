@@ -18,17 +18,23 @@ public class CameraInput : MonoBehaviour
     }
 
     private MouseOrbit _mouseOrbit;
+    private PointOfInterestManager _poim;
 
     // Start is called before the first frame update
     void Start()
     {
         _mouseOrbit = FindObjectOfType<MouseOrbit>();
+        _poim = FindObjectOfType<PointOfInterestManager>();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (!IsPointerOverUIElement() && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0))
+        {
+            _mouseOrbit.ProcessCameraOrbit = false;
+        }
+        else if (!IsPointerOverUIElement() && Input.GetMouseButtonDown(0))
         {
             _mouseOrbit.ProcessCameraOrbit = true;
 
@@ -44,14 +50,22 @@ public class CameraInput : MonoBehaviour
                 if (hit.collider.gameObject.layer == pointOfInterestLayer)
                 {
                     Debug.Log("Hit point of interest!");
-                } 
+                    var poi = hit.collider.transform.parent.GetComponent<PointOfInterest>();
+
+                    if (poi == _poim.SelectedPointOfInterest) {
+                        _poim.SetSelectedPointOfInterest(null);
+                    }
+                    else
+                    {
+                        _poim.SetSelectedPointOfInterest(poi);
+                    }
+                }
             }
         }
 
-
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonDown(1))
         {
-            _mouseOrbit.ProcessCameraOrbit = false;
+            _poim.SetSelectedPointOfInterest(null);
         }
     }
 }
