@@ -21,11 +21,11 @@ public class ClimateEventChoice
 
 public class ClimateEventManager : MonoBehaviour
 {
-    public List<ClimateEvent> AllClimateEvents;
+    public List<ClimateEvent> AllClimateEvents = new List<ClimateEvent>();
 
     public ClimateEvent CurrentClimateEvent;
     public ClimateEvent NextClimateEvent;
-    public List<ClimateEventChoice> ClimateDecisions;
+    public List<ClimateEventChoice> ClimateDecisions = new List<ClimateEventChoice>();
 
     /**
      * The most recent response made by the player

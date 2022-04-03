@@ -8,6 +8,8 @@ public class GameResourceManager : MonoBehaviour
 
     public int moneyProduction { get; private set; } = 100;
 
+    public int moneyConsumption { get; private set; } = 0;
+
     public int scienceProduction { get; private set; } = 0;
 
     public int biomassConsumption { get; private set; } = 0;
@@ -37,7 +39,7 @@ public class GameResourceManager : MonoBehaviour
         }
     }
 
-    public int energyProduction { get; private set; } = 0;
+    public int energyProduction { get { return energyCleanProduction + energyDirtyProduction; } }
 
     public int energyCleanProduction { get; private set; } = 0;
 
@@ -65,6 +67,10 @@ public class GameResourceManager : MonoBehaviour
     // biodiversity drop event
     public int biodiversityPressure { get; private set; } = 0;
 
+    private BuildingManager _bm;
+    private PointOfInterestManager _poim;
+    private ClimateEventManager _em;
+
     public void SetDebugValues(GameResourceManagerDebug debug)
     {
         money = debug.money;
@@ -73,7 +79,6 @@ public class GameResourceManager : MonoBehaviour
         biomassConsumption = debug.biomassConsumption;
         biomassProduction = debug.biomassProduction;
         energyConsumption = debug.energyConsumption;
-        energyProduction = debug.energyProduction;
         energyCleanProduction = debug.energyCleanProduction;
         energyDirtyProduction = debug.energyDirtyProduction;
         steelConsumption = debug.steelConsumption;
@@ -148,13 +153,128 @@ public class GameResourceManager : MonoBehaviour
 
     public void CalculateResources()
     {
+        Debug.Log("CalculateResources");
+        moneyProduction = 0;
+        scienceProduction = 0;
+        biomassConsumption = 0;
+        biomassProduction = 0;
+        energyConsumption = 0;
+        energyCleanProduction = 0;
+        energyDirtyProduction = 0;
+        steelConsumption = 0;
+        steelProduction = 0;
+        titaniumConsumption = 0;
+        titaniumProduction = 0;
+        seaLevelPressure = 0;
+        biodiversityPressure = 0;
 
+        List<ResourceEffect> activeResourceEffects = new List<ResourceEffect>();
+
+        // Step one, calculate effects from all of our buildings
+        foreach(var poi in _poim.PointsOfInterest)
+        {
+            foreach(var b in poi.Buildings)
+            {
+                foreach(var effect in b.ResourceEffects)
+                {
+                    activeResourceEffects.Add(effect);
+                }
+            }
+        }
+
+
+        // Step two, calculate effects from all active events
+        foreach(var decision in _em.ActiveClimateDecisions)
+        {
+            foreach (var effect in decision.choice.ResourceEffects)
+            {
+                activeResourceEffects.Add(effect);
+            }
+        }
+
+
+        // Step three, calculate stats from all active effects
+        foreach(var effect in activeResourceEffects)
+        {
+            Debug.Log("Calculating effect " + effect);
+            switch (effect.AffectedResource)
+            {
+                case ResourceType.Money:
+                    if (effect.EffectAmount > 0)
+                    {
+                        moneyProduction += effect.EffectAmount;
+                    }
+                    else
+                    {
+                        moneyConsumption += effect.EffectAmount;
+                    }
+                    break;
+                case ResourceType.Energy:
+                    energyConsumption += effect.EffectAmount;
+                    break;
+                case ResourceType.CleanEnergy:
+                    energyCleanProduction += effect.EffectAmount;
+                    break;
+                case ResourceType.DirtyEnergy:
+                    energyDirtyProduction += effect.EffectAmount;
+                    break;
+                case ResourceType.LowTechMat:
+                    if (effect.EffectAmount > 0)
+                    {
+                        steelProduction += effect.EffectAmount;
+                    }
+                    else
+                    {
+                        steelConsumption += effect.EffectAmount;
+                    }
+                    break;
+                case ResourceType.HighTechMat:
+                    if (effect.EffectAmount > 0)
+                    {
+                        titaniumProduction += effect.EffectAmount;
+                    }
+                    else
+                    {
+                        titaniumConsumption += effect.EffectAmount;
+                    }
+                    break;
+                case ResourceType.Biomass:
+                    if (effect.EffectAmount > 0)
+                    {
+                        biomassProduction += effect.EffectAmount;
+                    }
+                    else
+                    {
+                        biomassConsumption += effect.EffectAmount;
+                    }
+                    break;
+                case ResourceType.Research:
+                    scienceProduction += effect.EffectAmount;
+                    break;
+                case ResourceType.Pop:
+                    break;
+                case ResourceType.biodiversity:
+                    currentBiodiversity += effect.EffectAmount;
+                    break;
+                case ResourceType.bioDiversityPressure:
+                    biodiversityPressure += effect.EffectAmount;
+                    break;
+                case ResourceType.seaLevel:
+                    currentSeaLevels += effect.EffectAmount;
+                    break;
+                case ResourceType.seaLevelPressure:
+                    seaLevelPressure += effect.EffectAmount;
+                    break;
+            }
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _bm = FindObjectOfType<BuildingManager>();
+        _poim = FindObjectOfType<PointOfInterestManager>();
+        _em = FindObjectOfType<ClimateEventManager>();
     }
 
     // Update is called once per frame

@@ -21,7 +21,6 @@ public enum ResourceType
     bioDiversityPressure = 10,
     seaLevel = 11,
     seaLevelPressure = 12,
-
 }
 
 [System.Serializable]

@@ -15,6 +15,7 @@ public class PointOfInterest : MonoBehaviour
     public List<Building> Buildings;
     public int StartingPopulation;
 
+    public int TotalPopulation { get { return AvailablePopulation + ConsumedPopulation; } }
     public int AvailablePopulation { get; private set; }
     public int ConsumedPopulation { get; private set; }
 

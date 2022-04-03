@@ -69,6 +69,7 @@ public class PointOfInterestManager : MonoBehaviour
         _selectionObj = Instantiate(PointOfInterestSelectionPrefab);
         _selectionObj.transform.name = "Point of Interest Selection";
         _selectionObj.transform.parent = transform;
+        _selectionObj.SetActive(true);
     }
 
     // Start is called before the first frame update

@@ -29,6 +29,13 @@ public class TurnManager : MonoBehaviour
     void Start()
     {
         _gm = GameObject.FindObjectOfType<GameResourceManager>();
+
+        StartGame();
+    }
+
+    private void StartGame()
+    {
+        _gm.CalculateResources();
     }
 
     private void ProcessEndOfTurnEvents()
@@ -49,6 +56,8 @@ public class TurnManager : MonoBehaviour
     private void AdvanceToNextTurn()
     {
         CurrentTurn++;
+
+        _gm.CalculateResources();
     }
 
     public void EndTurn()
