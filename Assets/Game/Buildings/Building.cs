@@ -19,8 +19,8 @@ public enum ResourceType
     Pop = 8,
     biodiversity = 9,
     bioDiversityPressure = 10,
-    seaLevel = 9,
-    seaLevelPressure = 10,
+    seaLevel = 11,
+    seaLevelPressure = 12,
 
 }
 
