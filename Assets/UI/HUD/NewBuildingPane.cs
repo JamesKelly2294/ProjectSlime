@@ -35,11 +35,18 @@ public class NewBuildingPane : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (displayedPOI != null && pointOfInterestManager.SelectedPointOfInterest != displayedPOI)
+        {
+            Display(pointOfInterestManager.SelectedPointOfInterest, null);
+        }
+    }
 
+    public void Hide()
+    {
+        Display(null, null);
     }
 
     public void Display(PointOfInterest pointOfInterest, ConstructedBuilding existingBuilding) {
-        Debug.Log("Display " + pointOfInterest + ", " + existingBuilding);
         displayedPOI = pointOfInterest;
         displayedExistingBuilding = existingBuilding;
         if (pointOfInterest == null) {
@@ -99,7 +106,7 @@ public class NewBuildingPane : MonoBehaviour
 
             GameObject gameObject = GameObject.Instantiate(buildingPrefab, buildingsList.transform);
             NewBuildingRow newBuildingRow = gameObject.GetComponent<NewBuildingRow>();
-            newBuildingRow.SetBuilding(building);
+            newBuildingRow.SetState(this, building, displayedPOI);
         }
     }
 

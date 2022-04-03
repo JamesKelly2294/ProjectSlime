@@ -162,6 +162,11 @@ public class GameResourceManager : MonoBehaviour
         }
     }
 
+    public bool ResourceManagerApprovesNextTurn()
+    {
+        return true;
+    }
+
     public Sprite GetSpriteForResourceWithOneIndexedScale(ResourceType resourceType, int oneIndexedScale) {
         return GetSpritesForResource(resourceType)[oneIndexedScale - 1];
     }
@@ -170,6 +175,7 @@ public class GameResourceManager : MonoBehaviour
     {
         Debug.Log("CalculateResources");
         moneyProduction = 0;
+        moneyConsumption = 0;
         scienceProduction = 0;
         biomassConsumption = 0;
         biomassProduction = 0;
@@ -217,10 +223,12 @@ public class GameResourceManager : MonoBehaviour
                     if (effect.EffectAmount > 0)
                     {
                         moneyProduction += effect.EffectAmount;
+                        Debug.Log("Money production = " + moneyProduction + ", after += " + effect.EffectAmount);
                     }
                     else
                     {
                         moneyConsumption -= effect.EffectAmount;
+                        Debug.Log("moneyConsumption = " + moneyConsumption + ", after -= " + effect.EffectAmount);
                     }
                     break;
                 case ResourceType.Energy:

@@ -49,22 +49,49 @@ public class PointOfInterest : MonoBehaviour
         UpdateBuildingVisuals();
     }
 
-    public void ConstructBuilding(Building b)
+    public bool CanPurchaseBuilding(Building b)
     {
+        bool canConstruct = true;
+
         var popCost = b.RecurringCostForType(ResourceType.Pop);
         if (popCost > AvailablePopulation)
         {
-            return;
+            canConstruct = false;
         }
 
+        return canConstruct;
+    }
+
+
+    public bool TryPurchaseAndConstructBuilding(Building b)
+    {
+        if (!CanPurchaseBuilding(b))
+        {
+            return false;
+        }
+
+        ConstructBuilding(b);
+        UpdateBuildingVisuals();
+        PubSubSender sender = GetComponent<PubSubSender>();
+        if (sender)
+        {
+            sender.Publish("buildingConstructed");
+        }
+
+        return true;
+    }
+
+    private void ConstructBuilding(Building b)
+    {
+        var popCost = b.RecurringCostForType(ResourceType.Pop);
         var constructedBuilding = new ConstructedBuilding();
         constructedBuilding.Building = b;
         constructedBuilding.Active = true;
 
         ConstructedBuildings.Add(constructedBuilding);
 
-        AvailablePopulation += popCost;
-        ConsumedPopulation -= popCost;
+        AvailablePopulation -= popCost;
+        ConsumedPopulation += popCost;
     }
 
     public void WasSelected()

@@ -35,25 +35,36 @@ public class BuildingsPane : MonoBehaviour
         }
     }
 
-    void Display(PointOfInterest pointOfInterest) {
+    void Display(PointOfInterest pointOfInterest)
+    {
         displayedPOI = pointOfInterest;
-        if (pointOfInterest == null) {
+        Display();
+    }
+
+    public void Display()
+    {
+        if (displayedPOI == null)
+        {
             header.SetActive(false);
             content.SetActive(false);
             return;
-        } else {
+        }
+        else
+        {
             header.SetActive(true);
             content.SetActive(true);
         }
 
-        titleTMP.text = "Projects in" + (pointOfInterest.needsThe ? " the " : " ") + "<b>" + pointOfInterest.Name + "</b>";
-        localPopulationTMP.text = pointOfInterest.AvailablePopulation + " / " + pointOfInterest.TotalPopulation;
-        
+        titleTMP.text = "Projects in" + (displayedPOI.needsThe ? " the " : " ") + "<b>" + displayedPOI.Name + "</b>";
+        localPopulationTMP.text = displayedPOI.AvailablePopulation + " / " + displayedPOI.TotalPopulation;
+
         // Add the list of buildings
-        foreach(Transform child in buildingsList.transform) {
+        foreach (Transform child in buildingsList.transform)
+        {
             Destroy(child.gameObject);
         }
-        foreach(ConstructedBuilding constructedBuilding in pointOfInterest.ConstructedBuildings) {
+        foreach (ConstructedBuilding constructedBuilding in displayedPOI.ConstructedBuildings)
+        {
             GameObject gameObject = GameObject.Instantiate(buildingPrefab, buildingsList.transform);
             BuildingRow buildingRow = gameObject.GetComponent<BuildingRow>();
             buildingRow.SetConstructedBuilding(constructedBuilding);

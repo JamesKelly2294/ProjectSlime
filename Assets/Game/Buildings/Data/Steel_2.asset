@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: Large Steel Mill
   Description: A steel production facility.
   VisualsPrefab: {fileID: 3473304969274171468, guid: 12416f351f0944d59bb14e7ef3c26f9d, type: 3}
-  PreviewImage: {fileID: -6558030069874571279, guid: 6dd3f5bac73cb0446b0cc61126e37511, type: 3}
+  PreviewImage: {fileID: 21300000, guid: 1e598f73344ec4dfb9d3e912ba79a50a, type: 3}
   RegionCapital: 0
   Buildable: 1
   Disableable: 1

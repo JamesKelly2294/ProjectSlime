@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1391367450955547960}
   - component: {fileID: 1391367450955547963}
+  - component: {fileID: 2312483420157131359}
   m_Layer: 0
   m_Name: GameResourceManager
   m_TagString: Untagged
@@ -85,3 +86,32 @@ MonoBehaviour:
   seaLevelPreasureSprite: {fileID: 21300000, guid: 8f8359b23fdc942cab55f75a3aab1475, type: 3}
   seaLevelPreasureSprite2x: {fileID: 21300000, guid: 473d1d8b293c44045b2fa98f4e39c1b0, type: 3}
   seaLevelPreasureSprite3x: {fileID: 21300000, guid: 68b37f7c6ebe3488fbfadcdf351defc0, type: 3}
+--- !u!114 &2312483420157131359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391367450955547962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56e1a9b13b922d428fcbf4039d56d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Subscriptions:
+  - Key: buildingConstructed
+    Delegate:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1391367450955547963}
+          m_TargetAssemblyTypeName: GameResourceManager, Assembly-CSharp
+          m_MethodName: CalculateResources
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

@@ -104,7 +104,7 @@ public class Building : ScriptableObject
         {
             if (effect.AffectedResource == type && effect.EffectAmount < 0)
             {
-                return effect.EffectAmount;
+                return -effect.EffectAmount;
             }
         }
         return 0;

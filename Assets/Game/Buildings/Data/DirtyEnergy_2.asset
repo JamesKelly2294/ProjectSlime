@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: Gas Power Plant
   Description: A polluting power plant.
   VisualsPrefab: {fileID: 3473304969274171468, guid: 6181fe5d9d54f4aa18aeb290d593a193, type: 3}
-  PreviewImage: {fileID: -6558030069874571279, guid: 6dd3f5bac73cb0446b0cc61126e37511, type: 3}
+  PreviewImage: {fileID: 21300000, guid: bb17664b1368740999ca839b80992aae, type: 3}
   RegionCapital: 0
   Buildable: 1
   Disableable: 1

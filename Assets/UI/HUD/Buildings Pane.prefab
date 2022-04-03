@@ -1261,6 +1261,7 @@ GameObject:
   - component: {fileID: 7051693747173830245}
   - component: {fileID: 8674436170190988305}
   - component: {fileID: 6008928307953642537}
+  - component: {fileID: 513564392554860447}
   m_Layer: 5
   m_Name: Buildings Pane
   m_TagString: Untagged
@@ -1372,6 +1373,35 @@ MonoBehaviour:
   content: {fileID: 1932265812101392465}
   buildingPrefab: {fileID: 7753186228535532282, guid: 5956946479c3f4d4f899ae6969224cc1, type: 3}
   newButtonPrefab: {fileID: 7945607071561570988, guid: f92e9c3f564a648a4aa14c849656fe34, type: 3}
+--- !u!114 &513564392554860447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8312837635676397014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56e1a9b13b922d428fcbf4039d56d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Subscriptions:
+  - Key: buildingConstructed
+    Delegate:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6008928307953642537}
+          m_TargetAssemblyTypeName: BuildingsPane, Assembly-CSharp
+          m_MethodName: Display
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8436713273925455119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1680,10 +1710,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4379102336004087325}
     m_Modifications:
+    - target: {fileID: 1812102319443312670, guid: f92e9c3f564a648a4aa14c849656fe34, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812102319443312670, guid: f92e9c3f564a648a4aa14c849656fe34, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812102319443312670, guid: f92e9c3f564a648a4aa14c849656fe34, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812102319443312670, guid: f92e9c3f564a648a4aa14c849656fe34, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812102319443312670, guid: f92e9c3f564a648a4aa14c849656fe34, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812102319443312670, guid: f92e9c3f564a648a4aa14c849656fe34, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2388285530930156696, guid: f92e9c3f564a648a4aa14c849656fe34, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6008928307953642537}
+    - target: {fileID: 7348255477119427853, guid: f92e9c3f564a648a4aa14c849656fe34, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348255477119427853, guid: f92e9c3f564a648a4aa14c849656fe34, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348255477119427853, guid: f92e9c3f564a648a4aa14c849656fe34, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348255477119427853, guid: f92e9c3f564a648a4aa14c849656fe34, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348255477119427853, guid: f92e9c3f564a648a4aa14c849656fe34, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348255477119427853, guid: f92e9c3f564a648a4aa14c849656fe34, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7945607071561570988, guid: f92e9c3f564a648a4aa14c849656fe34, type: 3}
       propertyPath: m_Name
       value: New Building
