@@ -453,17 +453,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7014085622670160291, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
   m_PrefabInstance: {fileID: 7014085623443916935}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &646746829139898269 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2568560862407810586, guid: e21b0f578e011482e9b59a57c0338249, type: 3}
-  m_PrefabInstance: {fileID: 3124628077015445895}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 368a372c6b8c844f8ab50df028b7a358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3124628077015445895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -531,7 +520,7 @@ PrefabInstance:
     - target: {fileID: 4069438741855944239, guid: 6800e0c1dcd644174b2727f00f566903, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 646746829139898269}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069438742395733669, guid: 6800e0c1dcd644174b2727f00f566903, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

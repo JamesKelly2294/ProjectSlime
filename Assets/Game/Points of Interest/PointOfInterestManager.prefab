@@ -43,3 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d776d1a310654320a3b8e54ebb831a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PointOfInterestSelectionPrefab: {fileID: 0}
