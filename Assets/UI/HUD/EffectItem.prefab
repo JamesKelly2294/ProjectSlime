@@ -215,8 +215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amountTMP: {fileID: 1659921119303683838}
   image: {fileID: 2172055883339815095}
-  positive: {r: 0.37096414, g: 1, b: 0.3443396, a: 1}
-  negative: {r: 0.9882353, g: 0.33725497, b: 0.3435051, a: 1}
+  positive: {r: 1, g: 1, b: 1, a: 1}
+  negative: {r: 1, g: 0.96789634, b: 0.7311321, a: 1}
   displayedEffect:
     AffectedResource: 0
     EffectAmount: 0

@@ -46,6 +46,8 @@ public class EventAlert : MonoBehaviour
             eventAlertButton.title.text = response.FlavorText;
             eventAlertButton.effectList.DisplayEffects(response.SortedResourceEffects);
             eventAlertButton.index = index;
+            eventAlertButton.durationTMP.gameObject.SetActive(response.TurnDuration > 0);
+            eventAlertButton.durationTMP.text = "Active for " + response.TurnDuration.ToString() + "Years";
 
             index++; // Yes this is bad form, @ me. I dare you.
         }

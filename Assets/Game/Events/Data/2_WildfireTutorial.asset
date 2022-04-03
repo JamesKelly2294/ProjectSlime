@@ -25,7 +25,7 @@ MonoBehaviour:
     - Name: 
       Description: 
       Type: 3
-    TurnDuration: 0
+    TurnDuration: 2
   FollowOnEvents: []
   AgentCost: 1
   IsOneShot: 1

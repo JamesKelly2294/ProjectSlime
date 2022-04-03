@@ -7,7 +7,7 @@ using TMPro;
 public class EventAlertButton : MonoBehaviour
 {
     public int index = 0;
-    public TextMeshProUGUI title;
+    public TextMeshProUGUI title, durationTMP;
     public EffectList effectList;
 
 
