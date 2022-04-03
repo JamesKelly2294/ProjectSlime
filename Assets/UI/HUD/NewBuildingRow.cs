@@ -5,13 +5,13 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class BuildingRow : MonoBehaviour
+public class NewBuildingRow : MonoBehaviour
 {
 
     public Image image;
     public TextMeshProUGUI nameTMP;
+    public TextMeshProUGUI costTMP;
     public EffectList effectList;
-    public ConstructedBuilding constructedBuilding { get; protected set; }
 
     public TextMeshProUGUI flavorText;
     
@@ -27,12 +27,10 @@ public class BuildingRow : MonoBehaviour
 
     }
 
-    public void SetConstructedBuilding(ConstructedBuilding constructedBuilding) {
-        this.constructedBuilding = constructedBuilding;
-
-        var building = constructedBuilding.Building;
+    public void SetBuilding(Building building) {
         image.sprite = building.PreviewImage;
         nameTMP.text = building.Name;
+        costTMP.text = Mathf.Abs(building.MoneyCost).ToString();
         flavorText.text = building.Description;
         effectList.DisplayEffects(building.SortedResourceEffects);
     }

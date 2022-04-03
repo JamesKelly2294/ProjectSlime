@@ -1,24 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-
-public class BuildingRow : MonoBehaviour
+public class ExistingBuildingRow : MonoBehaviour
 {
-
     public Image image;
-    public TextMeshProUGUI nameTMP;
     public EffectList effectList;
-    public ConstructedBuilding constructedBuilding { get; protected set; }
 
     public TextMeshProUGUI flavorText;
-    
+
+    public ConstructedBuilding constructedBuilding;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -27,13 +25,23 @@ public class BuildingRow : MonoBehaviour
 
     }
 
-    public void SetConstructedBuilding(ConstructedBuilding constructedBuilding) {
+    public void SetConstructedBuilding(ConstructedBuilding constructedBuilding)
+    {
         this.constructedBuilding = constructedBuilding;
-
+        Debug.Log("my constructed building is " + constructedBuilding.Building.Name);
         var building = constructedBuilding.Building;
         image.sprite = building.PreviewImage;
-        nameTMP.text = building.Name;
         flavorText.text = building.Description;
         effectList.DisplayEffects(building.SortedResourceEffects);
+    }
+
+    public void PauseConstructedBuilding()
+    {
+
+    }
+
+    public void DecommissionConstructedBuilding()
+    {
+
     }
 }

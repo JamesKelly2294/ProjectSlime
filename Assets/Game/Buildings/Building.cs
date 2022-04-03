@@ -21,6 +21,7 @@ public enum ResourceType
     BiodiversityPressure = 10,
     SeaLevel = 11,
     SeaLevelPressure = 12,
+    All = 13,
 }
 
 [System.Serializable]
@@ -102,6 +103,18 @@ public class Building : ScriptableObject
         foreach(var effect in ResourceEffects)
         {
             if (effect.AffectedResource == type && effect.EffectAmount < 0)
+            {
+                return effect.EffectAmount;
+            }
+        }
+        return 0;
+    }
+
+    public int RecurringProductionForType(ResourceType type)
+    {
+        foreach (var effect in ResourceEffects)
+        {
+            if (effect.AffectedResource == type && effect.EffectAmount > 0)
             {
                 return effect.EffectAmount;
             }

@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 1240760808932033237}
   - component: {fileID: 2388285530930156696}
   m_Layer: 5
-  m_Name: NewBuildingRow
+  m_Name: NewBuildingButtonRow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -391,4 +391,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6813417985876436290}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BuildingsPane, Assembly-CSharp
+        m_MethodName: OpenBuildMenu
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: BuildingRow, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

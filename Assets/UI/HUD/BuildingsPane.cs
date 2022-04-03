@@ -14,12 +14,14 @@ public class BuildingsPane : MonoBehaviour
     public GameObject buildingPrefab, newButtonPrefab;
 
     private BuildingManager buildingManager;
+    private NewBuildingPane newBuildingPane;
     private PointOfInterestManager pointOfInterestManager;
     private PointOfInterest displayedPOI = null;
 
     // Start is called before the first frame update
     void Start()
     {
+        newBuildingPane = FindObjectOfType<NewBuildingPane>();
         buildingManager = GameObject.FindObjectOfType<BuildingManager>();
         pointOfInterestManager = GameObject.FindObjectOfType<PointOfInterestManager>();
         Display(null);
@@ -44,7 +46,7 @@ public class BuildingsPane : MonoBehaviour
             content.SetActive(true);
         }
 
-        titleTMP.text = "Build in" + (pointOfInterest.needsThe ? " the " : " ") + "<b>" + pointOfInterest.Name + "</b>";
+        titleTMP.text = "Projects in" + (pointOfInterest.needsThe ? " the " : " ") + "<b>" + pointOfInterest.Name + "</b>";
         localPopulationTMP.text = pointOfInterest.AvailablePopulation + " / " + pointOfInterest.TotalPopulation;
         
         // Add the list of buildings
@@ -54,9 +56,24 @@ public class BuildingsPane : MonoBehaviour
         foreach(ConstructedBuilding constructedBuilding in pointOfInterest.ConstructedBuildings) {
             GameObject gameObject = GameObject.Instantiate(buildingPrefab, buildingsList.transform);
             BuildingRow buildingRow = gameObject.GetComponent<BuildingRow>();
-            buildingRow.SetBuilding(constructedBuilding.Building);
+            buildingRow.SetConstructedBuilding(constructedBuilding);
+            buildingRow.GetComponent<StandardButton>().onClick.AddListener(delegate { this.OpenBuildMenu(buildingRow); });
         }
 
-        GameObject.Instantiate(newButtonPrefab, buildingsList.transform);
+        var newButtonGO = GameObject.Instantiate(newButtonPrefab, buildingsList.transform);
+        newButtonGO.GetComponent<StandardButton>().onClick.AddListener(delegate { this.OpenBuildMenu(null); });
+    }
+
+    public void OpenBuildMenu(BuildingRow sender)
+    {
+        Debug.Log("OpenBuildMenu " + sender);
+        if (sender)
+        {
+            newBuildingPane.Display(displayedPOI, sender.constructedBuilding);
+        }
+        else
+        {
+            newBuildingPane.Display(displayedPOI, null);
+        }
     }
 }
