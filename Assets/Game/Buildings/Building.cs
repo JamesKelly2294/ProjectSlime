@@ -51,6 +51,12 @@ public class SpecialEffect
     SpecialEffectType Type;
 }
 
+public class ConstructedBuilding
+{
+    public Building Building;
+    public bool Active;
+}
+
 [CreateAssetMenu(fileName = "Building", menuName = "Game/Building", order = 1)]
 public class Building : ScriptableObject
 {

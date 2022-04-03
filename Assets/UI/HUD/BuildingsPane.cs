@@ -51,10 +51,10 @@ public class BuildingsPane : MonoBehaviour
         foreach(Transform child in buildingsList.transform) {
             Destroy(child.gameObject);
         }
-        foreach(Building building in pointOfInterest.Buildings) {
+        foreach(ConstructedBuilding constructedBuilding in pointOfInterest.ConstructedBuildings) {
             GameObject gameObject = GameObject.Instantiate(buildingPrefab, buildingsList.transform);
             BuildingRow buildingRow = gameObject.GetComponent<BuildingRow>();
-            buildingRow.SetBuilding(building);
+            buildingRow.SetBuilding(constructedBuilding.Building);
         }
 
         GameObject.Instantiate(newButtonPrefab, buildingsList.transform);

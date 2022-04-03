@@ -59,6 +59,7 @@ public class GameResourceManager : MonoBehaviour
     // the higher the pressure, the greater the likelyhood of receiving a
     // sea level rise event
     public int seaLevelPressure { get; private set; } = 0;
+    public int maxSeaLevelPressure { get; private set; } = 10;
 
     public int currentBiodiversity { get; private set; } = 10;
     public int minBiodiversity { get; private set; } = 0;
@@ -66,6 +67,7 @@ public class GameResourceManager : MonoBehaviour
     // the higher the pressure, the greater the likelyhood of receiving a
     // biodiversity drop event
     public int biodiversityPressure { get; private set; } = 0;
+    public int maxBiodiversityPressure { get; private set; } = 10;
 
     private BuildingManager _bm;
     private PointOfInterestManager _poim;
@@ -173,9 +175,9 @@ public class GameResourceManager : MonoBehaviour
         // Step one, calculate effects from all of our buildings
         foreach(var poi in _poim.PointsOfInterest)
         {
-            foreach(var b in poi.Buildings)
+            foreach(var b in poi.ConstructedBuildings)
             {
-                foreach(var effect in b.ResourceEffects)
+                foreach(var effect in b.Building.ResourceEffects)
                 {
                     activeResourceEffects.Add(effect);
                 }

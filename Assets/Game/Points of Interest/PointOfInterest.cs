@@ -12,7 +12,8 @@ public class PointOfInterest : MonoBehaviour
 {
     public string Name;
     public Region Region;
-    public List<Building> Buildings;
+    public List<Building> StartingBuildings;
+    public List<ConstructedBuilding> ConstructedBuildings = new List<ConstructedBuilding>();
     public int StartingPopulation;
     public bool needsThe = false;
 
@@ -40,7 +41,21 @@ public class PointOfInterest : MonoBehaviour
         _buildingVisualsParentGO.transform.position = transform.position;
         _buildingVisualsParentGO.transform.name = "Building Visuals";
 
+        foreach(var building in StartingBuildings)
+        {
+            ConstructBuilding(building);
+        }
+
         UpdateBuildingVisuals();
+    }
+
+    public void ConstructBuilding(Building b)
+    {
+        var constructedBuilding = new ConstructedBuilding();
+        constructedBuilding.Building = b;
+        constructedBuilding.Active = true;
+
+        ConstructedBuildings.Add(constructedBuilding);
     }
 
     public void WasSelected()
@@ -60,18 +75,18 @@ public class PointOfInterest : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
 
-        if (Buildings.Count == 0)
+        if (ConstructedBuildings.Count == 0)
         {
             return;
         }
 
         float angle = 0.0f;
-        float angularSeparation = 360.0f / (Buildings.Count);
-        var sortedBuildings = Buildings.OrderBy(o => o.RegionCapital).ToList();
+        float angularSeparation = 360.0f / (ConstructedBuildings.Count);
+        var sortedBuildings = ConstructedBuildings.OrderBy(o => o.Building.RegionCapital).ToList();
         for (int i = 0; i < sortedBuildings.Count; i++)
         {
             var building = sortedBuildings[i];
-            var visualsGo = Instantiate(building.VisualsPrefab);
+            var visualsGo = Instantiate(building.Building.VisualsPrefab);
 
             if (i == 0)
             {
