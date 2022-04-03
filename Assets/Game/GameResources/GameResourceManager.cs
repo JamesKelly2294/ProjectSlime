@@ -196,7 +196,7 @@ public class GameResourceManager : MonoBehaviour
         // Step three, calculate stats from all active effects
         foreach(var effect in activeResourceEffects)
         {
-            Debug.Log("Calculating effect " + effect);
+            Debug.Log("Calculating effect " + effect.AffectedResource + " , " + effect.EffectAmount);
             switch (effect.AffectedResource)
             {
                 case ResourceType.Money:
@@ -206,11 +206,11 @@ public class GameResourceManager : MonoBehaviour
                     }
                     else
                     {
-                        moneyConsumption += effect.EffectAmount;
+                        moneyConsumption -= effect.EffectAmount;
                     }
                     break;
                 case ResourceType.Energy:
-                    energyConsumption += effect.EffectAmount;
+                    energyConsumption -= effect.EffectAmount;
                     break;
                 case ResourceType.CleanEnergy:
                     energyCleanProduction += effect.EffectAmount;
@@ -225,7 +225,7 @@ public class GameResourceManager : MonoBehaviour
                     }
                     else
                     {
-                        steelConsumption += effect.EffectAmount;
+                        steelConsumption -= effect.EffectAmount;
                     }
                     break;
                 case ResourceType.HighTechMat:
@@ -235,7 +235,7 @@ public class GameResourceManager : MonoBehaviour
                     }
                     else
                     {
-                        titaniumConsumption += effect.EffectAmount;
+                        titaniumConsumption -= effect.EffectAmount;
                     }
                     break;
                 case ResourceType.Biomass:
@@ -245,7 +245,7 @@ public class GameResourceManager : MonoBehaviour
                     }
                     else
                     {
-                        biomassConsumption += effect.EffectAmount;
+                        biomassConsumption -= effect.EffectAmount;
                     }
                     break;
                 case ResourceType.Research:
