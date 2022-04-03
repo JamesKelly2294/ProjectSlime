@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Coal Power Plant
   Description: A polluting power plant.
-  VisualsPrefab: {fileID: 3473304969274171468, guid: 683a14055e9a64e158813e6354372a4b, type: 3}
+  VisualsPrefab: {fileID: 3473304969274171468, guid: 6181fe5d9d54f4aa18aeb290d593a193, type: 3}
   PreviewImage: {fileID: -6558030069874571279, guid: 6dd3f5bac73cb0446b0cc61126e37511, type: 3}
   RegionCapital: 0
   Buildable: 1

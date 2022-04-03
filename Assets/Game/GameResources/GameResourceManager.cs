@@ -198,7 +198,6 @@ public class GameResourceManager : MonoBehaviour
         // Step three, calculate stats from all active effects
         foreach(var effect in activeResourceEffects)
         {
-            Debug.Log("Calculating effect " + effect.AffectedResource + " , " + effect.EffectAmount);
             switch (effect.AffectedResource)
             {
                 case ResourceType.Money:

@@ -94,5 +94,16 @@ public class Building : ScriptableObject
             return SpecialEffects;
         }
     }
-    
+
+    public int RecurringCostForType(ResourceType type)
+    {
+        foreach(var effect in ResourceEffects)
+        {
+            if (effect.AffectedResource == type && effect.EffectAmount < 0)
+            {
+                return effect.EffectAmount;
+            }
+        }
+        return 0;
+    }
 }

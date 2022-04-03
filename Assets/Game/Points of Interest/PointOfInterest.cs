@@ -51,11 +51,23 @@ public class PointOfInterest : MonoBehaviour
 
     public void ConstructBuilding(Building b)
     {
+        var popCost = b.RecurringCostForType(ResourceType.Pop);
+        Debug.Log("Pop cost was " + popCost);
+        if (popCost > AvailablePopulation)
+        {
+            return;
+        }
+
+        Debug.Log("Pop cost is " + popCost);
+
         var constructedBuilding = new ConstructedBuilding();
         constructedBuilding.Building = b;
         constructedBuilding.Active = true;
 
         ConstructedBuildings.Add(constructedBuilding);
+
+        AvailablePopulation += popCost;
+        ConsumedPopulation -= popCost;
     }
 
     public void WasSelected()
@@ -82,7 +94,7 @@ public class PointOfInterest : MonoBehaviour
 
         float angle = 0.0f;
         float angularSeparation = 360.0f / (ConstructedBuildings.Count);
-        var sortedBuildings = ConstructedBuildings.OrderBy(o => o.Building.RegionCapital).ToList();
+        var sortedBuildings = ConstructedBuildings.OrderBy(o => !o.Building.RegionCapital).ToList();
         for (int i = 0; i < sortedBuildings.Count; i++)
         {
             var building = sortedBuildings[i];
@@ -100,6 +112,7 @@ public class PointOfInterest : MonoBehaviour
                 visualsGo.transform.position = _earth.transform.position + (dir * _earth.Radius);
             }
             visualsGo.transform.parent = _buildingVisualsParentGO.transform;
+            visualsGo.AddComponent<RotateTowardsEarth>();
 
             angle += angularSeparation;
         }
