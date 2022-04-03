@@ -8,6 +8,11 @@ public class BuildingManager : MonoBehaviour
 
     public List<Building> AvailableBuildings { get; private set; }
 
+    public List<Building> ConstructionOptions(Building forBuilding)
+    {
+        return AvailableBuildings;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -70,7 +70,7 @@ public class Building : ScriptableObject
     {
         get
         {
-            return ResourceEffects.OrderBy(item => item).ToList();
+            return ResourceEffects.OrderBy(item => (int)item.AffectedResource).ToList();
         }
     }
 
@@ -78,7 +78,7 @@ public class Building : ScriptableObject
     {
         get
         {
-            return SpecialEffects.OrderBy(item => item).ToList();
+            return SpecialEffects;
         }
     }
     
