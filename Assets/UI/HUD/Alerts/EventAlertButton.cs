@@ -22,4 +22,8 @@ public class EventAlertButton : MonoBehaviour
     {
         
     }
+
+    public void Choose() {
+        GetComponentInParent<EventAlert>().ChooseOutcome(index);
+    }
 }

@@ -15,6 +15,7 @@ public class Alert : MonoBehaviour, IPointerClickHandler
     public Image Image;
 
     public bool DoesAutoDismiss = true;
+    public bool DismissableWithClick = true;
     public float AutoDismissTime = 5f;
     public float TimeLeft = -1f;
     public bool alive = true;
@@ -35,7 +36,9 @@ public class Alert : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick(PointerEventData eventData) {
-        Dismiss(wasDismissedByUser: true);
+        if (DismissableWithClick) {
+            Dismiss(wasDismissedByUser: true);
+        }
     }
 
     public void Dismiss(bool wasDismissedByUser) {

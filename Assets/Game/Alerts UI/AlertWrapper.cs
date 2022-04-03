@@ -14,9 +14,12 @@ public class AlertWrapper : MonoBehaviour
     public float time = 0f;
     public float animateInTime = 0.5f;
     public AnimationCurve animateInCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+    public AnimationCurve prependAnimateInCurve;
 
     public float animateOutTime = 0.5f;
     public AnimationCurve animateOutCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+
+    public bool prependAnimation = false;
 
     public float spacing = 5f;
 
@@ -73,6 +76,8 @@ public class AlertWrapper : MonoBehaviour
                 }
             }
 
+            UpdateHeight();
+
             if (alert.alive == false) {
                 State = AlertWrapperState.animatingOut;
                 time = 0;
@@ -92,10 +97,17 @@ public class AlertWrapper : MonoBehaviour
     }
  
     void AnimateIn() {
-        float desiredHeight = GetAlertHeight() + spacing;
-        float percent = animateInCurve.Evaluate(time / animateInTime);
-        GetComponent<CanvasGroup>().alpha = percent;
-        GetComponent<LayoutElement>().preferredHeight = ((1 - percent) * 40f) + desiredHeight;
+        if (prependAnimation) {
+            float desiredHeight = GetAlertHeight() + spacing;
+            float percent = prependAnimateInCurve.Evaluate(time / animateInTime);
+            GetComponent<CanvasGroup>().alpha = percent;
+            GetComponent<LayoutElement>().preferredHeight = percent * desiredHeight;
+        } else {
+            float desiredHeight = GetAlertHeight() + spacing;
+            float percent = animateInCurve.Evaluate(time / animateInTime);
+            GetComponent<CanvasGroup>().alpha = percent;
+            GetComponent<LayoutElement>().preferredHeight = ((1 - percent) * 40f) + desiredHeight;
+        }
     }
 
     void AnimateOut() {
@@ -103,6 +115,11 @@ public class AlertWrapper : MonoBehaviour
         float percent = animateOutCurve.Evaluate(1f - (time / animateOutTime));
         GetComponent<LayoutElement>().preferredHeight = percent * desiredHeight;
         GetComponent<CanvasGroup>().alpha = percent;
+    }
+
+    public void UpdateHeight() {
+        float desiredHeight = GetAlertHeight();
+        GetComponent<LayoutElement>().preferredHeight = desiredHeight + spacing;
     }
 }
 

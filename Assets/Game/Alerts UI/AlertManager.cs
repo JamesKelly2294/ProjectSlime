@@ -16,6 +16,8 @@ public class AlertManager : MonoBehaviour
 
     public AudioSource AudioSource;
 
+    public bool prepends = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,11 @@ public class AlertManager : MonoBehaviour
         AlertWrapper alertWrapper = wrapper.GetComponent<AlertWrapper>();
         alertWrapper.Alert = obj;
         alertWrapper.AlertManager = this;
+
+        if (prepends) {
+            wrapper.transform.SetAsFirstSibling();
+            alertWrapper.prependAnimation = true;
+        }
 
         return wrapper;
     }

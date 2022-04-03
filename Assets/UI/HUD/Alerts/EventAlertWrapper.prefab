@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6633567251902161946}
   - component: {fileID: 5026103196741654963}
   m_Layer: 5
-  m_Name: AlertWrapper
+  m_Name: EventAlertWrapper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,5 +178,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  prependAnimation: 0
-  spacing: 5
+  prependAnimation: 1
+  spacing: 30
