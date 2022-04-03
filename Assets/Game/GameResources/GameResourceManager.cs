@@ -54,10 +54,16 @@ public class GameResourceManager : MonoBehaviour
     public int currentSeaLevels { get; private set; } = 0;
     public int maxSeaLevels { get; private set; } = 10;
     public int minSeaLevels { get; private set; } = 0;
+    // the higher the pressure, the greater the likelyhood of receiving a
+    // sea level rise event
+    public int seaLevelPressure { get; private set; } = 0;
 
     public int currentBiodiversity { get; private set; } = 10;
     public int minBiodiversity { get; private set; } = 0;
     public int maxBiodiversity { get; private set; } = 10;
+    // the higher the pressure, the greater the likelyhood of receiving a
+    // biodiversity drop event
+    public int biodiversityPressure { get; private set; } = 0;
 
     public void SetDebugValues(GameResourceManagerDebug debug)
     {
