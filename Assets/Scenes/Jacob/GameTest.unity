@@ -2481,6 +2481,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5639038379666344396, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
+      propertyPath: Buildings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639038379666344396, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
+      propertyPath: Buildings.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c0dfee8e4f7c54d2c8a23d55b91dc216, type: 2}
+    - target: {fileID: 5639038379666344396, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
+      propertyPath: Buildings.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c85b55d9f89c44e199a68ed22db751a3, type: 2}
+    - target: {fileID: 5639038379666344396, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
+      propertyPath: Buildings.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7d35d4a7b8a94f98a94adcc07e72405, type: 2}
     - target: {fileID: 7014085622670160291, guid: fe2c895685b484043ac40f1e06aa4e1e, type: 3}
       propertyPath: m_RootOrder
       value: 0
