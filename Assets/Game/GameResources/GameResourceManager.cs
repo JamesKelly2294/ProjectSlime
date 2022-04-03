@@ -83,9 +83,11 @@ public class GameResourceManager : MonoBehaviour
         currentSeaLevels = debug.currentSeaLevels;
         maxSeaLevels = debug.maxSeaLevels;
         minSeaLevels = debug.minSeaLevels;
+        seaLevelPressure = debug.seaLevelPressure;
         currentBiodiversity = debug.currentBiodiversity;
         minBiodiversity = debug.minBiodiversity;
         maxBiodiversity = debug.maxBiodiversity;
+        biodiversityPressure = debug.biodiversityPressure;
     }
 
     public int BiodiversityYearsRemaining

@@ -33,10 +33,12 @@ public class GameResourceManagerDebug : MonoBehaviour
     public int currentSeaLevels = 0;
     public int maxSeaLevels = 10;
     public int minSeaLevels = 0;
+    public int seaLevelPressure = 0;
 
     public int currentBiodiversity = 10;
     public int minBiodiversity = 0;
     public int maxBiodiversity = 10;
+    public int biodiversityPressure = 0;
 
     private GameResourceManager _gm;
 
