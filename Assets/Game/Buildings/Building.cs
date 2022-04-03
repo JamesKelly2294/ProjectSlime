@@ -42,6 +42,8 @@ public class SpecialEffect
         // enums. This will break all serialized scriptable objects.
         EmptyBuilding = 0,
         Test = 1,
+        KickoffTutorial = 2,
+        ExtremeWildfiresTutorial = 3
     }
 
     public string Name;

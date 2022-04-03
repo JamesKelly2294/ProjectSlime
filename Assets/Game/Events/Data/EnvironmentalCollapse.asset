@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12d196fc4588ff94f802877b57abcb05, type: 3}
-  m_Name: KickoffEvent
+  m_Name: EnvironmentalCollapse
   m_EditorClassIdentifier: 
   Title: 
   FlavorText: 
   Responses: []
   FollowOnEvents: []
   AgentCost: 0
+  IsOneShot: 0

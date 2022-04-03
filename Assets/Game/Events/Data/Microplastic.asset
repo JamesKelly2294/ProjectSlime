@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d196fc4588ff94f802877b57abcb05, type: 3}
+  m_Name: Microplastic
+  m_EditorClassIdentifier: 
+  Title: Big Problems With Microplastics
+  FlavorText: 'Microplastics have infiltrated nearly every square inch of soil and
+    ocean in the hundred years since they become part of the biosphere. In the mean
+    time, cancer rates have shot up and impacts on human fertility have been noted.
+
+
+    Task
+    Force scientists have used genetic-engineering techniques to develop bacteria
+    that literally digest the microplastics. These bacteria are very promising, but
+    could pose a threat to existing plastic-based supply chains in the form of reduced
+    functional life.'
+  Responses:
+  - FlavorText: Release the bacteria!
+    ResourceEffects:
+    - AffectedResource: 8
+      EffectAmount: 1
+    - AffectedResource: 10
+      EffectAmount: -1
+    - AffectedResource: 5
+      EffectAmount: -2
+    SpecialEffects: []
+    TurnDuration: 0
+  - FlavorText: Ignore
+    ResourceEffects:
+    - AffectedResource: 8
+      EffectAmount: -3
+    SpecialEffects: []
+    TurnDuration: 0
+  FollowOnEvents: []
+  AgentCost: 0.6
+  IsOneShot: 0

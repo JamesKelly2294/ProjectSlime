@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12d196fc4588ff94f802877b57abcb05, type: 3}
-  m_Name: WaterRisesEvent
+  m_Name: 1_KickoffEvent
   m_EditorClassIdentifier: 
-  Title: Water Rises!
-  FlavorText: Due to too much Lorem Ipsum sample text being used in poster design
-    meetings, the designers did not follw hte advice they were trying to advertise.
+  Title: Climate Change
+  FlavorText: 'Climate change has become a serious problem. You have been put in
+    charge of the World Government''s Climate Change Task Force. '
   Responses:
-  - FlavorText: 
+  - FlavorText: Lets get started
     ResourceEffects:
-    - AffectedResource: 12
-      EffectAmount: 2
+    - AffectedResource: 0
+      EffectAmount: 20
     SpecialEffects: []
     TurnDuration: 0
   FollowOnEvents: []
-  AgentCost: 0.5
-  IsOneShot: 0
+  AgentCost: 1
+  IsOneShot: 1
