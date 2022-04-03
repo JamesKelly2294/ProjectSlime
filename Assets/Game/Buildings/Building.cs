@@ -16,7 +16,12 @@ public enum ResourceType
     HighTechMat = 5,
     Biomass = 6,
     Research = 7,
-    Pop = 8
+    Pop = 8,
+    biodiversity = 9,
+    bioDiversityPressure = 10,
+    seaLevel = 9,
+    seaLevelPressure = 10,
+
 }
 
 [System.Serializable]

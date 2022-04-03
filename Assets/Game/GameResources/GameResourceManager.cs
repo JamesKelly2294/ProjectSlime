@@ -146,6 +146,11 @@ public class GameResourceManager : MonoBehaviour
         return GetSpritesForResource(resourceType)[oneIndexedScale - 1];
     }
 
+    public void CalculateResources()
+    {
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
