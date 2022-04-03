@@ -213,12 +213,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b167bc8beda4977b3f04f5224c02f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: -1
-  type: 8
   amountTMP: {fileID: 1659921119303683838}
   image: {fileID: 2172055883339815095}
   positive: {r: 0.37096414, g: 1, b: 0.3443396, a: 1}
   negative: {r: 0.9882353, g: 0.33725497, b: 0.3435051, a: 1}
+  displayedEffect:
+    AffectedResource: 0
+    EffectAmount: 0
 --- !u!1 &8657167304914511135
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,4 +374,4 @@ MonoBehaviour:
   m_PreferredHeight: 16
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
-  m_LayoutPriority: 1
+  m_LayoutPriority: 2
