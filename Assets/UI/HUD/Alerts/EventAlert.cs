@@ -56,11 +56,7 @@ public class EventAlert : MonoBehaviour
         if (yearDone > 0) {
             outcomeDurationTMP.gameObject.SetActive(true);
             int remaining = yearDone - turnManager.CurrentTurnAsYear;
-            if (remaining == 0) {
-                // Dismiss me!
-                Alert alert = GetComponent<Alert>();
-                alert.Dismiss(false);
-            } else if (remaining == 1) {
+            if (remaining == 1) {
                 outcomeDurationTMP.text = "Final Year";
             } else {
                 outcomeDurationTMP.text = remaining.ToString() + " Years Remaining";
@@ -124,5 +120,19 @@ public class EventAlert : MonoBehaviour
             yearDone = turnManager.CurrentTurnAsYear + response.TurnDuration;
         }
         DisplayOutcome();
+    }
+
+    public bool IsBlockingTurn() {
+        return climateEvent.Responses.Count > 0 && response == null;
+    }
+
+    public void DismissIfReady() {
+        if (IsBlockingTurn()) { return; }
+
+        int remaining = yearDone - turnManager.CurrentTurnAsYear;
+        if (yearDone == 0 || remaining == 0) {
+            Alert alert = GetComponent<Alert>();
+            alert.Dismiss(true);
+        }
     }
 }

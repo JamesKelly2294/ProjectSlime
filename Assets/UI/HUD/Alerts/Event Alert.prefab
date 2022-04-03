@@ -1343,6 +1343,7 @@ GameObject:
   - component: {fileID: 7752452243141343002}
   - component: {fileID: 4817039959897656409}
   - component: {fileID: 8764466740641625312}
+  - component: {fileID: 5410485359995672394}
   m_Layer: 5
   m_Name: Event Alert
   m_TagString: Untagged
@@ -1547,6 +1548,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &5410485359995672394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6139133070162458290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56e1a9b13b922d428fcbf4039d56d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Subscriptions:
+  - Key: endTurnButton.wasPressed
+    Delegate:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 525183047525565873}
+          m_TargetAssemblyTypeName: EventAlert, Assembly-CSharp
+          m_MethodName: DismissIfReady
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7098598100048399517
 GameObject:
   m_ObjectHideFlags: 0
