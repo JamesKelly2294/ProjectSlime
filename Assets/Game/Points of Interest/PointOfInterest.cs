@@ -52,13 +52,10 @@ public class PointOfInterest : MonoBehaviour
     public void ConstructBuilding(Building b)
     {
         var popCost = b.RecurringCostForType(ResourceType.Pop);
-        Debug.Log("Pop cost was " + popCost);
         if (popCost > AvailablePopulation)
         {
             return;
         }
-
-        Debug.Log("Pop cost is " + popCost);
 
         var constructedBuilding = new ConstructedBuilding();
         constructedBuilding.Building = b;
