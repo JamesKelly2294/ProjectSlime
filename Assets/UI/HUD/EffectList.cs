@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EffectList : MonoBehaviour
+{
+
+    public GameObject effectPrefab;
+
+    private List<ResourceEffect> displayedEffects = new List<ResourceEffect>();
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void DisplayEffects(List<ResourceEffect> effects) {
+        if (displayedEffects == effects) { return; }
+        
+        // Add effects
+        foreach(Transform child in transform) {
+            GameObject.Destroy(child.gameObject);
+        }
+        foreach(ResourceEffect effect in effects) {
+            GameObject gameObject = GameObject.Instantiate(effectPrefab, transform);
+            EffectItem effectItem = gameObject.GetComponent<EffectItem>();
+            effectItem.amount = effect.EffectAmount;
+            effectItem.resourceType = effect.AffectedResource;
+        }
+
+        displayedEffects = effects;
+    }
+}

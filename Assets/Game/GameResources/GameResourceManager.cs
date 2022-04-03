@@ -100,10 +100,43 @@ public class GameResourceManager : MonoBehaviour
 
     public Sprite biomassSprite, biomassSprite2x, biomassSprite3x;
     public Sprite energySprite, energySprite2x, energySprite3x;
+    public Sprite dirtyEnergySprite, dirtyEnergySprite2x, dirtyEnergySprite3x;
+    public Sprite cleanEnergySprite, cleanEnergySprite2x, cleanEnergySprite3x;
     public Sprite moneySprite, moneySprite2x, moneySprite3x;
     public Sprite scienceSprite, scienceSprite2x, scienceSprite3x;
     public Sprite steelSprite, steelSprite2x, steelSprite3x;
     public Sprite titaniumSprite, titaniumSprite2x, titaniumSprite3x;
+    public Sprite localPopulationSprite, localPopulationSprite2x, localPopulationSprite3x;
+    public Sprite globalPopulationSprite, globalPopulationSprite2x, globalPopulationSprite3x;
+
+    public Sprite[] GetSpritesForResource(ResourceType resourceType) {
+        switch (resourceType) {
+            case ResourceType.Biomass:
+                return new Sprite[] {biomassSprite, biomassSprite2x, biomassSprite3x};
+            case ResourceType.Energy:
+                return new Sprite[] {energySprite, energySprite2x, energySprite3x};
+            case ResourceType.DirtyEnergy:
+                return new Sprite[] {dirtyEnergySprite, dirtyEnergySprite2x, dirtyEnergySprite3x};
+            case ResourceType.CleanEnergy:
+                return new Sprite[] {cleanEnergySprite, cleanEnergySprite2x, cleanEnergySprite3x};
+            case ResourceType.Money:
+                return new Sprite[] {moneySprite, moneySprite2x, moneySprite3x};
+            case ResourceType.Research:
+                return new Sprite[] {scienceSprite, scienceSprite2x, scienceSprite3x};
+            case ResourceType.LowTechMat:
+                return new Sprite[] {steelSprite, steelSprite2x, steelSprite3x};
+            case ResourceType.HighTechMat:
+                return new Sprite[] {titaniumSprite, titaniumSprite2x, titaniumSprite3x};
+            case ResourceType.Pop:
+                return new Sprite[] {localPopulationSprite, localPopulationSprite2x, localPopulationSprite3x};
+            default:
+                return new Sprite[] {};
+        }
+    }
+
+    public Sprite GetSpriteForResourceWithOneIndexedScale(ResourceType resourceType, int oneIndexedScale) {
+        return GetSpritesForResource(resourceType)[oneIndexedScale - 1];
+    }
 
     // Start is called before the first frame update
     void Start()

@@ -23,7 +23,7 @@ public enum ResourceType
 public class ResourceEffect
 {
     [SerializeField]
-    ResourceType AffectedResource;
+    public ResourceType AffectedResource;
 
     [Range(-100, 100)]
     public int EffectAmount;

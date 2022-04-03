@@ -31,6 +31,6 @@ public class ResourcesDisplay : MonoBehaviour
         biomass.value.text = gameResourceManager.biomassConsumption.ToString() + " / " + gameResourceManager.biomassProduction.ToString();
         science.value.text = gameResourceManager.scienceProduction.ToString();
 
-        // globalPopulation.value.text = pointOfInterestManager.
+        globalPopulation.value.text = pointOfInterestManager.GlobalConsumedPopulation + " / " + pointOfInterestManager.GlobalTotalPopulation;
     }
 }
