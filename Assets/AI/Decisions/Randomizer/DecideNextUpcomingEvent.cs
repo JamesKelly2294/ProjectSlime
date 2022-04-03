@@ -50,7 +50,7 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
         {
             Debug.Log("Evaluating: Do we have any follow-on cards available and in budget?");
             var followOnEvents = from e in climateEventManager.EventsInBudget(_agent.Budget)
-                                 where e.FollowOnEvents.Contains(climateEventManager.currentClimateEvent)
+                                 where e.FollowOnEvents.Contains(climateEventManager.CurrentClimateEvent)
                                  select e;
             var result = followOnEvents.Count() > 0;
             return result;
@@ -64,10 +64,10 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
         {
             Debug.Log("Decision: Pick a random follow-on card thats in budget.");
             var followOnEvents = from e in climateEventManager.EventsInBudget(_agent.Budget)
-                                 where e.FollowOnEvents.Contains(climateEventManager.currentClimateEvent)
+                                 where e.FollowOnEvents.Contains(climateEventManager.CurrentClimateEvent)
                                  select e;
             var index = UnityEngine.Random.Range(0, followOnEvents.Count() - 1);
-            SelectAgentEvent(new List<ClimateEvent>(followOnEvents)[index]);
+            SelectNextEvent(new List<ClimateEvent>(followOnEvents)[index]);
             return false; // not actually used for anything. cleanup for later.
         };
         return new DecisionNode(evaluator, DecisionNodeType.Action);
@@ -80,15 +80,15 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
             Debug.Log("Decision: Pick a random card thats in budget.");
             var eventsInBudget = climateEventManager.EventsInBudget(_agent.Budget);
             var index = UnityEngine.Random.Range(0, eventsInBudget.Count() - 1);
-            SelectAgentEvent(new List<ClimateEvent>(eventsInBudget)[index]);
+            SelectNextEvent(new List<ClimateEvent>(eventsInBudget)[index]);
             return false; // not actually used for anything. cleanup for later.
         };
         return new DecisionNode(evaluator, DecisionNodeType.Action);
     }
 
-    public void SelectAgentEvent(ClimateEvent agentEvent)
+    public void SelectNextEvent(ClimateEvent ce)
     {
-        climateEventManager.upcomingClimateEvents.Add(agentEvent);
+        climateEventManager.NextClimateEvent = ce;
         // Trigger the UI to do stuff?
     }
 }

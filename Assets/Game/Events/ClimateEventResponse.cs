@@ -1,26 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-
-[System.Serializable]
-public class ResourceEffectTurnCountPair
-{
-    [SerializeField]
-    public ResourceEffect ResourceEffect;
-
-    [Min(0)]
-    public int TurnCount;
-}
-
-[System.Serializable]
-public class SpecialResourceEffectTurnCountPair
-{
-    [SerializeField]
-    public SpecialEffect SpecialResourceEffect;
-
-    [Min(0)]
-    public int TurnCount;
-}
+using UnityEngine; 
 
 [System.Serializable]
 public class ClimateEventResponse
@@ -35,11 +15,17 @@ public class ClimateEventResponse
      * The resulting effect of accepting the response.
      */
     [SerializeField]
-    public List<ResourceEffectTurnCountPair> ResourceEffects;
+    public List<ResourceEffect> ResourceEffects;
 
     /**
      * The resulting special effect of accepting the response.
      */
     [SerializeField]
-    public List<SpecialResourceEffectTurnCountPair> SpecialEffects;
+    public List<SpecialEffect> SpecialEffects;
+
+    /**
+     * How long the effects are active for.
+     */
+    [Min(0)]
+    public int TurnDuration;
 }

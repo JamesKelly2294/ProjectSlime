@@ -35,4 +35,7 @@ public class ClimateEvent : ScriptableObject
      */
     [SerializeField]
     public double AgentCost;
+
+    [SerializeField]
+    public bool IsOneShot = false;
 }

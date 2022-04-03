@@ -7,6 +7,8 @@ public class RandomizerAgent : MonoBehaviour, IIntelligence
     private GameResourceManager _gm;
     public int Budget;
 
+    private List<ClimateEvent> UpcomingClimateEventQueue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +19,11 @@ public class RandomizerAgent : MonoBehaviour, IIntelligence
     void Update()
     {
         
+    }
+
+    public void DoTheThing()
+    {
+        // do AI magic
+        // update climate manager
     }
 }
