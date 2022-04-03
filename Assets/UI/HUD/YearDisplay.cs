@@ -20,7 +20,7 @@ public class YearDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentYear.text = turnManager.CurrentTurnAsYear.ToString();
+        currentYear.text = "Year: " + turnManager.CurrentTurnAsYear.ToString();
         yearsRemaing.text = turnManager.TurnsUntilGameEndAsYear.ToString();
     }
 }

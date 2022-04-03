@@ -5,14 +5,16 @@ using UnityEngine;
 public class ResourcesDisplay : MonoBehaviour
 {
 
-    public ResourceSummary money, cleanEnergy, dirtyEnergy, steel, titanium, biomass, science;
+    public ResourceSummary money, cleanEnergy, dirtyEnergy, steel, titanium, biomass, science, globalPopulation;
 
     private GameResourceManager gameResourceManager;
+    private PointOfInterestManager pointOfInterestManager;
 
     // Start is called before the first frame update
     void Start()
     {
         gameResourceManager = GameObject.FindObjectOfType<GameResourceManager>();
+        pointOfInterestManager = GameObject.FindObjectOfType<PointOfInterestManager>();
     }
 
     // Update is called once per frame
@@ -28,5 +30,7 @@ public class ResourcesDisplay : MonoBehaviour
         titanium.value.text = gameResourceManager.titaniumConsumption.ToString() + " / " + gameResourceManager.titaniumProduction.ToString();
         biomass.value.text = gameResourceManager.biomassConsumption.ToString() + " / " + gameResourceManager.biomassProduction.ToString();
         science.value.text = gameResourceManager.scienceProduction.ToString();
+
+        // globalPopulation.value.text = pointOfInterestManager.
     }
 }
