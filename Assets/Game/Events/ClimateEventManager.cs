@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ClimateEventManager : MonoBehaviour
@@ -28,5 +29,10 @@ public class ClimateEventManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public IEnumerable<ClimateEvent> EventsInBudget(int budget)
+    {
+        return ClimateEvents.Where((e) => e.AgentCost < budget);
     }
 }
