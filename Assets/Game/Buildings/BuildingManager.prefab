@@ -43,6 +43,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ef3dfa841b9f4a1dab5eb6c39b3aa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingBuildings:
+  Buildings:
+  - {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
+  - {fileID: 11400000, guid: 6725d25c17c6f4cdda7900178cee365b, type: 2}
+  - {fileID: 11400000, guid: 6588cfd9f60d34e9b91b23b6ceb68ea3, type: 2}
+  - {fileID: 11400000, guid: d628f4331ac7d4a34a87c5f3fa6e9cf2, type: 2}
+  - {fileID: 11400000, guid: e6d09ad49c21b49d7a042c8b25474d2c, type: 2}
+  - {fileID: 11400000, guid: c85b55d9f89c44e199a68ed22db751a3, type: 2}
+  - {fileID: 11400000, guid: 234982cdffd6a4a2bb3122a7a17b66bf, type: 2}
+  - {fileID: 11400000, guid: c7d35d4a7b8a94f98a94adcc07e72405, type: 2}
+  - {fileID: 11400000, guid: 6a5d48e4d43f848e4b42cf0445a761ae, type: 2}
+  - {fileID: 11400000, guid: edb92a390673b4c9490c00752e4703f0, type: 2}
   - {fileID: 11400000, guid: 745565d1a37344549af916af54723fa4, type: 2}
-  - {fileID: 11400000, guid: c7182b312e7cf41c2a9ccdd3d0b7a0e5, type: 2}
+  - {fileID: 11400000, guid: 3751af82e51564decbbb233879146119, type: 2}
+  - {fileID: 11400000, guid: 7d200d1dbd44d4551a2830f845036991, type: 2}
+  - {fileID: 11400000, guid: bddfe291292804f248fc5e334a675360, type: 2}
+  - {fileID: 11400000, guid: 9eab52d83d1304ac0aeb1befde172204, type: 2}
+  - {fileID: 11400000, guid: c0dfee8e4f7c54d2c8a23d55b91dc216, type: 2}

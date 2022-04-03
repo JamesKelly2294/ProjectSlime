@@ -14,7 +14,8 @@ public enum ResourceType
     LowTechMat = 4,
     HighTechMat = 5,
     Biomass = 6,
-    Research = 7
+    Research = 7,
+    Pop = 8
 }
 
 [System.Serializable]
@@ -23,7 +24,7 @@ public class ResourceEffect
     [SerializeField]
     ResourceType AffectedResource;
 
-    [Range(-10, 10)]
+    [Range(-100, 100)]
     public int EffectAmount;
 }
 
@@ -59,7 +60,6 @@ public class Building : ScriptableObject
     public bool Deconstructable = true;
 
     public int MoneyCost;
-    public int PopCost;
 
     public List<ResourceEffect> ResourceEffects;
     public List<SpecialResourceEffect> SpecialEffects;

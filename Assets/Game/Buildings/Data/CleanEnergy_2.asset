@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4df319bb159b4cca95bd08a2a9cace2, type: 3}
+  m_Name: CleanEnergy_2
+  m_EditorClassIdentifier: 
+  Name: Wind Power Plant
+  Description: A clean energy producing power plant.
+  VisualsPrefab: {fileID: 3473304969274171468, guid: 683a14055e9a64e158813e6354372a4b, type: 3}
+  PreviewImage: {fileID: -6558030069874571279, guid: 6dd3f5bac73cb0446b0cc61126e37511, type: 3}
+  RegionCapital: 0
+  Buildable: 1
+  Disableable: 1
+  Deconstructable: 1
+  MoneyCost: -500
+  ResourceEffects:
+  - AffectedResource: 8
+    EffectAmount: -1
+  - AffectedResource: 2
+    EffectAmount: 4
+  - AffectedResource: 0
+    EffectAmount: -20
+  - AffectedResource: 4
+    EffectAmount: -2
+  SpecialEffects: []

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
 {
-    public List<Building> StartingBuildings;
+    public List<Building> Buildings;
 
     public List<Building> AvailableBuildings { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
-        AvailableBuildings = StartingBuildings;
+        AvailableBuildings = Buildings;
     }
 
     // Update is called once per frame
