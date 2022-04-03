@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResourcesDisplay : MonoBehaviour
 {
 
-    public ResourceSummary money, energy, steel, titanium, biomass, science;
+    public ResourceSummary money, cleanEnergy, dirtyEnergy, steel, titanium, biomass, science;
 
     private GameResourceManager gameResourceManager;
 
@@ -21,13 +21,8 @@ public class ResourcesDisplay : MonoBehaviour
         money.value.text = gameResourceManager.money.ToString("#,0") + "B";
         money.detail.text = gameResourceManager.moneyProduction.ToString("#,0") + "B per Year";
         
-        energy.value.text = gameResourceManager.energyProduction.ToString() + " / " + gameResourceManager.energyProduction.ToString();
-        if (gameResourceManager.energyProduction != 0) {
-            energy.detail.text = Mathf.RoundToInt(((float)gameResourceManager.energyCleanProduction / (float)gameResourceManager.energyProduction) * 100).ToString() + "% Clean Energy";
-            energy.detail.gameObject.SetActive(true);
-        } else {
-            energy.detail.gameObject.SetActive(false);
-        }
+        cleanEnergy.value.text = gameResourceManager.energyConsumption + " / " + gameResourceManager.energyCleanProduction;
+        dirtyEnergy.value.text = gameResourceManager.energyConsumption + " / " + gameResourceManager.energyDirtyProduction;
 
         steel.value.text = gameResourceManager.steelConsumption.ToString() + " / " + gameResourceManager.steelProduction.ToString();
         titanium.value.text = gameResourceManager.titaniumConsumption.ToString() + " / " + gameResourceManager.titaniumProduction.ToString();
