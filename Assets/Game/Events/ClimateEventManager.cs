@@ -85,6 +85,15 @@ public class ClimateEventManager : MonoBehaviour
         return AllClimateEvents.Where((e) => e.AgentCost < budget);
     }
 
+    public IEnumerable<ClimateEvent> EventsWithResourceTypeInResponse(int budget, ResourceType[] resourceTypes)
+    {
+        var candidates = from e in AllClimateEvents
+                         where e.AgentCost < budget
+                         where e.Responses.Any(r => r.ResourceEffects.Any(re => resourceTypes.Contains(re.AffectedResource)))
+                         select e;
+        return candidates;
+    }
+
     public void StepClimateState(int turn)
     {
         // if current event has long-running stuff, move to active

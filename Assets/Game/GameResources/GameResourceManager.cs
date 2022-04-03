@@ -253,16 +253,16 @@ public class GameResourceManager : MonoBehaviour
                     break;
                 case ResourceType.Pop:
                     break;
-                case ResourceType.biodiversity:
+                case ResourceType.Biodiversity:
                     currentBiodiversity += effect.EffectAmount;
                     break;
-                case ResourceType.bioDiversityPressure:
+                case ResourceType.BiodiversityPressure:
                     biodiversityPressure += effect.EffectAmount;
                     break;
-                case ResourceType.seaLevel:
+                case ResourceType.SeaLevel:
                     currentSeaLevels += effect.EffectAmount;
                     break;
-                case ResourceType.seaLevelPressure:
+                case ResourceType.SeaLevelPressure:
                     seaLevelPressure += effect.EffectAmount;
                     break;
             }

@@ -17,10 +17,10 @@ public enum ResourceType
     Biomass = 6,
     Research = 7,
     Pop = 8,
-    biodiversity = 9,
-    bioDiversityPressure = 10,
-    seaLevel = 11,
-    seaLevelPressure = 12,
+    Biodiversity = 9,
+    BiodiversityPressure = 10,
+    SeaLevel = 11,
+    SeaLevelPressure = 12,
 }
 
 [System.Serializable]

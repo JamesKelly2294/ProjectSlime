@@ -15,12 +15,6 @@ public class RandomizerAgent : MonoBehaviour, IIntelligence
         _gm = GameObject.FindObjectOfType<GameResourceManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void DoTheThing()
     {
         // do AI magic

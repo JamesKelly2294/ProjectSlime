@@ -16,7 +16,12 @@ MonoBehaviour:
   FlavorText: Due to too much Lorem Ipsum sample text being used in poster design
     meetings, the designers did not follw hte advice they were trying to advertise.
   Responses:
-  - {fileID: 11400000, guid: f9104053decc3c54fbaa5258506d797c, type: 2}
-  - {fileID: 11400000, guid: c1d4039ec944c614eb85bc803f0c848b, type: 2}
+  - FlavorText: 
+    ResourceEffects:
+    - AffectedResource: 12
+      EffectAmount: 2
+    SpecialEffects: []
+    TurnDuration: 0
   FollowOnEvents: []
   AgentCost: 0.5
+  IsOneShot: 0

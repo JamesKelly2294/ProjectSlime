@@ -855,8 +855,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda4753a09b411d408001baadc644df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClimateEvents:
+  AllClimateEvents:
   - {fileID: 11400000, guid: 35591450d89a6be4eba13116c1ebe205, type: 2}
-  currentClimateEvent: {fileID: 0}
-  nextClimateEvent: {fileID: 0}
-  upcomingClimateEvents: []
+  CurrentClimateEvent: {fileID: 0}
+  NextClimateEvent: {fileID: 0}
+  LatestResponse:
+    FlavorText: 
+    ResourceEffects: []
+    SpecialEffects: []
+    TurnDuration: 0
