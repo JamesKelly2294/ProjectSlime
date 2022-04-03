@@ -123,6 +123,11 @@ public class GameResourceManager : MonoBehaviour
     public Sprite titaniumSprite, titaniumSprite2x, titaniumSprite3x;
     public Sprite localPopulationSprite, localPopulationSprite2x, localPopulationSprite3x;
     public Sprite globalPopulationSprite, globalPopulationSprite2x, globalPopulationSprite3x;
+    public Sprite biodiveristySprite, biodiveristySprite2x, biodiveristySprite3x;
+    public Sprite biodiveristyPreasureSprite, biodiveristyPreasureSprite2x, biodiveristyPreasureSprite3x;
+    public Sprite seaLevelSprite, seaLevelSprite2x, seaLevelSprite3x;
+    public Sprite seaLevelPreasureSprite, seaLevelPreasureSprite2x, seaLevelPreasureSprite3x;
+    
 
     public Sprite[] GetSpritesForResource(ResourceType resourceType) {
         switch (resourceType) {
@@ -144,6 +149,14 @@ public class GameResourceManager : MonoBehaviour
                 return new Sprite[] {titaniumSprite, titaniumSprite2x, titaniumSprite3x};
             case ResourceType.Pop:
                 return new Sprite[] {localPopulationSprite, localPopulationSprite2x, localPopulationSprite3x};
+            case ResourceType.Biodiversity:
+                return new Sprite[] {biodiveristySprite, biodiveristySprite2x, biodiveristySprite3x};
+            case ResourceType.BiodiversityPressure:
+                return new Sprite[] {biodiveristyPreasureSprite, biodiveristyPreasureSprite2x, biodiveristyPreasureSprite3x};
+            case ResourceType.SeaLevel:
+                return new Sprite[] {seaLevelSprite, seaLevelSprite2x, seaLevelSprite3x};
+            case ResourceType.SeaLevelPressure:
+                return new Sprite[] {seaLevelPreasureSprite, seaLevelPreasureSprite2x, seaLevelPreasureSprite3x};
             default:
                 return new Sprite[] {};
         }

@@ -73,3 +73,15 @@ MonoBehaviour:
   globalPopulationSprite: {fileID: 21300000, guid: 5afcba8f87f3e49c9902f8beec575fd1, type: 3}
   globalPopulationSprite2x: {fileID: 21300000, guid: 6d936cc959db946ffb63c0df54cad44e, type: 3}
   globalPopulationSprite3x: {fileID: 21300000, guid: 7165ca85cd47e4d3aa0b1e6ba99f0366, type: 3}
+  biodiveristySprite: {fileID: 21300000, guid: 7a0c7bbfda4f14beabc4267a16e1215e, type: 3}
+  biodiveristySprite2x: {fileID: 21300000, guid: aabf7229ba14b42e2a88c68d91d81bd4, type: 3}
+  biodiveristySprite3x: {fileID: 21300000, guid: 1d5121dfe15b044cea200eb15ce367f4, type: 3}
+  biodiveristyPreasureSprite: {fileID: 21300000, guid: d9b4a09aa944c4f24961528c700b55e6, type: 3}
+  biodiveristyPreasureSprite2x: {fileID: 21300000, guid: 1c00b7911034542f095011ca37b8396e, type: 3}
+  biodiveristyPreasureSprite3x: {fileID: 21300000, guid: 5b79b7435c34942f9aff26aafbb01a38, type: 3}
+  seaLevelSprite: {fileID: 21300000, guid: 84da349b60ff14f4eb5e3d44654d8ba5, type: 3}
+  seaLevelSprite2x: {fileID: 21300000, guid: 72ff127a276b84ca79e34ca4b0f12121, type: 3}
+  seaLevelSprite3x: {fileID: 21300000, guid: bf5d669e106bd4419bb91ef5571b7903, type: 3}
+  seaLevelPreasureSprite: {fileID: 21300000, guid: 8f8359b23fdc942cab55f75a3aab1475, type: 3}
+  seaLevelPreasureSprite2x: {fileID: 21300000, guid: 473d1d8b293c44045b2fa98f4e39c1b0, type: 3}
+  seaLevelPreasureSprite3x: {fileID: 21300000, guid: 68b37f7c6ebe3488fbfadcdf351defc0, type: 3}

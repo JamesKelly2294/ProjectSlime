@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine; 
+using System.Linq;
 
 [System.Serializable]
 public class ClimateEventResponse
@@ -16,6 +17,17 @@ public class ClimateEventResponse
      */
     [SerializeField]
     public List<ResourceEffect> ResourceEffects;
+
+    public List<ResourceEffect> SortedResourceEffects
+    {
+        get
+        {
+            var sorted = from re in ResourceEffects
+                         orderby (int)re.AffectedResource
+                         select re;
+            return sorted.ToList();
+        }
+    }
 
     /**
      * The resulting special effect of accepting the response.
