@@ -21,8 +21,8 @@ public class ResourcesDisplay : MonoBehaviour
         money.value.text = gameResourceManager.money.ToString("#,0") + "B";
         money.detail.text = gameResourceManager.moneyProduction.ToString("#,0") + "B per Year";
         
-        cleanEnergy.value.text = gameResourceManager.energyConsumption + " / " + gameResourceManager.energyCleanProduction;
-        dirtyEnergy.value.text = gameResourceManager.energyConsumption + " / " + gameResourceManager.energyDirtyProduction;
+        cleanEnergy.value.text = gameResourceManager.energyCleanConsumption + " / " + gameResourceManager.energyCleanProduction;
+        dirtyEnergy.value.text = gameResourceManager.energyDirtyConsumption + " / " + gameResourceManager.energyDirtyProduction;
 
         steel.value.text = gameResourceManager.steelConsumption.ToString() + " / " + gameResourceManager.steelProduction.ToString();
         titanium.value.text = gameResourceManager.titaniumConsumption.ToString() + " / " + gameResourceManager.titaniumProduction.ToString();
