@@ -7,7 +7,12 @@ public class RandomizerAgent : MonoBehaviour, IIntelligence
     private GameResourceManager _gm;
     public int Budget;
 
-    private List<ClimateEvent> UpcomingClimateEventQueue;
+    // TODO: Have this relate to the number of turns that have passed?
+    // e.g. the AI gets more budget to work with the longer the game goes on.
+    public int BudgetProduction
+    {
+        get { return 100; }
+    }
 
     // Start is called before the first frame update
     void Start()

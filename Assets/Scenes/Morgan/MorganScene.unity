@@ -154,6 +154,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   climateEventManager: {fileID: 1923371380}
+  BiodiversitySeaLevelProbability:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &496808723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,6 +836,113 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306055247}
   m_CullTransparentMesh: 1
+--- !u!1 &1579554655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1579554658}
+  - component: {fileID: 1579554657}
+  - component: {fileID: 1579554656}
+  m_Layer: 0
+  m_Name: GRM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1579554656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579554655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5971d4de177944edfb35c3dc36e3132c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 1000
+  moneyProduction: 100
+  scienceProduction: 0
+  biomassConsumption: 0
+  biomassProduction: 0
+  energyConsumption: 0
+  energyProduction: 0
+  energyCleanProduction: 0
+  energyDirtyProduction: 0
+  steelConsumption: 0
+  steelProduction: 0
+  titaniumConsumption: 0
+  titaniumProduction: 0
+  currentSeaLevels: 0
+  maxSeaLevels: 10
+  minSeaLevels: 0
+  seaLevelPressure: 0
+  currentBiodiversity: 10
+  minBiodiversity: 0
+  maxBiodiversity: 10
+  biodiversityPressure: 5
+--- !u!114 &1579554657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579554655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82065dcd5d62840c59f0e2691f520b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  biomassSprite: {fileID: 0}
+  biomassSprite2x: {fileID: 0}
+  biomassSprite3x: {fileID: 0}
+  energySprite: {fileID: 0}
+  energySprite2x: {fileID: 0}
+  energySprite3x: {fileID: 0}
+  dirtyEnergySprite: {fileID: 0}
+  dirtyEnergySprite2x: {fileID: 0}
+  dirtyEnergySprite3x: {fileID: 0}
+  cleanEnergySprite: {fileID: 0}
+  cleanEnergySprite2x: {fileID: 0}
+  cleanEnergySprite3x: {fileID: 0}
+  moneySprite: {fileID: 0}
+  moneySprite2x: {fileID: 0}
+  moneySprite3x: {fileID: 0}
+  scienceSprite: {fileID: 0}
+  scienceSprite2x: {fileID: 0}
+  scienceSprite3x: {fileID: 0}
+  steelSprite: {fileID: 0}
+  steelSprite2x: {fileID: 0}
+  steelSprite3x: {fileID: 0}
+  titaniumSprite: {fileID: 0}
+  titaniumSprite2x: {fileID: 0}
+  titaniumSprite3x: {fileID: 0}
+  localPopulationSprite: {fileID: 0}
+  localPopulationSprite2x: {fileID: 0}
+  localPopulationSprite3x: {fileID: 0}
+  globalPopulationSprite: {fileID: 0}
+  globalPopulationSprite2x: {fileID: 0}
+  globalPopulationSprite3x: {fileID: 0}
+--- !u!4 &1579554658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579554655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1923371378
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,10 +11,14 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
     
     private BinaryTree<DecisionNode> _decisionTree;
     private RandomizerAgent _agent;
+    private GameResourceManager _grm;
+
+    public AnimationCurve BiodiversitySeaLevelProbability;
 
     public void Start()
     {
         _agent = FindObjectOfType<RandomizerAgent>();
+        _grm = FindObjectOfType<GameResourceManager>();
         var nodes = new BinaryTreeNode<DecisionNode>[] {
                 new BinaryTreeNode<DecisionNode>(AnyCurrentEventFollowOnsInBudget(), false),
                 new BinaryTreeNode<DecisionNode>(PickRandomFollowOnsInBudget(), true), // left child of AnyCurrentEventFollowOnsInBudget
@@ -82,6 +86,11 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
         Func<bool> evaluator = () =>
         {
             Debug.Log("Evaluating: Are there any cards with " + targets.ToString() + " that we can target?");
+            var chance = BiodiversitySeaLevelProbability.Evaluate(_grm.biodiversityPressure / 10.0f);
+            if (UnityEngine.Random.Range(0.0f, 1.0f) < chance)
+            {
+                return false;
+            }
             return climateEventManager.EventsWithResourceTypeInResponse(_agent.Budget, targets).Count() > 0;
         };
         return new DecisionNode(evaluator, DecisionNodeType.Decision);
@@ -117,6 +126,10 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
     public void SelectNextEvent(ClimateEvent ce)
     {
         climateEventManager.NextClimateEvent = ce;
+
+        // TODO: Figure out what to actually do with the budget.
+        _agent.Budget = _agent.Budget - (int)(climateEventManager.NextClimateEvent.AgentCost * 100) + _agent.BudgetProduction;
+
         // Trigger the UI to do stuff?
     }
 }
@@ -125,10 +138,14 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
 public class DecideNextUpcomingEventEditor : Editor
 {
     private DecideNextUpcomingEvent script;
+    private GameResourceManager grm;
 
     private void OnEnable()
     {
         script = (DecideNextUpcomingEvent)target;
+        grm = FindObjectOfType<GameResourceManager>();
+        var grmDebug = FindObjectOfType<GameResourceManagerDebug>();
+        grm.SetDebugValues(grmDebug);
     }
 
     public override void OnInspectorGUI()
