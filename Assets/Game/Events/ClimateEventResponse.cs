@@ -12,31 +12,34 @@ public class ResourceEffectTurnCountPair
     public int TurnCount;
 }
 
-[CreateAssetMenu(fileName = "Climate Event Response", menuName = "Game/Climate Event Response", order = 3)]
-public class ClimateEventResponse : ScriptableObject
+[System.Serializable]
+public class SpecialResourceEffectTurnCountPair
+{
+    [SerializeField]
+    public SpecialEffect SpecialResourceEffect;
+
+    [Min(0)]
+    public int TurnCount;
+}
+
+[System.Serializable]
+public class ClimateEventResponse
 {
     /**
      * Flavor text describing the response to the player.
      */
+    [SerializeField]
     public string FlavorText;
 
     /**
-     * Smarmy text to share with the player after they accept the response.
+     * The resulting effect of accepting the response.
      */
-    public string AcceptText;
+    [SerializeField]
+    public List<ResourceEffectTurnCountPair> ResourceEffects;
 
     /**
-     * A one time cost for accepting the response.
+     * The resulting special effect of accepting the response.
      */
-    public List<ResourceEffectTurnCountPair> OneTimeAcceptCost;
-
-    /**
-     * The recurring cost of accepting the response.
-     */
-    public List<ResourceEffectTurnCountPair> RecurringAcceptCost;
-
-    /**
-     * Reference to a behavior object with some callbacks for 
-     */
-    public ClimateEventAcceptBehavior AcceptBehavior;
+    [SerializeField]
+    public List<SpecialResourceEffectTurnCountPair> SpecialEffects;
 }

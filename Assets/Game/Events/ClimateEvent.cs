@@ -9,36 +9,30 @@ public class ClimateEvent : ScriptableObject
     /**
      * The name of the event.
      */
+    [SerializeField]
     public string Title;
 
     /**
      * Event flavor text. Snark optional.
      */
+    [TextArea(10, 100)]
     public string FlavorText;
 
     /**
      * Ways the player can response to the event.
      */
+    [SerializeField]
     public List<ClimateEventResponse> Responses;
 
     /**
      * Events which are preferentially chosen after this one becomes active.
      */
+    [SerializeField]
     public List<ClimateEvent> FollowOnEvents;
 
     /**
      * Scales the cost of the event. Used by the AI to budget events.
      */
+    [SerializeField]
     public double AgentCost;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

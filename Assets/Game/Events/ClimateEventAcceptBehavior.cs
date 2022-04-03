@@ -5,12 +5,7 @@ using UnityEngine;
 public class ClimateEventAcceptBehavior : MonoBehaviour
 {
     /**
-     * Place to put logic for handling the one time cost of accepting the response.
+     * Place to put logic for handling weirdo fun accept things.
      */
-    public void OnOneTimeAccept() { } // currently a no-op but this apply the costs.
-
-    /**
-     * Place to put logic for handling recurring costs of this response.
-     */
-    public void OnRecurringAccept() { } // currently a no-op but this apply the costs.
+    public void OnAccept() { } // currently a no-op but this applies the costs.
 }

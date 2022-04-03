@@ -29,9 +29,9 @@ public class ResourceEffect
 }
 
 [System.Serializable]
-public class SpecialResourceEffect
+public class SpecialEffect
 {
-    public enum SpecialResourceEffectType
+    public enum SpecialEffectType
     {
         // NOTE: If you add or remove to this, do *not* change the values of other
         // enums. This will break all serialized scriptable objects.
@@ -43,7 +43,7 @@ public class SpecialResourceEffect
     public string Description;
 
     [SerializeField]
-    SpecialResourceEffectType Type;
+    SpecialEffectType Type;
 }
 
 [CreateAssetMenu(fileName = "Building", menuName = "Game/Building", order = 1)]
@@ -62,5 +62,5 @@ public class Building : ScriptableObject
     public int MoneyCost;
 
     public List<ResourceEffect> ResourceEffects;
-    public List<SpecialResourceEffect> SpecialEffects;
+    public List<SpecialEffect> SpecialEffects;
 }
