@@ -38,4 +38,9 @@ public class EffectItem : MonoBehaviour
             amountTMP.color = negative;
         }
     }
+
+    public void DisplayEffect(ResourceEffect effect) {
+        amount = effect.EffectAmount;
+        resourceType = effect.AffectedResource;
+    }
 }

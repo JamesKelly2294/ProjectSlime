@@ -32,6 +32,6 @@ public class BuildingRow : MonoBehaviour
         image.sprite = building.PreviewImage;
         nameTMP.text = building.Name;
         flavorText.text = building.Description;
-        effectList.DisplayEffects(building.ResourceEffects);
+        effectList.DisplayEffects(building.SortedResourceEffects);
     }
 }

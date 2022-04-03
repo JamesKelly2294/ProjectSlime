@@ -22,7 +22,16 @@ public class EffectList : MonoBehaviour
     }
 
     public void DisplayEffects(List<ResourceEffect> effects) {
-        if (displayedEffects == effects) { return; }
+
+        // Make sure we need to update...
+        if (displayedEffects.Count == effects.Count) { 
+            for(int i = 0; i < effects.Count; i++) {
+                if (displayedEffects[i].EffectAmount != effects[i].EffectAmount || displayedEffects[i].AffectedResource != effects[i].AffectedResource) {
+                    break;
+                }
+            }
+            return; 
+        }
         
         // Add effects
         foreach(Transform child in transform) {
@@ -31,8 +40,7 @@ public class EffectList : MonoBehaviour
         foreach(ResourceEffect effect in effects) {
             GameObject gameObject = GameObject.Instantiate(effectPrefab, transform);
             EffectItem effectItem = gameObject.GetComponent<EffectItem>();
-            effectItem.amount = effect.EffectAmount;
-            effectItem.resourceType = effect.AffectedResource;
+            effectItem.DisplayEffect(effect);
         }
 
         displayedEffects = effects;
