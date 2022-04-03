@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -63,4 +64,22 @@ public class Building : ScriptableObject
 
     public List<ResourceEffect> ResourceEffects;
     public List<SpecialEffect> SpecialEffects;
+
+
+    public List<ResourceEffect> SortedResourceEffects
+    {
+        get
+        {
+            return SortedResourceEffects.OrderBy(item => item).ToList();
+        }
+    }
+
+    public List<SpecialEffect> SortedSpecialEffects
+    {
+        get
+        {
+            return SortedSpecialEffects.OrderBy(item => item).ToList();
+        }
+    }
+    
 }
