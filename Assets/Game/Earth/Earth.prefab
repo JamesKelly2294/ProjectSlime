@@ -192,6 +192,10 @@ PrefabInstance:
       propertyPath: Name
       value: Middle East
       objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: needsThe
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest (4)
@@ -258,6 +262,14 @@ PrefabInstance:
       propertyPath: Name
       value: North America
       objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: Buildings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497406993907060519, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
+      propertyPath: Buildings.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: ae7808ec314cc47f08550d7a8dff1784, type: 2}
     - target: {fileID: 8542452954770692634, guid: ee251b5ad12454bcc95b67dfda7ff138, type: 3}
       propertyPath: m_Name
       value: Point of Interest

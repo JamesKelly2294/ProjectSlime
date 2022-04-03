@@ -7,11 +7,6 @@ using TMPro;
 public class EffectItem : MonoBehaviour
 {
 
-    [Range(-5, 5)]
-    public int amount;
-    
-    public ResourceType resourceType;
-
     public TextMeshProUGUI amountTMP;
 
     public Image image;
@@ -19,6 +14,8 @@ public class EffectItem : MonoBehaviour
     public Color positive, negative;
 
     private GameResourceManager gameResourceManager;
+
+    public ResourceEffect displayedEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -29,18 +26,25 @@ public class EffectItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        amountTMP.text = amount.ToString();
-        image.sprite = gameResourceManager.GetSpriteForResourceWithOneIndexedScale(resourceType, 3);
+        DisplayEffect(displayedEffect); // If set in the UI
+    }
 
-        if (amount >= 0) {
+    public void DisplayEffect(ResourceEffect effect) {
+        if (displayedEffect.AffectedResource == effect.AffectedResource && displayedEffect.EffectAmount == effect.EffectAmount) {
+            return;
+        }
+
+        if (gameResourceManager == null) {
+            gameResourceManager = GameObject.FindObjectOfType<GameResourceManager>();
+        }
+        
+        amountTMP.text = effect.EffectAmount.ToString();
+        image.sprite = gameResourceManager.GetSpriteForResourceWithOneIndexedScale(effect.AffectedResource, 3);
+
+        if (effect.EffectAmount >= 0) {
             amountTMP.color = positive;
         } else {
             amountTMP.color = negative;
         }
-    }
-
-    public void DisplayEffect(ResourceEffect effect) {
-        amount = effect.EffectAmount;
-        resourceType = effect.AffectedResource;
     }
 }

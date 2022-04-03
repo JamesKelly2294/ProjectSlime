@@ -23,12 +23,10 @@ public class BuildingRow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        BuildingManager buildingManager = GameObject.FindObjectOfType<BuildingManager>();
-        Building building = buildingManager.Buildings[15];
-        SetBuilding(building);
+
     }
 
-    void SetBuilding(Building building) {
+    public void SetBuilding(Building building) {
         image.sprite = building.PreviewImage;
         nameTMP.text = building.Name;
         flavorText.text = building.Description;

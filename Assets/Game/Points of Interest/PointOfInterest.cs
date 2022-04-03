@@ -14,6 +14,7 @@ public class PointOfInterest : MonoBehaviour
     public Region Region;
     public List<Building> Buildings;
     public int StartingPopulation;
+    public bool needsThe = false;
 
     public int TotalPopulation { get { return AvailablePopulation + ConsumedPopulation; } }
     public int AvailablePopulation { get; private set; }
