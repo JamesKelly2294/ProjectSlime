@@ -70,7 +70,10 @@ public class Building : ScriptableObject
     {
         get
         {
-            return ResourceEffects.OrderBy(item => (int)item.AffectedResource).ToList();
+            var sorted = from re in ResourceEffects
+                         orderby (int)re.AffectedResource
+                         select re;
+            return sorted.ToList();
         }
     }
 
