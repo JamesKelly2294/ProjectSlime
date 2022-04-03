@@ -7,12 +7,16 @@ using PublishKeyType = System.String;
 
 public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
 {
-    public int Budget = 100;
-    public AgentEvent CurrentEvent;
-    public IEnumerable<AgentEvent> UpcomingEvents;
+    public ClimateEventManager climateEventManager;
+    private RandomizerAgent _agent;
 
-    private IEnumerable<AgentEvent> AllEvents { get { return FindObjectsOfType<AgentEvent>(); } }
-    private IEnumerable<AgentEvent> AllEventsInBudget { get { return AllEvents.Where((e) => e.AgentCost < Budget); } }
+    private IEnumerable<ClimateEvent> AllEventsInBudget
+    {
+        get
+        {
+            return climateEventManager.ClimateEvents.Where((e) => e.AgentCost < _agent.Budget);
+        }
+    }
 
     private BinaryTree<System.Func<bool>> _decisionNodes
     {
@@ -29,7 +33,7 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
     public bool AnyCurrentEventFollowOnCardsInBudget()
     {
         var followOnEvents = from e in AllEventsInBudget
-                                where e.FollowOnEvents.Contains(CurrentEvent)
+                                where e.FollowOnEvents.Contains(climateEventManager.currentClimateEvent)
                                 select e;
         return followOnEvents.Count() > 0;
     }
@@ -37,15 +41,20 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
     public bool PickRandomFollowOnCardInBudget()
     {
         var followOnEvents = from e in AllEventsInBudget
-                             where e.FollowOnEvents.Contains(CurrentEvent)
+                             where e.FollowOnEvents.Contains(climateEventManager.currentClimateEvent)
                              select e;
         var index = Random.Range(0, followOnEvents.Count() - 1);
-        SelectAgentEvent(new List<AgentEvent>(followOnEvents)[index]);
+        SelectAgentEvent(new List<ClimateEvent>(followOnEvents)[index]);
         return true;
     }
 
-    public void SelectAgentEvent(AgentEvent agentEvent)
+    public void SelectAgentEvent(ClimateEvent agentEvent)
     {
         // TODO
+    }
+
+    public void Start()
+    {
+        _agent = FindObjectOfType<RandomizerAgent>();
     }
 }
