@@ -5,6 +5,8 @@ using UnityEngine;
 public class RandomizerAgent : MonoBehaviour, IIntelligence
 {
     private GameResourceManager _gm;
+    private DecideNextUpcomingEvent decideNextUpcomingEvent;
+
     public int Budget;
 
     // TODO: Have this relate to the number of turns that have passed?
@@ -18,11 +20,11 @@ public class RandomizerAgent : MonoBehaviour, IIntelligence
     void Start()
     {
         _gm = GameObject.FindObjectOfType<GameResourceManager>();
+        decideNextUpcomingEvent = GameObject.FindObjectOfType<DecideNextUpcomingEvent>();
     }
 
     public void DoTheThing()
     {
-        // do AI magic
-        // update climate manager
+        decideNextUpcomingEvent.Decide();
     }
 }

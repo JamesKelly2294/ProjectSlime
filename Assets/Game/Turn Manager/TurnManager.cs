@@ -25,10 +25,13 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    private ClimateEventManager climateEventManager;
+
     // Start is called before the first frame update
     void Start()
     {
         _gm = GameObject.FindObjectOfType<GameResourceManager>();
+        climateEventManager = GameObject.FindObjectOfType<ClimateEventManager>();
 
         StartGame();
     }
@@ -36,6 +39,8 @@ public class TurnManager : MonoBehaviour
     private void StartGame()
     {
         _gm.CalculateResources();
+        climateEventManager.StepClimateState(CurrentTurn);
+        PublishBeginTurnNotification();
     }
 
     private void ProcessEndOfTurnEvents()
@@ -55,9 +60,13 @@ public class TurnManager : MonoBehaviour
 
     private void AdvanceToNextTurn()
     {
+        climateEventManager.StepClimateState(CurrentTurn);
+
         CurrentTurn++;
 
         _gm.CalculateResources();
+
+        PublishBeginTurnNotification();
     }
 
     public void EndTurn()
@@ -72,5 +81,9 @@ public class TurnManager : MonoBehaviour
         {
             AdvanceToNextTurn();
         }
+    }
+
+    public void PublishBeginTurnNotification() {
+        GetComponent<PubSubSender>().Publish("turn.begin");
     }
 }

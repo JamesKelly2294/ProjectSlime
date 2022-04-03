@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6532251419608819182}
   - component: {fileID: 7558915831745759667}
   - component: {fileID: 5485633368607523642}
+  - component: {fileID: 3451217925623034159}
   m_Layer: 0
   m_Name: TurnManager
   m_TagString: Untagged
@@ -71,5 +72,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 368a372c6b8c844f8ab50df028b7a358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3451217925623034159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6252769463017443141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f292d19e8ac687f4796ed88f9f22cd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

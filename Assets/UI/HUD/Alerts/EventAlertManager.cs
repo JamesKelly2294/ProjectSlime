@@ -11,10 +11,12 @@ public class EventAlertManager : MonoBehaviour
 
     public GameObject alertPrefab, dividerAlertPrefab;
 
+    private ClimateEventManager climateEventManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        climateEventManager = GameObject.FindObjectOfType<ClimateEventManager>();
     }
 
     // Update is called once per frame
@@ -29,6 +31,15 @@ public class EventAlertManager : MonoBehaviour
 
     public GameObject SummonDivider() {
         return GetComponent<AlertManager>().SummonNotification(dividerAlertPrefab);
+    }
+
+    public void SummonCurrentEvent() {
+        Debug.Log(climateEventManager.CurrentClimateEvent);
+        if (climateEventManager.CurrentClimateEvent != null) {
+            GameObject gameObject = SummonEvent();
+            EventAlert eventAlert = gameObject.GetComponentInChildren<EventAlert>();
+            eventAlert.climateEvent = climateEventManager.CurrentClimateEvent;
+        }
     }
 }
 

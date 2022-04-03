@@ -1561,7 +1561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Subscriptions:
-  - Key: endTurnButton.wasPressed
+  - Key: turn.begin
     Delegate:
       m_PersistentCalls:
         m_Calls:

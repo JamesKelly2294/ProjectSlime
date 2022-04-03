@@ -30,6 +30,7 @@ public class ClimateEventManager : MonoBehaviour
     /**
      * The most recent response made by the player
      */
+    [SerializeReference]
     public ClimateEventResponse LatestResponse;
 
     private TurnManager _tm;
@@ -41,8 +42,9 @@ public class ClimateEventManager : MonoBehaviour
         {
             var currentTurn = _tm.CurrentTurn;
             return from d in ClimateDecisions
-                   where (currentTurn - d.turn) <= d.choice.TurnDuration
-                   select d;
+                where d != null && d.choice != null
+                where (currentTurn - d.turn) <= d.choice.TurnDuration
+                select d;
         }
     }
 
