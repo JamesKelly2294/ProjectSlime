@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PointOfInterestManager : MonoBehaviour
 {
@@ -10,6 +11,30 @@ public class PointOfInterestManager : MonoBehaviour
     public List<PointOfInterest> PointsOfInterest { get; private set; }
 
     public PointOfInterest SelectedPointOfInterest { get; private set; }
+
+    public int GlobalAvailablePopulation
+    {
+        get
+        {
+            return PointsOfInterest.Sum(poi => poi.AvailablePopulation);
+        }
+    }
+
+    public int GlobalConsumedPopulation
+    {
+        get
+        {
+            return PointsOfInterest.Sum(poi => poi.ConsumedPopulation);
+        }
+    }
+
+    public int GlobalTotalPopulation
+    {
+        get
+        {
+            return GlobalAvailablePopulation + GlobalConsumedPopulation;
+        }
+    }
 
     public void RegisterPointOfInterest(PointOfInterest pointOfInterest)
     {

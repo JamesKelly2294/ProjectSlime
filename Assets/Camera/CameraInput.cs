@@ -30,11 +30,14 @@ public class CameraInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool mouseOverUI = IsPointerOverUIElement();
+        _mouseOrbit.ProcessCameraScroll = !mouseOverUI;
+
         if (Input.GetMouseButtonUp(0))
         {
             _mouseOrbit.ProcessCameraOrbit = false;
         }
-        else if (!IsPointerOverUIElement() && Input.GetMouseButtonDown(0))
+        else if (!mouseOverUI && Input.GetMouseButtonDown(0))
         {
             _mouseOrbit.ProcessCameraOrbit = true;
 

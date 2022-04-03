@@ -5,6 +5,7 @@ using UnityEngine;
 public class MouseOrbit : MonoBehaviour
 {
     public bool ProcessCameraOrbit;
+    public bool ProcessCameraScroll;
 
     [Range(5f, 15f)]
     [Tooltip("How sensitive the mouse drag to camera rotation")]
@@ -66,10 +67,11 @@ public class MouseOrbit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!canRotate || !ProcessCameraOrbit)
+        if (!canRotate)
         {
             return;
         }
+
         //We are in editor
         if (Application.isEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
@@ -123,7 +125,7 @@ public class MouseOrbit : MonoBehaviour
     private void EditorCameraInput()
     {
         //Camera Rotation
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && ProcessCameraOrbit)
         {
             rotX += Input.GetAxis("Mouse Y") * mouseRotateSpeed; // around X
             rotY += Input.GetAxis("Mouse X") * mouseRotateSpeed;
@@ -137,7 +139,7 @@ public class MouseOrbit : MonoBehaviour
             }
         }
         //Camera Field Of View
-        if (Input.mouseScrollDelta.magnitude > 0)
+        if (Input.mouseScrollDelta.magnitude > 0 && ProcessCameraScroll)
         {
             cameraFieldOfView += Input.mouseScrollDelta.y * editorFOVSensitivity * -1;//-1 make FOV change natual
         }
