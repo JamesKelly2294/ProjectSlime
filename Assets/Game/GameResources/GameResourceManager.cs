@@ -138,6 +138,7 @@ public class GameResourceManager : MonoBehaviour
     public Sprite biodiveristyPreasureSprite, biodiveristyPreasureSprite2x, biodiveristyPreasureSprite3x;
     public Sprite seaLevelSprite, seaLevelSprite2x, seaLevelSprite3x;
     public Sprite seaLevelPreasureSprite, seaLevelPreasureSprite2x, seaLevelPreasureSprite3x;
+    public Sprite timeToExtictionSprite, timeToExtictionSprite2x, timeToExtictionSprite3x;
     
 
     public Sprite[] GetSpritesForResource(ResourceType resourceType) {
@@ -168,6 +169,8 @@ public class GameResourceManager : MonoBehaviour
                 return new Sprite[] {seaLevelSprite, seaLevelSprite2x, seaLevelSprite3x};
             case ResourceType.SeaLevelPressure:
                 return new Sprite[] {seaLevelPreasureSprite, seaLevelPreasureSprite2x, seaLevelPreasureSprite3x};
+            case ResourceType.TimeToExtiction:
+                return new Sprite[] {timeToExtictionSprite, timeToExtictionSprite2x, timeToExtictionSprite3x};
             default:
                 return new Sprite[] {};
         }

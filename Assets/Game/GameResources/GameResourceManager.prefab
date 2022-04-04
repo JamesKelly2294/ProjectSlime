@@ -86,6 +86,9 @@ MonoBehaviour:
   seaLevelPreasureSprite: {fileID: 21300000, guid: 8f8359b23fdc942cab55f75a3aab1475, type: 3}
   seaLevelPreasureSprite2x: {fileID: 21300000, guid: 473d1d8b293c44045b2fa98f4e39c1b0, type: 3}
   seaLevelPreasureSprite3x: {fileID: 21300000, guid: 68b37f7c6ebe3488fbfadcdf351defc0, type: 3}
+  timeToExtictionSprite: {fileID: 21300000, guid: c7afd767dad7641bdb5193743145a429, type: 3}
+  timeToExtictionSprite2x: {fileID: 21300000, guid: 6c3364ec78d6d43679d0d1ad9a84e814, type: 3}
+  timeToExtictionSprite3x: {fileID: 21300000, guid: 2600cb12fc2084883a92de188a491441, type: 3}
 --- !u!114 &2312483420157131359
 MonoBehaviour:
   m_ObjectHideFlags: 0
