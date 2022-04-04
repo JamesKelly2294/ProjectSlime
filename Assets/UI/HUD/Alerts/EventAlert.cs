@@ -120,6 +120,8 @@ public class EventAlert : MonoBehaviour
             yearDone = turnManager.CurrentTurnAsYear + response.TurnDuration;
         }
         DisplayOutcome();
+
+        GetComponent<PubSubSender>().Publish("event.response.selected", response);
     }
 
     public bool IsBlockingTurn() {

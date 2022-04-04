@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EndTurnButton : MonoBehaviour
 {
@@ -29,5 +30,14 @@ public class EndTurnButton : MonoBehaviour
         } else {
             buttonArea.GetComponent<Image>().color = Color.Lerp(readyA, readyB, Mathf.PingPong(Time.time, 1));
         }
+    }
+
+    public void Enable() {
+        isBlocked = false;
+    }
+
+    public void Disable(PubSubListenerEvent reason) {
+        isBlocked = true;
+        blockedText.GetComponent<TextMeshProUGUI>().text = (string)reason.value;
     }
 }

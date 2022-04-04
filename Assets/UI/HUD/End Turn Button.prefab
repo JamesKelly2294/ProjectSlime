@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 1090186138894613212}
   - component: {fileID: 1342356521043000994}
   - component: {fileID: 2669566611026657377}
+  - component: {fileID: 4080838770442359691}
   m_Layer: 5
   m_Name: End Turn Button
   m_TagString: Untagged
@@ -575,6 +576,51 @@ MonoBehaviour:
   blockedText: {fileID: 1026099940835865471}
   buttonArea: {fileID: 2540104488458697983}
   isBlocked: 0
+--- !u!114 &4080838770442359691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4131417425125453942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56e1a9b13b922d428fcbf4039d56d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Subscriptions:
+  - Key: turn.next.allow
+    Delegate:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2669566611026657377}
+          m_TargetAssemblyTypeName: EndTurnButton, Assembly-CSharp
+          m_MethodName: Enable
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Key: turn.next.forbidden
+    Delegate:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2669566611026657377}
+          m_TargetAssemblyTypeName: EndTurnButton, Assembly-CSharp
+          m_MethodName: Disable
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Deal with it...
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5087487903381411952
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +659,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 200, y: -40}
-  m_SizeDelta: {x: 163.85, y: 68.1}
+  m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &634345805587440048
 CanvasRenderer:

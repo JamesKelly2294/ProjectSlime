@@ -66,7 +66,9 @@ public class TurnManager : MonoBehaviour
 
         _gm.CalculateResources();
 
+        userDidHandleEvent = false;
         PublishBeginTurnNotification();
+        CheckAndSendValidNextTurnEvents();
     }
 
     public void EndTurn()
@@ -83,7 +85,42 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    public void CheckAndSendValidNextTurnEvents() {
+
+        if (!IsCurrentEventHandled()) {
+            PublishForbidNextTurnNotification("Current Event not Handled");
+            return;
+        }
+
+
+
+        PublishAllowNextTurnNotification();
+    }
+
     public void PublishBeginTurnNotification() {
         GetComponent<PubSubSender>().Publish("turn.begin");
     }
+
+    public void PublishAllowNextTurnNotification() {
+        Debug.Log("Next Turn Allowed!");
+        GetComponent<PubSubSender>().Publish("turn.next.allow");
+    }
+
+    public void PublishForbidNextTurnNotification(string reason) {
+        Debug.Log("Next Turn Forbidden:" + reason);
+        GetComponent<PubSubSender>().Publish("turn.next.forbidden", reason);
+    }
+
+    private bool userDidHandleEvent = false;
+    public bool IsCurrentEventHandled() {
+        if (climateEventManager.CurrentClimateEvent == null) { return true; }
+        if (climateEventManager.CurrentClimateEvent.Responses.Count == 0) { return true; }
+        return userDidHandleEvent;
+    }
+
+    public void UserDidHandleEvent() {
+        userDidHandleEvent = true;
+        CheckAndSendValidNextTurnEvents();
+    }
+
 }
