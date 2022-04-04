@@ -18,7 +18,10 @@ public class ExistingBuildingRow : MonoBehaviour
 
     // This should really all be on a pause button script...
     public Color PauseColor;
+    public Sprite PauseSprite;
+
     public Color ResumeColor;
+    public Sprite ResumeSprite;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +38,7 @@ public class ExistingBuildingRow : MonoBehaviour
     public void SetConstructedBuilding(ConstructedBuilding constructedBuilding)
     {
         this.constructedBuilding = constructedBuilding;
-        Debug.Log("my constructed building is " + constructedBuilding.Building.Name);
+
         var building = constructedBuilding.Building;
         image.sprite = building.PreviewImage;
         flavorText.text = building.Description;
@@ -50,13 +53,13 @@ public class ExistingBuildingRow : MonoBehaviour
         {
             PauseButton.GetComponentInChildren<TextMeshProUGUI>().text = "Pause";
             PauseButton.GetComponentInChildren<Image>().color = PauseColor;
-            PauseButton.transform.Find("Image").gameObject.SetActive(true);
+            PauseButton.transform.Find("Image").GetComponent<Image>().sprite = PauseSprite;
         }
         else
         {
             PauseButton.GetComponentInChildren<TextMeshProUGUI>().text = "Resume";
             PauseButton.GetComponentInChildren<Image>().color = ResumeColor;
-            PauseButton.transform.Find("Image").gameObject.SetActive(false);
+            PauseButton.transform.Find("Image").GetComponent<Image>().sprite = ResumeSprite;
         }
     }
 }
