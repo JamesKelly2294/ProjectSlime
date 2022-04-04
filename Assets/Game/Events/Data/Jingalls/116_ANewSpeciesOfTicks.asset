@@ -35,6 +35,8 @@ MonoBehaviour:
       EffectAmount: 1
     - AffectedResource: 6
       EffectAmount: 1
+    - AffectedResource: 13
+      EffectAmount: -1
     SpecialEffects: []
     TurnDuration: 1000
   FollowOnEvents: []

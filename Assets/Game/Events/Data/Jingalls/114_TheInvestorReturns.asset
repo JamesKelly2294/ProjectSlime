@@ -24,17 +24,23 @@ MonoBehaviour:
     ResourceEffects:
     - AffectedResource: 0
       EffectAmount: -100
+    - AffectedResource: 13
+      EffectAmount: -1
     SpecialEffects: []
     TurnDuration: 0
   - FlavorText: Pay with Sea Level
     ResourceEffects:
     - AffectedResource: 11
       EffectAmount: 1
+    - AffectedResource: 13
+      EffectAmount: -1
     SpecialEffects: []
     TurnDuration: 1000
   - FlavorText: Pay with Bio Diversity
     ResourceEffects:
     - AffectedResource: 9
+      EffectAmount: -1
+    - AffectedResource: 13
       EffectAmount: -1
     SpecialEffects: []
     TurnDuration: 1000
@@ -46,6 +52,8 @@ MonoBehaviour:
       EffectAmount: -2
     - AffectedResource: 0
       EffectAmount: -100
+    - AffectedResource: 13
+      EffectAmount: -1
     SpecialEffects: []
     TurnDuration: 0
   FollowOnEvents: []
