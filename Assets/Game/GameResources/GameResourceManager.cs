@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameResourceManager : MonoBehaviour
 {    
-    public int money { get; private set; } = 1000;
+    public int money { get; private set; } = 2500;
 
     public int moneyProduction { get; private set; } = 100;
 
@@ -79,6 +79,8 @@ public class GameResourceManager : MonoBehaviour
     public int biodiversityPressure { get; private set; } = 0;
     public int maxBiodiversityPressure { get; private set; } = 10;
 
+    public int timeToExtinction { get; private set; } = 50;
+
     private BuildingManager _bm;
     private PointOfInterestManager _poim;
     private ClimateEventManager _em;
@@ -108,19 +110,11 @@ public class GameResourceManager : MonoBehaviour
         biodiversityPressure = debug.biodiversityPressure;
     }
 
-    public int BiodiversityYearsRemaining
+    public int TurnsToExtinction
     {
         get
         {
-            return 5;
-        }
-    }
-
-    public int SeaLevelsYearsRemaining
-    {
-        get
-        {
-            return 5;
+            return timeToExtinction;
         }
     }
 

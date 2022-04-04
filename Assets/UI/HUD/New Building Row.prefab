@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9800461, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1057,7 +1057,11 @@ MonoBehaviour:
   nameTMP: {fileID: 4871137995320782943}
   costTMP: {fileID: 2952983710756933519}
   effectList: {fileID: 1589956881918448314}
+  resourceCostImage: {fileID: 1563222706745073270}
+  moneySprite: {fileID: 21300000, guid: 968f0c1a9fcb247e3b86f68778effede, type: 3}
+  researchSprite: {fileID: 21300000, guid: 7d5b627521fb646c6ba67713e79ddde4, type: 3}
   flavorText: {fileID: 1556500147293371199}
+  buildingCanBePurchased: 0
 --- !u!1 &8781900692346048091
 GameObject:
   m_ObjectHideFlags: 0

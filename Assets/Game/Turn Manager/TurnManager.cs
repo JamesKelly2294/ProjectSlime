@@ -20,7 +20,7 @@ public class TurnManager : MonoBehaviour
     {
         get
         {
-            int yearsRemaining = Mathf.Min(_gm.BiodiversityYearsRemaining, _gm.SeaLevelsYearsRemaining);
+            int yearsRemaining = Mathf.Min(_gm.TurnsToExtinction - CurrentTurn);
             return yearsRemaining;
         }
     }

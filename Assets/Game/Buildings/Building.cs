@@ -74,6 +74,7 @@ public class Building : ScriptableObject
     public bool Deconstructable = true;
 
     public int MoneyCost;
+    public int ResearchCost;
 
     public List<ResourceEffect> ResourceEffects;
     public List<SpecialEffect> SpecialEffects;

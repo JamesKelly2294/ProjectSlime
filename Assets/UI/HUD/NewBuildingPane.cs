@@ -19,6 +19,7 @@ public class NewBuildingPane : MonoBehaviour
     public FilterButtonRow filterButtonRow;
 
     private BuildingManager buildingManager;
+    private ResearchManager researchManager;
     private PointOfInterestManager pointOfInterestManager;
     private PointOfInterest displayedPOI = null;
     private ConstructedBuilding displayedExistingBuilding = null;
@@ -29,6 +30,7 @@ public class NewBuildingPane : MonoBehaviour
     void Start()
     {
         buildingManager = GameObject.FindObjectOfType<BuildingManager>();
+        researchManager = FindObjectOfType<ResearchManager>();
         pointOfInterestManager = GameObject.FindObjectOfType<PointOfInterestManager>();
         Display(null, null);
     }
@@ -64,13 +66,15 @@ public class NewBuildingPane : MonoBehaviour
             titleTMP.text = "<b>" + (existingBuilding.Building.Name) + "</b>";
             existingBuildingRow.gameObject.SetActive(true);
             existingBuildingRow.SetConstructedBuilding(existingBuilding);
+            filterButtonRow.gameObject.SetActive(false);
         }
         else
         {
             titleTMP.text = "Fund Project in" + (pointOfInterest.needsThe ? " the " : " ") + "<b>" + pointOfInterest.Name + "</b>";
             existingBuildingRow.gameObject.SetActive(false);
+            filterButtonRow.gameObject.SetActive(true);
         }
-        
+
         // Add the list of buildings
         var b = existingBuilding != null ? existingBuilding.Building : null;
         constructionOptions = buildingManager.ConstructionOptions(b);
@@ -111,7 +115,7 @@ public class NewBuildingPane : MonoBehaviour
 
             GameObject gameObject = GameObject.Instantiate(buildingPrefab, buildingsList.transform);
             NewBuildingRow newBuildingRow = gameObject.GetComponent<NewBuildingRow>();
-            newBuildingRow.SetState(this, building, displayedPOI);
+            newBuildingRow.SetState(this, building, researchManager.BuildingIsResearched(building), displayedPOI);
         }
     }
 

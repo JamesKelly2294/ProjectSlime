@@ -12,6 +12,10 @@ public class NewBuildingRow : MonoBehaviour
     public TextMeshProUGUI costTMP;
     public EffectList effectList;
 
+    public Image resourceCostImage;
+    public Sprite moneySprite;
+    public Sprite researchSprite;
+
     public TextMeshProUGUI flavorText;
 
     public bool buildingCanBePurchased;
@@ -32,10 +36,11 @@ public class NewBuildingRow : MonoBehaviour
 
     }
 
-    public void SetState(NewBuildingPane newBuildingPane, Building building, PointOfInterest poi) {
+    public void SetState(NewBuildingPane newBuildingPane, Building building, bool isResearched, PointOfInterest poi) {
         image.sprite = building.PreviewImage;
         nameTMP.text = building.Name;
-        costTMP.text = Mathf.Abs(building.MoneyCost).ToString();
+        costTMP.text = Mathf.Abs(!isResearched ? building.ResearchCost : building.MoneyCost).ToString();
+        resourceCostImage.sprite = !isResearched ? researchSprite : moneySprite;
         flavorText.text = building.Description;
         effectList.DisplayEffects(building.SortedResourceEffects);
 

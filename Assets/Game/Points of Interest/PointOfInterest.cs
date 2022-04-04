@@ -27,11 +27,13 @@ public class PointOfInterest : MonoBehaviour
     private Earth _earth;
     private GameObject _buildingVisualsParentGO;
     private GameResourceManager _rm;
+    private ResearchManager _researchManager;
 
     public void Start()
     {
         _earth = FindObjectOfType<Earth>();
         _rm = FindObjectOfType<GameResourceManager>();
+        _researchManager = FindObjectOfType<ResearchManager>();
         FindObjectOfType<PointOfInterestManager>().RegisterPointOfInterest(this);
 
         gameObject.transform.name = "POI " + Name;
@@ -53,23 +55,35 @@ public class PointOfInterest : MonoBehaviour
 
     public bool CanPurchaseBuilding(Building b)
     {
-        var popCost = b.RecurringCostForType(ResourceType.Pop);
-        if (popCost > AvailablePopulation)
-        {
-            return false;
-        }
+        var buildingIsResearched = _researchManager.BuildingIsResearched(b);
 
-        foreach(var effect in b.ResourceEffects)
+        if (buildingIsResearched)
         {
-            if (effect.EffectAmount < 0 && !_rm.CanAffordResourceConsumption(effect.AffectedResource, effect.EffectAmount))
+            var popCost = b.RecurringCostForType(ResourceType.Pop);
+            if (popCost > AvailablePopulation)
+            {
+                return false;
+            }
+
+            foreach (var effect in b.ResourceEffects)
+            {
+                if (effect.EffectAmount < 0 && !_rm.CanAffordResourceConsumption(effect.AffectedResource, effect.EffectAmount))
+                {
+                    return false;
+                }
+            }
+
+            if (!_rm.CanAffordResourceOneShot(ResourceType.Money, b.MoneyCost))
             {
                 return false;
             }
         }
-
-        if (!_rm.CanAffordResourceOneShot(ResourceType.Money, b.MoneyCost))
+        else
         {
-            return false;
+            if(!_rm.CanAffordResourceOneShot(ResourceType.Research, b.ResearchCost))
+            {
+                return false;
+            }
         }
 
         return true;

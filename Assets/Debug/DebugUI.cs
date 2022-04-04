@@ -30,10 +30,6 @@ public class DebugUI : MonoBehaviour
             rm.biomassConsumption, rm.biomassProduction,
             rm.scienceProduction);
 
-        healthText.text = string.Format("<b>Stats</b>\n\nBiodiversity {0}/{1}\n-- {2} Years Remaining\n\nSea Level {3}/{4}\n-- {5} Years Remaining",
-            rm.currentBiodiversity, rm.maxBiodiversity, rm.BiodiversityYearsRemaining,
-            rm.currentSeaLevels, rm.maxSeaLevels, rm.SeaLevelsYearsRemaining);
-
         turnText.text = string.Format("{0} A.D.\n{1} Years Until Extinction",
             tm.CurrentTurnAsYear, tm.TurnsUntilGameEndAsYear);
     }

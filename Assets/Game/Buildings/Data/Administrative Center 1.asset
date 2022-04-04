@@ -22,9 +22,10 @@ MonoBehaviour:
   Disableable: 0
   Deconstructable: 0
   MoneyCost: 0
+  ResearchCost: 0
   ResourceEffects:
   - AffectedResource: 1
     EffectAmount: -2
   - AffectedResource: 0
-    EffectAmount: 20
+    EffectAmount: 30
   SpecialEffects: []

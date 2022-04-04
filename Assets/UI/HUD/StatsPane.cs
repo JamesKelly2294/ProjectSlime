@@ -23,9 +23,7 @@ public class StatsPane : MonoBehaviour
     void Update()
     {
         biodiversity.progress = (((float)gameResourceManager.currentBiodiversity + (float)gameResourceManager.minBiodiversity) / (float)gameResourceManager.maxBiodiversity);
-        biodiversityStatus.text = gameResourceManager.BiodiversityYearsRemaining.ToString() + " Years Remaining";
 
         seaLevel.progress = (((float)gameResourceManager.currentSeaLevels + (float)gameResourceManager.minSeaLevels) / (float)gameResourceManager.maxSeaLevels);
-        seaLevelStatus.text = gameResourceManager.SeaLevelsYearsRemaining.ToString() + " Years Remaining";
     }
 }
