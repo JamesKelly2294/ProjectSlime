@@ -141,9 +141,6 @@ public class TurnManager : MonoBehaviour
 
     private bool userDidHandleEvent = false;
     public bool IsCurrentEventHandled() {
-        Debug.Log("IsCurrentEventHandled");
-        Debug.Log("climateEventManager.CurrentClimateEvent == null " + climateEventManager.CurrentClimateEvent == null);
-        Debug.Log("climateEventManager.CurrentClimateEvent.Responses.Count == 0 " + (climateEventManager.CurrentClimateEvent.Responses.Count == 0).ToString());
         if (climateEventManager.CurrentClimateEvent == null) { return true; }
         if (climateEventManager.CurrentClimateEvent.Responses.Count == 0) { return true; }
         return userDidHandleEvent;
