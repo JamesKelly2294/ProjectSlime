@@ -97,7 +97,7 @@ public class TurnManager : MonoBehaviour
 
     private void ProcessEndOfTurnEvents()
     {
-
+        
     }
 
     private bool EndGameConditionIsReached()
@@ -126,6 +126,7 @@ public class TurnManager : MonoBehaviour
         CurrentTurn++;
 
         PrepareEventSystem();
+        _gm.DeductNextTurnCost();
         _gm.CalculateResources();
 
         _gm.ProcessEndOfTurnResourceUpdates();
@@ -160,8 +161,9 @@ public class TurnManager : MonoBehaviour
             return;
         }
 
-        if (!_gm.ResourceManagerApprovesNextTurn()) {
-            PublishForbidNextTurnNotification("At least one resource over utilized!");
+        var nextTurnCost = _gm.ResourceManagerApprovesNextTurn();
+        if (nextTurnCost < 0) {
+            PublishAllowButNotRecommendNextTurnNotification("Will reduce Time Until Extiction by" + nextTurnCost.ToString());
             return;
         }
 
@@ -180,6 +182,11 @@ public class TurnManager : MonoBehaviour
     public void PublishForbidNextTurnNotification(string reason) {
         Debug.Log("Next Turn Forbidden:" + reason);
         GetComponent<PubSubSender>().Publish("turn.next.forbidden", reason);
+    }
+
+    public void PublishAllowButNotRecommendNextTurnNotification(string reason) {
+        Debug.Log("Next Turn Allowed but not Recommended:" + reason);
+        GetComponent<PubSubSender>().Publish("turn.next.allowedButNotRecommended", reason);
     }
 
     private bool userDidHandleEvent = false;

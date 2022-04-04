@@ -76,6 +76,7 @@ public class GameResourceManager : MonoBehaviour
 
     private int _baseTimeToExtinction = 51;
     public int timeToExtinction { get; private set; } = 51;
+    private int timeToExtinctionOverruns;
 
     private BuildingManager _bm;
     private PointOfInterestManager _poim;
@@ -204,12 +205,14 @@ public class GameResourceManager : MonoBehaviour
         }
     }
 
-    public bool ResourceManagerApprovesNextTurn()
+    public int ResourceManagerApprovesNextTurn()
     {
-        return  NetEnergyProduction >= 0 
-                && NetSteelProduction >= 0 
-                && NetTitaniumProduction >= 0 
-                && NetBiomassProduction >= 0;
+        return Mathf.Min(NetEnergyProduction, 0) + Mathf.Min(NetSteelProduction, 0) + Mathf.Min(NetTitaniumProduction, 0) + Mathf.Min(NetBiomassProduction, 0);
+    }
+
+    public void DeductNextTurnCost()
+    {
+        timeToExtinctionOverruns += ResourceManagerApprovesNextTurn();
     }
 
     public Sprite GetSpriteForResourceWithOneIndexedScale(ResourceType resourceType, int oneIndexedScale) {
@@ -285,7 +288,7 @@ public class GameResourceManager : MonoBehaviour
         titaniumProduction = 0;
         currentSeaLevels = 0;
         currentBiodiversity = maxBiodiversity;
-        timeToExtinction = _baseTimeToExtinction;
+        timeToExtinction = _baseTimeToExtinction + timeToExtinctionOverruns;
 
         List<ResourceEffect> activeResourceEffects = new List<ResourceEffect>();
 

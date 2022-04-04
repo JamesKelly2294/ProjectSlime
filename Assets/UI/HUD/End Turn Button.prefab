@@ -572,10 +572,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   readyA: {r: 0.18841648, g: 1, b: 0, a: 0.92941177}
   readyB: {r: 0, g: 1, b: 0.27095103, a: 0.8666667}
+  badA: {r: 1, g: 0.61547077, b: 0, a: 0.9137255}
+  badB: {r: 1, g: 0.8795767, b: 0, a: 0.8392157}
   blocked: {r: 1, g: 0, b: 0, a: 0.19215687}
   blockedText: {fileID: 1026099940835865471}
   buttonArea: {fileID: 2540104488458697983}
   isBlocked: 1
+  isGoingToCostYou: 0
 --- !u!114 &4080838770442359691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +615,22 @@ MonoBehaviour:
         - m_Target: {fileID: 2669566611026657377}
           m_TargetAssemblyTypeName: EndTurnButton, Assembly-CSharp
           m_MethodName: Disable
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Deal with it...
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Key: turn.next.allowedButNotRecommended
+    Delegate:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2669566611026657377}
+          m_TargetAssemblyTypeName: EndTurnButton, Assembly-CSharp
+          m_MethodName: Manable
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
