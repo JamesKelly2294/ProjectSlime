@@ -20,6 +20,7 @@ public class NewBuildingRow : MonoBehaviour
 
     public bool buildingCanBePurchased;
 
+    private bool _isResearched;
     private Building _building;
     private PointOfInterest _poi;
     private NewBuildingPane _newBuildingPane;
@@ -47,6 +48,7 @@ public class NewBuildingRow : MonoBehaviour
         _poi = poi;
         _building = building;
         _newBuildingPane = newBuildingPane;
+        _isResearched = isResearched;
 
         var button = GetComponent<StandardButton>();
         if (poi.CanPurchaseBuilding(building))
@@ -63,9 +65,13 @@ public class NewBuildingRow : MonoBehaviour
 
     public void RequestConstruction()
     {
+        var wasResearched = _isResearched;
         if (_poi.TryPurchaseAndConstructBuilding(_building))
         {
-            _newBuildingPane.Hide();
+            if (wasResearched)
+            {
+                _newBuildingPane.Hide();
+            }
         }
     }
 }

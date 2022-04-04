@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   filterButtonPrefab: {fileID: 7506047584018747569, guid: 86c69f902c0f84d2dadd9b9ef7e09fba, type: 3}
-  filterableResourceTypes: 0000000002000000030000000400000005000000060000000700000008000000
+  filterableResourceTypes: 00000000020000000300000004000000050000000600000007000000
   ResourceTypeFilterMask: -1
   onFilterChanged:
     m_PersistentCalls:

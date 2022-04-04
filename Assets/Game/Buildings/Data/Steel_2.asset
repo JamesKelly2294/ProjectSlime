@@ -21,6 +21,7 @@ MonoBehaviour:
   Disableable: 1
   Deconstructable: 1
   MoneyCost: -300
+  ResearchCost: 8
   ResourceEffects:
   - AffectedResource: 8
     EffectAmount: -2

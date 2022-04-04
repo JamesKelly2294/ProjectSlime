@@ -575,7 +575,7 @@ MonoBehaviour:
   blocked: {r: 1, g: 0, b: 0, a: 0.19215687}
   blockedText: {fileID: 1026099940835865471}
   buttonArea: {fileID: 2540104488458697983}
-  isBlocked: 0
+  isBlocked: 1
 --- !u!114 &4080838770442359691
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,15 +21,17 @@ public class ResourcesDisplay : MonoBehaviour
     void Update()
     {
         money.value.text = gameResourceManager.money.ToString("#,0") + "B";
-        money.detail.text = (gameResourceManager.moneyProduction - gameResourceManager.moneyConsumption).ToString("#,0") + "B per Year";
-        
+        money.detail.text = (gameResourceManager.NetMoneyProduction).ToString("#,0") + "B per Year";
+
+        science.value.text = gameResourceManager.science.ToString("#,0");
+        science.detail.text = (gameResourceManager.NetScienceProduction).ToString("#,0") + " per Year";
+
         cleanEnergy.value.text = (gameResourceManager.energyCleanProduction - gameResourceManager.energyCleanConsumption) + " / " + gameResourceManager.energyCleanProduction;
         dirtyEnergy.value.text = (gameResourceManager.energyDirtyProduction - gameResourceManager.energyDirtyConsumption) + " / " + gameResourceManager.energyDirtyProduction;
 
         steel.value.text = (gameResourceManager.steelProduction - gameResourceManager.steelConsumption).ToString() + " / " + gameResourceManager.steelProduction.ToString();
         titanium.value.text = (gameResourceManager.titaniumProduction - gameResourceManager.titaniumConsumption).ToString() + " / " + gameResourceManager.titaniumProduction.ToString();
         biomass.value.text = (gameResourceManager.biomassProduction - gameResourceManager.biomassConsumption).ToString() + " / " + gameResourceManager.biomassProduction.ToString();
-        science.value.text = gameResourceManager.scienceProduction.ToString();
 
         globalPopulation.value.text = pointOfInterestManager.GlobalAvailablePopulation + " / " + pointOfInterestManager.GlobalTotalPopulation;
     }

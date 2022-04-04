@@ -27,7 +27,7 @@ public class NewBuildingPane : MonoBehaviour
     private List<Building> constructionOptions;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         buildingManager = GameObject.FindObjectOfType<BuildingManager>();
         researchManager = FindObjectOfType<ResearchManager>();
@@ -83,6 +83,7 @@ public class NewBuildingPane : MonoBehaviour
 
     public void UpdateShownBuildings()
     {
+        if (displayedPOI == null) { return; }
         foreach (Transform child in buildingsList.transform)
         {
             if (child.GetComponent<NewBuildingRow>())
@@ -92,8 +93,9 @@ public class NewBuildingPane : MonoBehaviour
         }
 
         var sortedConstructionOptions = (from b in constructionOptions
+                                        orderby researchManager.BuildingIsResearched(b) == false
                                         orderby displayedPOI.CanPurchaseBuilding(b) == false
-                                        select b).ToList();
+                                         select b).ToList();
 
         foreach (Building building in sortedConstructionOptions)
         {

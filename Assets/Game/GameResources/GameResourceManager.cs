@@ -274,6 +274,12 @@ public class GameResourceManager : MonoBehaviour
         science -= amount;
     }
 
+    public void ProcessEndOfTurnResourceUpdates()
+    {
+        money += NetMoneyProduction;
+        science += NetScienceProduction;
+    }
+
     public void CalculateResources()
     {
         moneyProduction = 0;

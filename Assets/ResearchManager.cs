@@ -29,4 +29,18 @@ public class ResearchManager : MonoBehaviour
     {
         return _researchedBuildings.Contains(b);
     }
+
+    public void ResearchBuilding(Building b)
+    {
+        if (_researchedBuildings.Contains(b) == false)
+        {
+            _researchedBuildings.Add(b);
+            var sender = GetComponent<PubSubSender>();
+            if (sender)
+            {
+                sender.Publish("buildingResearched");
+            Debug.Log("?buildingResearched");
+            }
+        }
+    }
 }

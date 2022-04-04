@@ -6,6 +6,8 @@ public class TurnManager : MonoBehaviour
 {
     private GameResourceManager _gm;
 
+    public bool GameStarted { get; protected set; }
+
     public int CurrentTurn { get; private set; }
 
     public List<ClimateEvent> tutorialEvents, realEvents;
@@ -46,6 +48,8 @@ public class TurnManager : MonoBehaviour
         _gm.CalculateResources();
         climateEventManager.StepClimateState(CurrentTurn);
         PublishBeginTurnNotification();
+
+        GameStarted = true;
     }
 
     private void ProcessEndOfTurnEvents()
@@ -81,6 +85,8 @@ public class TurnManager : MonoBehaviour
         PrepareEventSystem();
         _gm.CalculateResources();
 
+        _gm.ProcessEndOfTurnResourceUpdates();
+
         userDidHandleEvent = false;
         PublishBeginTurnNotification();
         CheckAndSendValidNextTurnEvents();
@@ -101,6 +107,10 @@ public class TurnManager : MonoBehaviour
     }
 
     public void CheckAndSendValidNextTurnEvents() {
+        if (GameStarted == false)
+        {
+            return;
+        }
 
         if (!IsCurrentEventHandled()) {
             PublishForbidNextTurnNotification("Current Event not Handled");
@@ -131,6 +141,9 @@ public class TurnManager : MonoBehaviour
 
     private bool userDidHandleEvent = false;
     public bool IsCurrentEventHandled() {
+        Debug.Log("IsCurrentEventHandled");
+        Debug.Log("climateEventManager.CurrentClimateEvent == null " + climateEventManager.CurrentClimateEvent == null);
+        Debug.Log("climateEventManager.CurrentClimateEvent.Responses.Count == 0 " + (climateEventManager.CurrentClimateEvent.Responses.Count == 0).ToString());
         if (climateEventManager.CurrentClimateEvent == null) { return true; }
         if (climateEventManager.CurrentClimateEvent.Responses.Count == 0) { return true; }
         return userDidHandleEvent;

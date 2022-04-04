@@ -148,13 +148,21 @@ public class PointOfInterest : MonoBehaviour
             return false;
         }
 
-        _rm.SpendMoney(b.MoneyCost);
-        ConstructBuilding(b);
-        UpdateBuildingVisuals();
-        PubSubSender sender = GetComponent<PubSubSender>();
-        if (sender)
+        if(_researchManager.BuildingIsResearched(b))
         {
-            sender.Publish("buildingConstructed");
+            _rm.SpendMoney(b.MoneyCost);
+            ConstructBuilding(b);
+            UpdateBuildingVisuals();
+            PubSubSender sender = GetComponent<PubSubSender>();
+            if (sender)
+            {
+                sender.Publish("buildingConstructed");
+            }
+        }
+        else
+        {
+            _rm.SpendResearch(b.ResearchCost);
+            _researchManager.ResearchBuilding(b);
         }
 
         return true;

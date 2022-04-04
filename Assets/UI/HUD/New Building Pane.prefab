@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3410003039607649483}
   - component: {fileID: 4514093939495170521}
   - component: {fileID: 4473865037520325120}
+  - component: {fileID: 780325361689578501}
   m_Layer: 5
   m_Name: New Building Pane
   m_TagString: Untagged
@@ -66,7 +67,51 @@ MonoBehaviour:
   existingBuildingRow: {fileID: 1078515999791760433}
   buildingPrefab: {fileID: 6851120682254419941, guid: 45210e16563f8483da220400776343ad, type: 3}
   filterButtonRow: {fileID: 2278839926906679594}
-  newBuildingRow: {fileID: 3419163643453799835}
+--- !u!114 &780325361689578501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330571995712309473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56e1a9b13b922d428fcbf4039d56d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Subscriptions:
+  - Key: buildingResearched
+    Delegate:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4473865037520325120}
+          m_TargetAssemblyTypeName: NewBuildingPane, Assembly-CSharp
+          m_MethodName: UpdateShownBuildings
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Key: turn.begin
+    Delegate:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4473865037520325120}
+          m_TargetAssemblyTypeName: NewBuildingPane, Assembly-CSharp
+          m_MethodName: UpdateShownBuildings
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &442695784529554420
 GameObject:
   m_ObjectHideFlags: 0
@@ -2895,14 +2940,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7966342794026465132, guid: 45210e16563f8483da220400776343ad, type: 3}
   m_PrefabInstance: {fileID: 3896208319062927282}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3419163643453799835 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1828835168317905449, guid: 45210e16563f8483da220400776343ad, type: 3}
-  m_PrefabInstance: {fileID: 3896208319062927282}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6afff90be099c445490880223cc6788c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
