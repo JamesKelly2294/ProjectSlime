@@ -90,6 +90,12 @@ public class ClimateEventManager : MonoBehaviour
         return AllClimateEvents.Where((e) => e.AgentCost < budget);
     }
 
+    public IEnumerable<ClimateEvent> EventsWithResourceTypeInResponse(double budget, ResourceType resourceType)
+    {
+        var list = new ResourceType[] { resourceType };
+        return EventsWithResourceTypeInResponse(budget, list);
+    }
+
     public IEnumerable<ClimateEvent> EventsWithResourceTypeInResponse(double budget, ResourceType[] resourceTypes)
     {
         var candidates = from e in AllClimateEvents

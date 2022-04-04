@@ -24,12 +24,12 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
             new BinaryTreeNode<DecisionNode>(AnyCurrentEventFollowOnsInBudget(), false), // 1 left child of AnyEventInBudget
             new BinaryTreeNode<DecisionNode>(PickCheapestEventDisregardingBudget(), true), // 2 right child of AnyEventInBudget
             new BinaryTreeNode<DecisionNode>(PickRandomFollowOnsInBudget(), true), // 3 left child of AnyCurrentEventFollowOnsInBudget
-            new BinaryTreeNode<DecisionNode>(AnyEventsWithResourceTypeInBudgetToTarget(ResourceType.BiodiversityPressure, ResourceType.SeaLevelPressure), false), // 4 right child of AnyCurrentEventFollowOnsInBudget
+            new BinaryTreeNode<DecisionNode>(AnyEventsWithResourceTypeToPrioritize(ResourceType.Biodiversity, ResourceType.SeaLevel), false), // 4 right child of AnyCurrentEventFollowOnsInBudget
             new BinaryTreeNode<DecisionNode>(DecisionNode.NoOp, true), // 5 left child of PickCheapestEventDisregardingBudget
             new BinaryTreeNode<DecisionNode>(DecisionNode.NoOp, true), // 6 right child of PickCheapestEventDisregardingBudget
             new BinaryTreeNode<DecisionNode>(DecisionNode.NoOp, true), // 7 left child of PickRandomFollowOnsInBudget
             new BinaryTreeNode<DecisionNode>(DecisionNode.NoOp, true), // 8 right child of PickRandomFollowOnsInBudget
-            new BinaryTreeNode<DecisionNode>(PickEventWithResourceTypeInBudget(ResourceType.BiodiversityPressure, ResourceType.SeaLevelPressure), true), // 9 left child of AnyEventsWithResourceTypeInBudgetToTarget
+            new BinaryTreeNode<DecisionNode>(PickEventWithResourceType(ResourceType.Biodiversity, ResourceType.SeaLevel), true), // 9 left child of AnyEventsWithResourceTypeInBudgetToTarget
             new BinaryTreeNode<DecisionNode>(PickRandomCardInBudget(), true), // 10 right child of AnyEventsWithResourceTypeInBudgetToTarget
             new BinaryTreeNode<DecisionNode>(DecisionNode.NoOp, true), // 11
             new BinaryTreeNode<DecisionNode>(DecisionNode.NoOp, true), // 12
@@ -49,7 +49,7 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
             switch (node.data.type)
             {
                 case DecisionNodeType.Decision:
-                    Debug.Log("Evaluating: Survey says " + (result ? "yes" : "no") + " (index " + index + ")");
+                    Debug.Log("\tSurvey says " + (result ? "yes" : "no") + " (index " + index + ")");
                     index = result ? _decisionTree.LeftIndex(index) : _decisionTree.RightIndex(index);
                     break;
                 case DecisionNodeType.Action:
@@ -63,7 +63,7 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
     {
         Func<bool> evaluator = () =>
         {
-            Debug.Log("Evaluating: Do we have any events in budget?");
+            Debug.Log("Decision: Do we have any events in budget?");
             var events = from e in climateEventManager.EventsInBudget(_agent.Budget)
                                  select e;
             return events.Count() > 0;
@@ -75,7 +75,7 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
     {
         Func<bool> evaluator = () =>
         {
-            Debug.Log("Decision: Nothing in budget, pick the cheapest option.");
+            Debug.Log("Action: Nothing in budget, pick the cheapest option.");
             var events = from e in climateEventManager.AllClimateEvents
                                  orderby e.AgentCost ascending
                                  select e;
@@ -91,7 +91,7 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
     {
         Func<bool> evaluator = () =>
         {
-            Debug.Log("Evaluating: Do we have any follow-on cards available and in budget?");
+            Debug.Log("Decision: Do we have any follow-on cards available and in budget?");
             var followOnEvents = from e in climateEventManager.EventsInBudget(_agent.Budget)
                                  where e.FollowOnEvents.Contains(climateEventManager.CurrentClimateEvent)
                                  select e;
@@ -116,29 +116,63 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
         return new DecisionNode(evaluator, DecisionNodeType.Action);
     }
 
-    public DecisionNode AnyEventsWithResourceTypeInBudgetToTarget(params ResourceType[] targets)
+    public DecisionNode AnyEventsWithResourceTypeToPrioritize(params ResourceType[] targets)
     {
         Func<bool> evaluator = () =>
         {
-            Debug.Log("Evaluating: Are there any cards with " + targets.ToString() + " that we can target?");
-            var chance = BiodiversitySeaLevelProbability.Evaluate(_grm.biodiversityPressure / 10.0f);
-            if (UnityEngine.Random.Range(0.0f, 1.0f) < chance)
+            Debug.Log("Decision: Are there any cards with " + targets.ToString() + " that we can target?");
+            var anyTargets = false;
+            foreach(var resource in targets)
             {
-                return false;
+                var chance = 0.0f;
+                switch (resource) {
+                    case ResourceType.Biodiversity:
+                        float inverseBiodiversity = Mathf.Clamp(_grm.maxBiodiversity - _grm.currentBiodiversity, _grm.minBiodiversity, _grm.maxBiodiversity);
+                        chance = BiodiversitySeaLevelProbability.Evaluate(inverseBiodiversity / _grm.maxBiodiversity);
+                        if (chance >= 0.5)
+                        {
+                            Debug.Log("\tRandomly choose to check for biodiversity pressure events based on current biodiversity.");
+                            anyTargets = anyTargets || climateEventManager.EventsWithResourceTypeInResponse(_agent.Budget, ResourceType.BiodiversityPressure).Count() > 0;
+                        }
+                        else
+                        {
+                            Debug.Log("\tBiodiversity pressure event may exist but we randomly decided to ignore that this time.");
+                        }
+                        break;
+                    case ResourceType.SeaLevel:
+                        chance = BiodiversitySeaLevelProbability.Evaluate((float)_grm.currentSeaLevels / _grm.maxSeaLevels);
+                        if (chance >= 0.5)
+                        {
+                            Debug.Log("\tRandomly choose to check for sea level pressure events.");
+                            anyTargets = anyTargets || climateEventManager.EventsWithResourceTypeInResponse(_agent.Budget, ResourceType.SeaLevelPressure).Count() > 0;
+                        }
+                        else
+                        {
+                            Debug.Log("\tSea level pressure event may exist but we randomly decided to ignore that this time.");
+                        }
+                        break;
+                    default:
+                        anyTargets = anyTargets || climateEventManager.EventsWithResourceTypeInResponse(_agent.Budget, resource).Count() > 0;
+                        break;
+                }
             }
-            return climateEventManager.EventsWithResourceTypeInResponse(_agent.Budget, targets).Count() > 0;
+            return anyTargets;
         };
         return new DecisionNode(evaluator, DecisionNodeType.Decision);
     }
 
-    public DecisionNode PickEventWithResourceTypeInBudget(params ResourceType[] targets)
+    public DecisionNode PickEventWithResourceType(params ResourceType[] targets)
     {
         Func<bool> evaluator = () =>
         {
-            Debug.Log("Action: Target event with resource type " + targets.ToString());
-            var candidates = climateEventManager.EventsWithResourceTypeInResponse(_agent.Budget, targets);
+            var newTargets = targets
+                .Select(t => t == ResourceType.Biodiversity ? ResourceType.BiodiversityPressure : t)
+                .Select(t => t == ResourceType.SeaLevel ? ResourceType.SeaLevelPressure : t);
+            var candidates = climateEventManager.EventsWithResourceTypeInResponse(_agent.Budget, newTargets.ToArray());
             var index = UnityEngine.Random.Range(0, candidates.Count());
             var next = new List<ClimateEvent>(candidates)[index];
+            Debug.Log("Action: Picked an event with specific resource type");
+            Debug.Log("\tEvent: " + next.FlavorText);
             SelectNextEvent(next);
             return false;
         };
@@ -150,15 +184,16 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
         Func<bool> evaluator = () =>
         {
             Debug.Assert(GuardClauses.IsNotEmpty(climateEventManager.AllClimateEvents), "No climate events to work with!");
-            Debug.Log("Decision: Pick a random card thats in budget.");
             var eventsInBudget = climateEventManager.EventsInBudget(_agent.Budget);
             var index = UnityEngine.Random.Range(0, eventsInBudget.Count() - 1);
             if(eventsInBudget.Count() > 0)
             {
                 var next = new List<ClimateEvent>(eventsInBudget)[index];
+                Debug.Log("Action: Picked a random event in budget");
+                Debug.Log("\tEvent: " + next.FlavorText);
                 SelectNextEvent(next);
             }
-            else { Debug.Log("No events in budget, doing nothing."); }
+            else { Debug.Log("\tNo events in budget, doing nothing."); }
             return false; // not actually used for anything. cleanup for later.
         };
         return new DecisionNode(evaluator, DecisionNodeType.Action);
