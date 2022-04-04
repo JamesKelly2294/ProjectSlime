@@ -9,6 +9,7 @@ public class BuildingRow : MonoBehaviour
 {
 
     public Image image;
+    public Image pauseImage;
     public TextMeshProUGUI nameTMP;
     public EffectList effectList;
     public ConstructedBuilding constructedBuilding { get; protected set; }
@@ -35,5 +36,12 @@ public class BuildingRow : MonoBehaviour
         nameTMP.text = building.Name;
         flavorText.text = building.Description;
         effectList.DisplayEffects(building.SortedResourceEffects);
+
+        UpdatePauseImage();
+    }
+
+    public void UpdatePauseImage()
+    {
+        pauseImage.gameObject.SetActive(!constructedBuilding.Active);
     }
 }

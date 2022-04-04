@@ -75,6 +75,57 @@ public class PointOfInterest : MonoBehaviour
         return true;
     }
 
+    public void DecommissionBuilding(ConstructedBuilding b)
+    {
+        ConstructedBuildings.Remove(b);
+        UpdateBuildingVisuals();
+
+        PubSubSender sender = GetComponent<PubSubSender>();
+        if (sender)
+        {
+            sender.Publish("buildingDecommissioned");
+        }
+    }
+
+    public bool CanToggleBuildingPause(ConstructedBuilding b)
+    {
+        return true;
+    }
+
+    public bool ToggleBuildingPauseIfAble(ConstructedBuilding b)
+    {
+        var canToggle = CanToggleBuildingPause(b);
+
+        if (canToggle)
+        {
+            PauseBuilding(b);
+        }
+
+        return canToggle;
+    }
+
+    void PauseBuilding(ConstructedBuilding b)
+    {
+        b.Active = !b.Active;
+
+        var popCost = b.Building.RecurringCostForType(ResourceType.Pop);
+        if (b.Active)
+        {
+            AvailablePopulation -= popCost;
+            ConsumedPopulation += popCost;
+        }
+        else
+        {
+            AvailablePopulation += popCost;
+            ConsumedPopulation -= popCost;
+        }
+
+        PubSubSender sender = GetComponent<PubSubSender>();
+        if (sender)
+        {
+            sender.Publish("buildingPauseToggled");
+        }
+    }
 
     public bool TryPurchaseAndConstructBuilding(Building b)
     {

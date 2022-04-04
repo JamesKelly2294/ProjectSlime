@@ -246,6 +246,7 @@ public class GameResourceManager : MonoBehaviour
         {
             foreach(var b in poi.ConstructedBuildings)
             {
+                if (b.Active == false) { continue; }
                 foreach(var effect in b.Building.ResourceEffects)
                 {
                     activeResourceEffects.Add(effect);

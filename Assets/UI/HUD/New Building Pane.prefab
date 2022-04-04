@@ -356,8 +356,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4390351212361284541}
   m_HandleRect: {fileID: 6107067399612872102}
   m_Direction: 2
-  m_Value: 1.0000018
-  m_Size: 0.8831894
+  m_Value: 1.0000039
+  m_Size: 0.9413891
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1866,6 +1866,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1137137538184258144, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137137538184258144, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4473865037520325120}
+    - target: {fileID: 1137137538184258144, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DecommissionConstructedBuilding
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137137538184258144, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NewBuildingPane, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137137538184258144, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1385302184464458930, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2125,6 +2145,34 @@ PrefabInstance:
     - target: {fileID: 3560014314866249091, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286437002847439860, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: PauseColor.a
+      value: 0.6509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286437002847439860, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: PauseColor.g
+      value: 0.83137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286437002847439860, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: PauseColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286437002847439860, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: ResumeColor.a
+      value: 0.6509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286437002847439860, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: ResumeColor.b
+      value: 0.21050155
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286437002847439860, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: ResumeColor.g
+      value: 0.735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286437002847439860, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: ResumeColor.r
+      value: 0.17007832
       objectReference: {fileID: 0}
     - target: {fileID: 4998776568696013564, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
       propertyPath: m_Name
@@ -2173,6 +2221,26 @@ PrefabInstance:
     - target: {fileID: 5546297949198146941, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649262928183975710, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649262928183975710, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4473865037520325120}
+    - target: {fileID: 5649262928183975710, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TogglePauseConstructedBuildingIfAble
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649262928183975710, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NewBuildingPane, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649262928183975710, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5867413319345109429, guid: 0e5ee0d2884cd4b5488abb6bad8d505c, type: 3}
       propertyPath: m_AnchorMax.y

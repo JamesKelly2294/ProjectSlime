@@ -13,6 +13,13 @@ public class ExistingBuildingRow : MonoBehaviour
 
     public ConstructedBuilding constructedBuilding;
 
+    public StandardButton DecommissionButton;
+    public StandardButton PauseButton;
+
+    // This should really all be on a pause button script...
+    public Color PauseColor;
+    public Color ResumeColor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,15 +40,23 @@ public class ExistingBuildingRow : MonoBehaviour
         image.sprite = building.PreviewImage;
         flavorText.text = building.Description;
         effectList.DisplayEffects(building.SortedResourceEffects);
+
+        SetupPauseButton();
     }
 
-    public void PauseConstructedBuilding()
+    public void SetupPauseButton()
     {
-
-    }
-
-    public void DecommissionConstructedBuilding()
-    {
-
+        if (constructedBuilding.Active)
+        {
+            PauseButton.GetComponentInChildren<TextMeshProUGUI>().text = "Pause";
+            PauseButton.GetComponentInChildren<Image>().color = PauseColor;
+            PauseButton.transform.Find("Image").gameObject.SetActive(true);
+        }
+        else
+        {
+            PauseButton.GetComponentInChildren<TextMeshProUGUI>().text = "Resume";
+            PauseButton.GetComponentInChildren<Image>().color = ResumeColor;
+            PauseButton.transform.Find("Image").gameObject.SetActive(false);
+        }
     }
 }

@@ -115,4 +115,15 @@ public class NewBuildingPane : MonoBehaviour
         }
     }
 
+    public void TogglePauseConstructedBuildingIfAble()
+    {
+        displayedPOI.ToggleBuildingPauseIfAble(displayedExistingBuilding);
+    }
+
+    public void DecommissionConstructedBuilding()
+    {
+        Debug.Log("DecommissionConstructedBuilding");
+        displayedPOI.DecommissionBuilding(displayedExistingBuilding);
+        Hide();
+    }
 }

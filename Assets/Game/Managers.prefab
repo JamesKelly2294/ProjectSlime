@@ -620,10 +620,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7791857763415589210}
     m_Modifications:
-    - target: {fileID: 1730506687769617752, guid: 088e10c502b4e43ee8744e61f885fa87, type: 3}
-      propertyPath: PointOfInterestSelectionPrefab
-      value: 
-      objectReference: {fileID: 5001065253974957127, guid: db699db5aa8fb401c8a4873ce891d6bb, type: 3}
     - target: {fileID: 2297844235660262752, guid: 088e10c502b4e43ee8744e61f885fa87, type: 3}
       propertyPath: m_RootOrder
       value: 2

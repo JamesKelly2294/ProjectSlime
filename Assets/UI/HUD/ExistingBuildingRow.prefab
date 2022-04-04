@@ -669,6 +669,7 @@ MonoBehaviour:
   costTMP: {fileID: 0}
   effectList: {fileID: 5939649885317380309}
   flavorText: {fileID: 5900988638780739920}
+  buildingCanBePurchased: 0
 --- !u!114 &2698178835884775889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -861,6 +862,7 @@ GameObject:
   - component: {fileID: 8761104898443870061}
   - component: {fileID: 8236698984123345477}
   - component: {fileID: 4286437002847439860}
+  - component: {fileID: 2386099256611435504}
   m_Layer: 5
   m_Name: ExistingBuildingRow
   m_TagString: Untagged
@@ -931,6 +933,39 @@ MonoBehaviour:
   image: {fileID: 6959606828099189448}
   effectList: {fileID: 5939649885317380309}
   flavorText: {fileID: 5900988638780739920}
+  DecommissionButton: {fileID: 1137137538184258144}
+  PauseButton: {fileID: 5649262928183975710}
+  PauseColor: {r: 0, g: 0, b: 0, a: 0}
+  ResumeColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &2386099256611435504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998776568696013564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56e1a9b13b922d428fcbf4039d56d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Subscriptions:
+  - Key: buildingPauseToggled
+    Delegate:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4286437002847439860}
+          m_TargetAssemblyTypeName: ExistingBuildingRow, Assembly-CSharp
+          m_MethodName: SetupPauseButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6664570751439606490
 GameObject:
   m_ObjectHideFlags: 0
