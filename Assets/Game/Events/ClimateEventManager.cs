@@ -42,11 +42,6 @@ public class ClimateEventManager : MonoBehaviour
         get
         {
             var currentTurn = _tm.CurrentTurn;
-            foreach (var d in ClimateDecisions)
-            {
-                if (d == null || d.choice == null) { continue; }
-                Debug.Log("Decision " + d.choice.FlavorText + " was made on " + d.turn + " with a duration of " + d.choice.TurnDuration + ". It is currently turn " + currentTurn + "and currentTurn - d.turn) <= d.choice.TurnDuration =" + ((currentTurn - d.turn) <= d.choice.TurnDuration));
-            }
             return from d in ClimateDecisions
                 where d != null && d.choice != null
                 where (currentTurn - d.turn) < d.choice.TurnDuration
@@ -61,7 +56,7 @@ public class ClimateEventManager : MonoBehaviour
             var currentTurn = _tm.CurrentTurn;
             return from d in ClimateDecisions
                    where d != null && d.choice != null
-                   where (currentTurn - d.turn) > d.choice.TurnDuration
+                   where (currentTurn - d.turn) >= d.choice.TurnDuration
                    select d;
         }
     }
