@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d196fc4588ff94f802877b57abcb05, type: 3}
+  m_Name: 116_ANewSpeciesOfTicks
+  m_EditorClassIdentifier: 
+  Title: A New Species of Ticks!
+  FlavorText: "\"Despite our overall biodiversity being low, and seemingly getting
+    worse all the time, a new specious of tick has been identified.\n\nThe <i>Ixodes
+    Gigantica </i> is a one meter long tick that grabs the back of the neck of humans,
+    and other large mammals. They don\u2019t seem to be ill-tolerated by the human.\""
+  Requirements: []
+  Responses:
+  - FlavorText: Burn with fire
+    ResourceEffects:
+    - AffectedResource: 9
+      EffectAmount: -1
+    - AffectedResource: 6
+      EffectAmount: -1
+    SpecialEffects: []
+    TurnDuration: 1000
+  - FlavorText: Get Yours Today!
+    ResourceEffects:
+    - AffectedResource: 0
+      EffectAmount: 10
+    - AffectedResource: 9
+      EffectAmount: 1
+    - AffectedResource: 6
+      EffectAmount: 1
+    SpecialEffects: []
+    TurnDuration: 1000
+  FollowOnEvents: []
+  SpecialEffects: []
+  AgentCost: 0
+  IsOneShot: 1
