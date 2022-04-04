@@ -16,7 +16,7 @@ MonoBehaviour:
   Description: Manages the day-to-day administrative needs of the region. Responsible
     for securing funding from the region's nations and inhabitants.
   VisualsPrefab: {fileID: 3473304969274171468, guid: 683a14055e9a64e158813e6354372a4b, type: 3}
-  PreviewImage: {fileID: 21300000, guid: 968f0c1a9fcb247e3b86f68778effede, type: 3}
+  PreviewImage: {fileID: 21300000, guid: fc3c45a262b774bca9ed9ea95f3e11c3, type: 3}
   RegionCapital: 1
   Buildable: 0
   Disableable: 0

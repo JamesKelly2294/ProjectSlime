@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: Research Facility
   Description: A research building.
   VisualsPrefab: {fileID: 3473304969274171468, guid: 8858a78d757454637ac2d284226197a7, type: 3}
-  PreviewImage: {fileID: 21300000, guid: 7d5b627521fb646c6ba67713e79ddde4, type: 3}
+  PreviewImage: {fileID: 21300000, guid: ffde729fabe1c4bdcb092a6ae488382a, type: 3}
   RegionCapital: 0
   Buildable: 1
   Disableable: 1

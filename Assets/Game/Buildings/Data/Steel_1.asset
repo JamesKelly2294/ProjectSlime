@@ -15,12 +15,13 @@ MonoBehaviour:
   Name: Steel Mill
   Description: A steel production facility.
   VisualsPrefab: {fileID: 3473304969274171468, guid: 12416f351f0944d59bb14e7ef3c26f9d, type: 3}
-  PreviewImage: {fileID: 21300000, guid: 1e598f73344ec4dfb9d3e912ba79a50a, type: 3}
+  PreviewImage: {fileID: 21300000, guid: f41c3ca80c94045bcaebcdf8d5ccf9d4, type: 3}
   RegionCapital: 0
   Buildable: 1
   Disableable: 1
   Deconstructable: 1
   MoneyCost: -150
+  ResearchCost: 0
   ResourceEffects:
   - AffectedResource: 8
     EffectAmount: -1
