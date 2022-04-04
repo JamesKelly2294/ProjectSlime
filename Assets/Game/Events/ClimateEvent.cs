@@ -19,6 +19,12 @@ public class ClimateEvent : ScriptableObject
     public string FlavorText;
 
     /**
+     * Resource requirements that must be met before the event is available.
+     */
+    [SerializeField]
+    public List<ClimateEventRequirement> Requirements;
+
+    /**
      * Ways the player can response to the event.
      */
     [SerializeField]

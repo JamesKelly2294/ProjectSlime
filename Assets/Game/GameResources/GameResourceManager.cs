@@ -139,7 +139,50 @@ public class GameResourceManager : MonoBehaviour
     public Sprite seaLevelSprite, seaLevelSprite2x, seaLevelSprite3x;
     public Sprite seaLevelPreasureSprite, seaLevelPreasureSprite2x, seaLevelPreasureSprite3x;
     public Sprite timeToExtictionSprite, timeToExtictionSprite2x, timeToExtictionSprite3x;
-    
+
+    public int GetValueForResourceType(ResourceType resourceType, ClimateEventRequirement.ResourceMode mode, bool isOneShot)
+    {
+        if (isOneShot)
+        {
+            switch(resourceType)
+            {
+                case ResourceType.Money:
+                    break;
+                case ResourceType.Research:
+                    // TODO
+                    break;
+                case ResourceType.Biodiversity:
+                    break;
+                case ResourceType.SeaLevel:
+                    break;
+                case ResourceType.Pop:
+                    break;
+                // Add time to extiction here.
+            }
+            return -1337; // user error
+        }
+
+        var isProduction = mode == ClimateEventRequirement.ResourceMode.Production;
+        switch (resourceType)
+        {
+            case ResourceType.Energy:
+                return isProduction ? energyCleanProduction + energyDirtyProduction : energyCleanConsumption + energyDirtyConsumption;
+            case ResourceType.CleanEnergy:
+                return isProduction ? energyCleanProduction : energyCleanConsumption;
+            case ResourceType.DirtyEnergy:
+                return isProduction ? energyDirtyProduction : energyDirtyConsumption;
+            case ResourceType.LowTechMat:
+                return isProduction ? steelProduction : steelConsumption;
+            case ResourceType.HighTechMat:
+                return isProduction ? titaniumProduction : titaniumConsumption;
+            case ResourceType.Biomass:
+                return isProduction ? biomassProduction : biomassConsumption;
+            case ResourceType.Research:
+                // TODO:
+                break;
+        }
+        return -1337; // user error
+    }
 
     public Sprite[] GetSpritesForResource(ResourceType resourceType) {
         switch (resourceType) {
