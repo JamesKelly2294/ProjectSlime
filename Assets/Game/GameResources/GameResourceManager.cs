@@ -12,7 +12,10 @@ public class GameResourceManager : MonoBehaviour
 
     public int NetMoneyProduction { get { return moneyProduction - moneyConsumption; } }
 
+    public int science { get; private set; } = 0;
     public int scienceProduction { get; private set; } = 0;
+    public int scienceConsumption { get; private set; } = 0;
+    public int NetScienceProduction { get { return scienceProduction - scienceConsumption; } }
 
     public int biomassConsumption { get; private set; } = 0;
 
@@ -250,6 +253,8 @@ public class GameResourceManager : MonoBehaviour
         {
             case ResourceType.Money:
                 return money - amount >= 0;
+            case ResourceType.Research:
+                return science - amount >= 0;
             default:
                 return true;
         }
@@ -262,11 +267,19 @@ public class GameResourceManager : MonoBehaviour
         money -= amount;
     }
 
+    public void SpendResearch(int amount)
+    {
+        amount = Mathf.Abs(amount);
+
+        science -= amount;
+    }
+
     public void CalculateResources()
     {
         moneyProduction = 0;
         moneyConsumption = 0;
         scienceProduction = 0;
+        scienceConsumption = 0;
         biomassConsumption = 0;
         biomassProduction = 0;
         energyConsumption = 0;
@@ -366,7 +379,14 @@ public class GameResourceManager : MonoBehaviour
                     }
                     break;
                 case ResourceType.Research:
-                    scienceProduction += effect.EffectAmount;
+                    if (effect.EffectAmount > 0)
+                    {
+                        scienceProduction += effect.EffectAmount;
+                    }
+                    else
+                    {
+                        scienceConsumption -= effect.EffectAmount;
+                    }
                     break;
                 case ResourceType.Pop:
                     break;
