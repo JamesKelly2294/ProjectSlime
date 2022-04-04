@@ -58,6 +58,7 @@ public class EventAlert : MonoBehaviour
             int remaining = yearDone - turnManager.CurrentTurnAsYear;
             if (remaining > ClimateEventResponse.SentinelForInfinite)
             {
+                outcomeDurationTMP.gameObject.SetActive(false);
                 outcomeDurationTMP.text = "";
             }
             else if (remaining == 1) {
@@ -94,7 +95,7 @@ public class EventAlert : MonoBehaviour
             eventAlertButton.title.text = response.FlavorText;
             eventAlertButton.effectList.DisplayEffects(response.SortedResourceEffects);
             eventAlertButton.index = index;
-            eventAlertButton.durationTMP.gameObject.SetActive(response.TurnDuration > 0 && response.TurnDuration < ClimateEventResponse.SentinelForInfinite);
+            eventAlertButton.durationTMP.gameObject.SetActive(response.TurnDuration > 0 && response.TurnDuration <= ClimateEventResponse.SentinelForInfinite);
             if (response.TurnDuration > ClimateEventResponse.SentinelForInfinite)
             {
                 eventAlertButton.durationTMP.text = "";
@@ -118,7 +119,7 @@ public class EventAlert : MonoBehaviour
 
         outcomeTMP.text = response.FlavorText;
         outcomeEffects.DisplayEffects(response.SortedResourceEffects);
-        outcomeTotalDurationTMP.gameObject.SetActive(response.TurnDuration > 0);
+        outcomeTotalDurationTMP.gameObject.SetActive(response.TurnDuration > 0 && response.TurnDuration <= ClimateEventResponse.SentinelForInfinite);
         outcomeYouChoose.text = "In " + turnManager.CurrentTurnAsYear + " you chose:";
         if (response.TurnDuration > ClimateEventResponse.SentinelForInfinite)
         {
