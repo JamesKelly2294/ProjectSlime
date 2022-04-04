@@ -10,11 +10,15 @@ public class GameResourceManager : MonoBehaviour
 
     public int moneyConsumption { get; private set; } = 0;
 
+    public int NetMoneyProduction { get { return moneyProduction - moneyConsumption; } }
+
     public int scienceProduction { get; private set; } = 0;
 
     public int biomassConsumption { get; private set; } = 0;
 
     public int biomassProduction { get; private set; } = 0;
+
+    public int NetBiomassProduction { get { return biomassProduction - biomassConsumption; } }
 
     public int energyConsumption { get; private set; } = 0;
 
@@ -41,6 +45,8 @@ public class GameResourceManager : MonoBehaviour
 
     public int energyProduction { get { return energyCleanProduction + energyDirtyProduction; } }
 
+    public int NetEnergyProduction { get { return energyProduction - energyConsumption; } }
+
     public int energyCleanProduction { get; private set; } = 0;
 
     public int energyDirtyProduction { get; private set; } = 0;
@@ -49,9 +55,13 @@ public class GameResourceManager : MonoBehaviour
 
     public int steelProduction { get; private set; } = 0;
 
+    public int NetSteelProduction { get { return steelProduction - steelConsumption; } }
+
     public int titaniumConsumption { get; private set; } = 0;
 
     public int titaniumProduction { get; private set; } = 0;
+
+    public int NetTitaniumProduction { get { return titaniumProduction - titaniumConsumption; } }
 
     public int currentSeaLevels { get; private set; } = 0;
     public int maxSeaLevels { get; private set; } = 10;
@@ -171,9 +181,45 @@ public class GameResourceManager : MonoBehaviour
         return GetSpritesForResource(resourceType)[oneIndexedScale - 1];
     }
 
+    public bool CanAffordResourceConsumption(ResourceType type, int amount)
+    {
+        amount = Mathf.Abs(amount);
+        switch (type)
+        {
+            case ResourceType.Energy:
+                return NetEnergyProduction - amount >= 0;
+            case ResourceType.LowTechMat:
+                return NetSteelProduction - amount >= 0;
+            case ResourceType.HighTechMat:
+                return NetTitaniumProduction - amount >= 0;
+            case ResourceType.Biomass:
+                return NetBiomassProduction - amount >= 0;
+            default:
+                return true;
+        }
+    }
+
+    public bool CanAffordResourceOneShot(ResourceType type, int amount)
+    {
+        amount = Mathf.Abs(amount);
+        switch (type)
+        {
+            case ResourceType.Money:
+                return money - amount >= 0;
+            default:
+                return true;
+        }
+    }
+
+    public void SpendMoney(int amount)
+    {
+        amount = Mathf.Abs(amount);
+
+        money -= amount;
+    }
+
     public void CalculateResources()
     {
-        Debug.Log("CalculateResources");
         moneyProduction = 0;
         moneyConsumption = 0;
         scienceProduction = 0;
@@ -223,12 +269,10 @@ public class GameResourceManager : MonoBehaviour
                     if (effect.EffectAmount > 0)
                     {
                         moneyProduction += effect.EffectAmount;
-                        Debug.Log("Money production = " + moneyProduction + ", after += " + effect.EffectAmount);
                     }
                     else
                     {
                         moneyConsumption -= effect.EffectAmount;
-                        Debug.Log("moneyConsumption = " + moneyConsumption + ", after -= " + effect.EffectAmount);
                     }
                     break;
                 case ResourceType.Energy:

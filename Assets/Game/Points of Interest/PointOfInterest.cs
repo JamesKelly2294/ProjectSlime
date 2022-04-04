@@ -26,10 +26,12 @@ public class PointOfInterest : MonoBehaviour
 
     private Earth _earth;
     private GameObject _buildingVisualsParentGO;
+    private GameResourceManager _rm;
 
     public void Start()
     {
         _earth = FindObjectOfType<Earth>();
+        _rm = FindObjectOfType<GameResourceManager>();
         FindObjectOfType<PointOfInterestManager>().RegisterPointOfInterest(this);
 
         gameObject.transform.name = "POI " + Name;
@@ -51,15 +53,26 @@ public class PointOfInterest : MonoBehaviour
 
     public bool CanPurchaseBuilding(Building b)
     {
-        bool canConstruct = true;
-
         var popCost = b.RecurringCostForType(ResourceType.Pop);
         if (popCost > AvailablePopulation)
         {
-            canConstruct = false;
+            return false;
         }
 
-        return canConstruct;
+        foreach(var effect in b.ResourceEffects)
+        {
+            if (effect.EffectAmount < 0 && !_rm.CanAffordResourceConsumption(effect.AffectedResource, effect.EffectAmount))
+            {
+                return false;
+            }
+        }
+
+        if (!_rm.CanAffordResourceOneShot(ResourceType.Money, b.MoneyCost))
+        {
+            return false;
+        }
+
+        return true;
     }
 
 
@@ -70,6 +83,7 @@ public class PointOfInterest : MonoBehaviour
             return false;
         }
 
+        _rm.SpendMoney(b.MoneyCost);
         ConstructBuilding(b);
         UpdateBuildingVisuals();
         PubSubSender sender = GetComponent<PubSubSender>();

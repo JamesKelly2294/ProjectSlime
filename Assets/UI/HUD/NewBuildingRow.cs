@@ -14,6 +14,8 @@ public class NewBuildingRow : MonoBehaviour
 
     public TextMeshProUGUI flavorText;
 
+    public bool buildingCanBePurchased;
+
     private Building _building;
     private PointOfInterest _poi;
     private NewBuildingPane _newBuildingPane;
@@ -44,12 +46,14 @@ public class NewBuildingRow : MonoBehaviour
         var button = GetComponent<StandardButton>();
         if (poi.CanPurchaseBuilding(building))
         {
-            button.interactable = true;
+            buildingCanBePurchased = true;
         }
         else
         {
-            button.interactable = false;
+            buildingCanBePurchased = false;
         }
+
+        button.interactable = buildingCanBePurchased;
     }
 
     public void RequestConstruction()

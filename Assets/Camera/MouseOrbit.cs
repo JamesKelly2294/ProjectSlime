@@ -72,15 +72,17 @@ public class MouseOrbit : MonoBehaviour
             return;
         }
 
-        //We are in editor
-        if (Application.isEditor || Application.platform == RuntimePlatform.WindowsPlayer)
-        {
-            EditorCameraInput();
-        }
-        else //We are in mobile mode
-        {
-            TouchCameraInput();
-        }
+        ////We are in editor
+        //if (Application.isEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+        //{
+        //    EditorCameraInput();
+        //}
+        //else //We are in mobile mode
+        //{
+        //    TouchCameraInput();
+        //}
+        EditorCameraInput();
+
         if (Input.GetKeyDown(KeyCode.F))
         {
             FrontView();
@@ -195,15 +197,19 @@ public class MouseOrbit : MonoBehaviour
     }
     private void RotateCamera()
     {
-        if (Application.isEditor || Application.platform == RuntimePlatform.WindowsPlayer)
-        {
-            Vector3 tempV = new Vector3(rotX, rotY, 0);
-            targetRot = Quaternion.Euler(tempV); //We are setting the rotation around X, Y, Z axis respectively
-        }
-        else
-        {
-            targetRot = Quaternion.Euler(-swipeDirection.y, swipeDirection.x, 0);
-        }
+        //if (Application.isEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+        //{
+        //    Vector3 tempV = new Vector3(rotX, rotY, 0);
+        //    targetRot = Quaternion.Euler(tempV); //We are setting the rotation around X, Y, Z axis respectively
+        //}
+        //else
+        //{
+        //    targetRot = Quaternion.Euler(-swipeDirection.y, swipeDirection.x, 0);
+        //}
+
+        Vector3 tempV = new Vector3(rotX, rotY, 0);
+        targetRot = Quaternion.Euler(tempV); //We are setting the rotation around X, Y, Z axis respectively
+
         //Rotate Camera
         currentRot = Quaternion.Slerp(currentRot, targetRot, Time.smoothDeltaTime * slerpSmoothValue * 50);  //let cameraRot value gradually reach newQ which corresponds to our touch
                                                                                                              //Multiplying a quaternion by a Vector3 is essentially to apply the rotation to the Vector3

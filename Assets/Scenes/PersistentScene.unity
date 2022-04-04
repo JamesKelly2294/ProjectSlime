@@ -896,7 +896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 381270384}
   progressBar: {fileID: 1638620400}
-  loadGameSceneName: JamesScene
+  loadGameSceneName: GameTest
 --- !u!114 &515855313
 MonoBehaviour:
   m_ObjectHideFlags: 0

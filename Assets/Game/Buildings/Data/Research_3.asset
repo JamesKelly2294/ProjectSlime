@@ -27,7 +27,7 @@ MonoBehaviour:
   - AffectedResource: 1
     EffectAmount: -6
   - AffectedResource: 0
-    EffectAmount: -20
+    EffectAmount: -30
   - AffectedResource: 7
     EffectAmount: 8
   SpecialEffects: []

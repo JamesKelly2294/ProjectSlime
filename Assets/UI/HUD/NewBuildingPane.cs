@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class NewBuildingPane : MonoBehaviour
 {
@@ -86,7 +87,11 @@ public class NewBuildingPane : MonoBehaviour
             }
         }
 
-        foreach (Building building in constructionOptions)
+        var sortedConstructionOptions = (from b in constructionOptions
+                                        orderby displayedPOI.CanPurchaseBuilding(b) == false
+                                        select b).ToList();
+
+        foreach (Building building in sortedConstructionOptions)
         {
             bool shouldShowBuilding = false;
             foreach (var effect in building.ResourceEffects)
