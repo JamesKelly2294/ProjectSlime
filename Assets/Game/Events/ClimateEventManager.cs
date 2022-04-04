@@ -82,12 +82,12 @@ public class ClimateEventManager : MonoBehaviour
         
     }
 
-    public IEnumerable<ClimateEvent> EventsInBudget(int budget)
+    public IEnumerable<ClimateEvent> EventsInBudget(double budget)
     {
         return AllClimateEvents.Where((e) => e.AgentCost < budget);
     }
 
-    public IEnumerable<ClimateEvent> EventsWithResourceTypeInResponse(int budget, ResourceType[] resourceTypes)
+    public IEnumerable<ClimateEvent> EventsWithResourceTypeInResponse(double budget, ResourceType[] resourceTypes)
     {
         var candidates = from e in AllClimateEvents
                          where e.AgentCost < budget
@@ -110,6 +110,6 @@ public class ClimateEventManager : MonoBehaviour
         // This will implicitly make NextClimateEvent equal to the next event that we want to run. 
         _agent.DoTheThing();
 
-        Debug.Assert(NextClimateEvent == null, "Morgan made a mistake.");
+        Debug.Assert(NextClimateEvent != null, "Morgan made a mistake.");
     }
 }

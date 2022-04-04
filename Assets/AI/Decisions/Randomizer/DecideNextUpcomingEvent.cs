@@ -20,19 +20,26 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
         _agent = FindObjectOfType<RandomizerAgent>();
         _grm = FindObjectOfType<GameResourceManager>();
         var nodes = new BinaryTreeNode<DecisionNode>[] {
-                new BinaryTreeNode<DecisionNode>(AnyCurrentEventFollowOnsInBudget(), false),
-                new BinaryTreeNode<DecisionNode>(PickRandomFollowOnsInBudget(), true), // left child of AnyCurrentEventFollowOnsInBudget
-                new BinaryTreeNode<DecisionNode>(AnyEventsWithResourceTypeInBudgetToTarget(ResourceType.BiodiversityPressure, ResourceType.SeaLevelPressure), false), // right child of AnyCurrentEventFollowOnsInBudget
-                new BinaryTreeNode<DecisionNode>(DecisionNode.NoOp, true), // left child of PickRandomFollowOnsInBudget
-                new BinaryTreeNode<DecisionNode>(DecisionNode.NoOp, true), // right child of PickRandomFollowOnsInBudget
-                new BinaryTreeNode<DecisionNode>(PickEventWithResourceTypeInBudget(ResourceType.BiodiversityPressure, ResourceType.SeaLevelPressure), true), // left child of AnyEventsWithResourceTypeInBudgetToTarget
-                new BinaryTreeNode<DecisionNode>(PickRandomCardInBudget(), true) // right child of AnyEventsWithResourceTypeInBudgetToTarget
+            new BinaryTreeNode<DecisionNode>(AnyEventInBudget(), false), // 0
+            new BinaryTreeNode<DecisionNode>(AnyCurrentEventFollowOnsInBudget(), false), // 1 left child of AnyEventInBudget
+            new BinaryTreeNode<DecisionNode>(PickCheapestEventDisregardingBudget(), true), // 2 right child of AnyEventInBudget
+            new BinaryTreeNode<DecisionNode>(PickRandomFollowOnsInBudget(), true), // 3 left child of AnyCurrentEventFollowOnsInBudget
+            new BinaryTreeNode<DecisionNode>(AnyEventsWithResourceTypeInBudgetToTarget(ResourceType.BiodiversityPressure, ResourceType.SeaLevelPressure), false), // 4 right child of AnyCurrentEventFollowOnsInBudget
+            new BinaryTreeNode<DecisionNode>(DecisionNode.NoOp, true), // 5 left child of PickCheapestEventDisregardingBudget
+            new BinaryTreeNode<DecisionNode>(DecisionNode.NoOp, true), // 6 right child of PickCheapestEventDisregardingBudget
+            new BinaryTreeNode<DecisionNode>(DecisionNode.NoOp, true), // 7 left child of PickRandomFollowOnsInBudget
+            new BinaryTreeNode<DecisionNode>(DecisionNode.NoOp, true), // 8 right child of PickRandomFollowOnsInBudget
+            new BinaryTreeNode<DecisionNode>(PickEventWithResourceTypeInBudget(ResourceType.BiodiversityPressure, ResourceType.SeaLevelPressure), true), // 9 left child of AnyEventsWithResourceTypeInBudgetToTarget
+            new BinaryTreeNode<DecisionNode>(PickRandomCardInBudget(), true), // 10 right child of AnyEventsWithResourceTypeInBudgetToTarget
+            new BinaryTreeNode<DecisionNode>(DecisionNode.NoOp, true), // 11
+            new BinaryTreeNode<DecisionNode>(DecisionNode.NoOp, true), // 12
         };
         _decisionTree = new BinaryTree<DecisionNode>(nodes);
     }
 
     public void Decide()
     {
+        Debug.Log("Agent Budget: " + _agent.Budget);
         bool isDecided = false;
         int index = 0;
         do
@@ -42,7 +49,7 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
             switch (node.data.type)
             {
                 case DecisionNodeType.Decision:
-                    Debug.Log("Evaluating: Survey says " + (result ? "yes" : "no"));
+                    Debug.Log("Evaluating: Survey says " + (result ? "yes" : "no") + " (index " + index + ")");
                     index = result ? _decisionTree.LeftIndex(index) : _decisionTree.RightIndex(index);
                     break;
                 case DecisionNodeType.Action:
@@ -50,6 +57,34 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
                     break;
             }
         } while (!isDecided);
+    }
+
+    public DecisionNode AnyEventInBudget()
+    {
+        Func<bool> evaluator = () =>
+        {
+            Debug.Log("Evaluating: Do we have any events in budget?");
+            var events = from e in climateEventManager.EventsInBudget(_agent.Budget)
+                                 select e;
+            return events.Count() > 0;
+        };
+        return new DecisionNode(evaluator, DecisionNodeType.Decision);
+    }
+
+    public DecisionNode PickCheapestEventDisregardingBudget()
+    {
+        Func<bool> evaluator = () =>
+        {
+            Debug.Log("Decision: Nothing in budget, pick the cheapest option.");
+            var events = from e in climateEventManager.AllClimateEvents
+                                 orderby e.AgentCost ascending
+                                 select e;
+            var climateEvent = events.FirstOrDefault();
+            Debug.Assert(climateEvent != default(ClimateEvent), "Verify that we have at least one climate event to work with.");
+            SelectNextEvent(climateEvent);
+            return false;
+        };
+        return new DecisionNode(evaluator, DecisionNodeType.Action);
     }
 
     public DecisionNode AnyCurrentEventFollowOnsInBudget()
@@ -103,7 +138,8 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
             Debug.Log("Action: Target event with resource type " + targets.ToString());
             var candidates = climateEventManager.EventsWithResourceTypeInResponse(_agent.Budget, targets);
             var index = UnityEngine.Random.Range(0, candidates.Count());
-            SelectNextEvent(new List<ClimateEvent>(candidates)[index]);
+            var next = new List<ClimateEvent>(candidates)[index];
+            SelectNextEvent(next);
             return false;
         };
         return new DecisionNode(evaluator, DecisionNodeType.Action);
@@ -117,7 +153,12 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
             Debug.Log("Decision: Pick a random card thats in budget.");
             var eventsInBudget = climateEventManager.EventsInBudget(_agent.Budget);
             var index = UnityEngine.Random.Range(0, eventsInBudget.Count() - 1);
-            SelectNextEvent(new List<ClimateEvent>(eventsInBudget)[index]);
+            if(eventsInBudget.Count() > 0)
+            {
+                var next = new List<ClimateEvent>(eventsInBudget)[index];
+                SelectNextEvent(next);
+            }
+            else { Debug.Log("No events in budget, doing nothing."); }
             return false; // not actually used for anything. cleanup for later.
         };
         return new DecisionNode(evaluator, DecisionNodeType.Action);
@@ -126,9 +167,6 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
     public void SelectNextEvent(ClimateEvent ce)
     {
         climateEventManager.NextClimateEvent = ce;
-
-        // TODO: Figure out what to actually do with the budget.
-        _agent.Budget = _agent.Budget - (int)(climateEventManager.NextClimateEvent.AgentCost * 100) + _agent.BudgetProduction;
 
         // Trigger the UI to do stuff?
     }
