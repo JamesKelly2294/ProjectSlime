@@ -25,7 +25,7 @@ public class FilterButtonRow : MonoBehaviour
             var filterButton = go.GetComponent<FilterButton>();
             filterButton.SetResourceType(resourceType, this);
 
-            go.transform.parent = transform;
+            go.transform.SetParent(transform, false);
 
             filterButtons.Add(filterButton);
         }

@@ -402,8 +402,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4390351212361284541}
   m_HandleRect: {fileID: 6107067399612872102}
   m_Direction: 2
-  m_Value: 1.000008
-  m_Size: 0.9701769
+  m_Value: 1.0000039
+  m_Size: 0.97017664
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -853,22 +853,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4782225206670339558}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: endTurnButton.wasPressed
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6254084336832378041}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 4473865037520325120}
+        m_TargetAssemblyTypeName: NewBuildingPane, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1668,9 +1656,33 @@ PrefabInstance:
       value: FilterSearchRow
       objectReference: {fileID: 0}
     - target: {fileID: 1914733861051511065, guid: 7dad51342b2b846968f331ce47c6bf9f, type: 3}
+      propertyPath: onFilterChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914733861051511065, guid: 7dad51342b2b846968f331ce47c6bf9f, type: 3}
+      propertyPath: onFilterChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914733861051511065, guid: 7dad51342b2b846968f331ce47c6bf9f, type: 3}
       propertyPath: onFilterChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4473865037520325120}
+    - target: {fileID: 1914733861051511065, guid: 7dad51342b2b846968f331ce47c6bf9f, type: 3}
+      propertyPath: onFilterChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914733861051511065, guid: 7dad51342b2b846968f331ce47c6bf9f, type: 3}
+      propertyPath: onFilterChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateShownBuildings
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914733861051511065, guid: 7dad51342b2b846968f331ce47c6bf9f, type: 3}
+      propertyPath: onFilterChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NewBuildingPane, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914733861051511065, guid: 7dad51342b2b846968f331ce47c6bf9f, type: 3}
+      propertyPath: onFilterChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7309476130411349073, guid: 7dad51342b2b846968f331ce47c6bf9f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
