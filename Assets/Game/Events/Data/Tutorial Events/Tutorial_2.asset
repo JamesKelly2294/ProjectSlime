@@ -31,7 +31,8 @@ MonoBehaviour:
     ResourceEffects: []
     SpecialEffects:
     - Type: 1
-    TurnDuration: 0
+    TurnDuration: 1000
   FollowOnEvents: []
+  SpecialEffects: []
   AgentCost: 1
   IsOneShot: 1

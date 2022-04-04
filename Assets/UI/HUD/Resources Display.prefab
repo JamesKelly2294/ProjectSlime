@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 1561765486640340946}
   - component: {fileID: 9143005449904121945}
   - component: {fileID: 632131915776132539}
+  - component: {fileID: 3095802988337082153}
   m_Layer: 5
   m_Name: Money Summary
   m_TagString: Untagged
@@ -465,6 +466,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: {fileID: 4297532480461918970}
   detail: {fileID: 4297532481711722578}
+--- !u!114 &3095802988337082153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2486418693249778629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207914c9a6af440dba8f514b28b8782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 6697281962071585261, guid: ae5ba4fa48b0b40a382173ede2b8e394, type: 3}
 --- !u!1 &2680532346336509905
 GameObject:
   m_ObjectHideFlags: 0
@@ -2197,6 +2211,7 @@ GameObject:
   - component: {fileID: 901419364075522651}
   - component: {fileID: 4656468029255475791}
   - component: {fileID: 8665033393588985655}
+  - component: {fileID: 2726311090860907439}
   m_Layer: 5
   m_Name: Population Summary
   m_TagString: Untagged
@@ -2337,6 +2352,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: {fileID: 7617268785252535633}
   detail: {fileID: 0}
+--- !u!114 &2726311090860907439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5693995662203165211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207914c9a6af440dba8f514b28b8782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 5877632083027432577, guid: 9ae1c06efc8364226818a07120244b76, type: 3}
 --- !u!1 &7442057369837074275
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,6 +2380,7 @@ GameObject:
   - component: {fileID: 5794574095124638580}
   - component: {fileID: 4261685203275275519}
   - component: {fileID: 5549349259351568669}
+  - component: {fileID: 960551294836359461}
   m_Layer: 5
   m_Name: Biomass Summary
   m_TagString: Untagged
@@ -2492,6 +2521,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: {fileID: 590010345884522579}
   detail: {fileID: 0}
+--- !u!114 &960551294836359461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7442057369837074275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207914c9a6af440dba8f514b28b8782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 5782605184570220192, guid: 23abe1c3a2b084c4982b196a168f63db, type: 3}
 --- !u!1 &7442057370445855109
 GameObject:
   m_ObjectHideFlags: 0
@@ -2507,6 +2549,7 @@ GameObject:
   - component: {fileID: 5794574095721063826}
   - component: {fileID: 4261685202531979801}
   - component: {fileID: 5549349258753081339}
+  - component: {fileID: 1522698217217994596}
   m_Layer: 5
   m_Name: Titanium Summary
   m_TagString: Untagged
@@ -2647,6 +2690,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: {fileID: 590010346366260917}
   detail: {fileID: 0}
+--- !u!114 &1522698217217994596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7442057370445855109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207914c9a6af440dba8f514b28b8782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 2249594645000487343, guid: f6e7062628fc747d8ba44fd0ac898ce9, type: 3}
 --- !u!1 &7442057370914944928
 GameObject:
   m_ObjectHideFlags: 0
@@ -2662,6 +2718,7 @@ GameObject:
   - component: {fileID: 5794574094055025591}
   - component: {fileID: 4261685202197404732}
   - component: {fileID: 5549349258282086878}
+  - component: {fileID: 4921510548998903229}
   m_Layer: 5
   m_Name: Science Summary
   m_TagString: Untagged
@@ -2802,6 +2859,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: {fileID: 6807627124754704772}
   detail: {fileID: 4524630178953562996}
+--- !u!114 &4921510548998903229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7442057370914944928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207914c9a6af440dba8f514b28b8782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 5657846528726654216, guid: 3b6391a0886464432be6a93f14736bc3, type: 3}
 --- !u!1 &7442057371294987797
 GameObject:
   m_ObjectHideFlags: 0
@@ -2817,6 +2887,7 @@ GameObject:
   - component: {fileID: 5794574094473079298}
   - component: {fileID: 4261685202321464713}
   - component: {fileID: 5549349258426069099}
+  - component: {fileID: 3494777215124927141}
   m_Layer: 5
   m_Name: Clean Energy Summary
   m_TagString: Untagged
@@ -2957,6 +3028,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: {fileID: 590010346575141157}
   detail: {fileID: 0}
+--- !u!114 &3494777215124927141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7442057371294987797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207914c9a6af440dba8f514b28b8782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 1617826312886183280, guid: c63be61b3748847e2808f9b7d6a66cd6, type: 3}
 --- !u!1 &7442057371634906804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2972,6 +3056,7 @@ GameObject:
   - component: {fileID: 5794574094808836771}
   - component: {fileID: 4261685201846246696}
   - component: {fileID: 5549349258096636106}
+  - component: {fileID: 4248804409386641336}
   m_Layer: 5
   m_Name: Steel Summary
   m_TagString: Untagged
@@ -3112,6 +3197,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: {fileID: 590010347307915652}
   detail: {fileID: 0}
+--- !u!114 &4248804409386641336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7442057371634906804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207914c9a6af440dba8f514b28b8782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 3413284717410087851, guid: 2e05adebd785d487ba7375f44cd25f5f, type: 3}
 --- !u!1 &8623153960506696310
 GameObject:
   m_ObjectHideFlags: 0
@@ -3223,6 +3321,7 @@ GameObject:
   - component: {fileID: 1109419766897932075}
   - component: {fileID: 286461057328962515}
   - component: {fileID: 8703748841290910569}
+  - component: {fileID: 7233507952509592573}
   m_Layer: 5
   m_Name: Dirty Energy Summary
   m_TagString: Untagged
@@ -3363,6 +3462,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: {fileID: 5096944648959129329}
   detail: {fileID: 0}
+--- !u!114 &7233507952509592573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8703029974385619099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207914c9a6af440dba8f514b28b8782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 790302462001957811, guid: 4a78381fcfffd42d2bf4bb697c1e785d, type: 3}
 --- !u!1 &8945694042113779228
 GameObject:
   m_ObjectHideFlags: 0

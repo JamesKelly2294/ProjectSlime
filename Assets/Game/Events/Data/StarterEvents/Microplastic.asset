@@ -23,6 +23,7 @@ MonoBehaviour:
     that literally digest the microplastics. These bacteria are very promising, but
     could pose a threat to existing plastic-based supply chains in the form of reduced
     functional life.'
+  Requirements: []
   Responses:
   - FlavorText: Release the bacteria!
     ResourceEffects:
@@ -41,5 +42,6 @@ MonoBehaviour:
     SpecialEffects: []
     TurnDuration: 0
   FollowOnEvents: []
-  AgentCost: 0.6
+  SpecialEffects: []
+  AgentCost: 0
   IsOneShot: 0

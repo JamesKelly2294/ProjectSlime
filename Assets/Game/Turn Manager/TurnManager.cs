@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
+    public bool EnableTutorial;
+
     private GameResourceManager _gm;
 
     public bool GameStarted { get; protected set; }
 
     public int CurrentTurn { get; private set; }
+    public ClimateEvent KnownGoodFirstEvent;
 
     public List<ClimateEvent> tutorialEvents, realEvents;
+    private List<ClimateEvent> executedOneShotEvents = new List<ClimateEvent>();
 
     public bool PointOfInterestSelectionAvailable;
     public bool NewBuildingButtonAvailable;
@@ -18,6 +23,16 @@ public class TurnManager : MonoBehaviour
     public bool YearAvailable;
     public bool YearsUntilExtinctionAvailable;
     public bool ExtendedResourceInfoAvailable;
+
+    private List<ClimateEvent> FilteredClimateEvents
+    {
+        get
+        {
+            return (from e in realEvents
+                    where executedOneShotEvents.Contains(e) == false
+                    select e).ToList();
+        }
+    }
 
     public int CurrentTurnAsYear
     {
@@ -39,6 +54,20 @@ public class TurnManager : MonoBehaviour
     private ClimateEventManager climateEventManager;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        if (EnableTutorial == false)
+        {
+            tutorialEvents.Clear();
+            var tm = FindObjectOfType<TutorialManager>();
+            if (tm)
+            {
+                tm.gameObject.SetActive(false);
+                Destroy(tm);
+            }
+        }
+    }
+
     void Start()
     {
         _gm = GameObject.FindObjectOfType<GameResourceManager>();
@@ -50,7 +79,14 @@ public class TurnManager : MonoBehaviour
     private void StartGame()
     {
         climateEventManager.AllClimateEvents = new List<ClimateEvent>();
-        climateEventManager.AllClimateEvents.Add(tutorialEvents[0]);
+        if(EnableTutorial)
+        {
+            climateEventManager.AllClimateEvents.Add(tutorialEvents[0]);
+        }
+        else
+        {
+            climateEventManager.AllClimateEvents.Add(KnownGoodFirstEvent);
+        }
 
         _gm.CalculateResources();
         climateEventManager.StepClimateState(CurrentTurn);
@@ -79,8 +115,8 @@ public class TurnManager : MonoBehaviour
         if (CurrentTurn < tutorialEvents.Count) {
             climateEventManager.AllClimateEvents = new List<ClimateEvent>();
             climateEventManager.AllClimateEvents.Add(tutorialEvents[CurrentTurn]);
-        } else if (tutorialEvents.Count == CurrentTurn) {
-            climateEventManager.AllClimateEvents = realEvents;
+        } else if (EnableTutorial == false || tutorialEvents.Count >= CurrentTurn) {
+            climateEventManager.AllClimateEvents = FilteredClimateEvents;
         }
         climateEventManager.StepClimateState(CurrentTurn);
     }
@@ -151,6 +187,22 @@ public class TurnManager : MonoBehaviour
         if (climateEventManager.CurrentClimateEvent == null) { return true; }
         if (climateEventManager.CurrentClimateEvent.Responses.Count == 0) { return true; }
         return userDidHandleEvent;
+    }
+
+    public void UserDidRespondToEvent(PubSubListenerEvent e)
+    {
+        Debug.Log("UserDidRespondToEvent " + e.value);
+        if (!(e.value is ClimateEvent))
+        {
+            return;
+        }
+
+        var response = (ClimateEvent)e.value;
+
+        if(response.IsOneShot)
+        {
+            executedOneShotEvents.Add(response);
+        }
     }
 
     public void UserDidHandleEvent() {

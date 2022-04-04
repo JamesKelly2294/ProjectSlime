@@ -12,6 +12,8 @@ public class TutorialManager : MonoBehaviour
     private CameraInput _cameraInput;
     private MouseOrbit _mouseOrbit;
 
+    private PointOfInterestManager _pointOfInterestManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class TutorialManager : MonoBehaviour
         _yearDisplay = FindObjectOfType<YearDisplay>();
         _cameraInput = FindObjectOfType<CameraInput>();
         _mouseOrbit = FindObjectOfType<MouseOrbit>();
+        _pointOfInterestManager = FindObjectOfType<PointOfInterestManager>();
 
         BeginTutorialSequenceZero();
     }
@@ -57,10 +60,38 @@ public class TutorialManager : MonoBehaviour
     public void BeginTutorialSequenceTwo()
     {
         Debug.Log("BeginTutorialSequenceTwo");
+
+        _statsPane.gameObject.SetActive(true);
     }
 
     public void BeginTutorialSequenceThree()
     {
         Debug.Log("BeginTutorialSequenceThree");
+
+        _resourcesDisplay.gameObject.SetActive(true);
+    }
+
+    public void BeginTutorialSequenceFour()
+    {
+        Debug.Log("BeginTutorialSequenceFour");
+
+        _buildingsPane.gameObject.SetActive(true);
+        _newBuildingPane.gameObject.SetActive(true);
+
+        PointOfInterest northAmericaPOI = null;
+        foreach(var poi in _pointOfInterestManager.PointsOfInterest)
+        {
+            if (poi.Name.Contains("North America"))
+            {
+                northAmericaPOI = poi;
+                break;
+            }
+        }
+        if (northAmericaPOI == null)
+        {
+            northAmericaPOI = _pointOfInterestManager.PointsOfInterest[0];
+        }
+
+        _pointOfInterestManager.SetSelectedPointOfInterest(northAmericaPOI);
     }
 }

@@ -6,6 +6,9 @@ using System.Linq;
 [System.Serializable]
 public class ClimateEventResponse
 {
+    // Anything > than this value should just be infinite in GUI
+    public static int SentinelForInfinite = 100;
+
     /**
      * Flavor text describing the response to the player.
      */

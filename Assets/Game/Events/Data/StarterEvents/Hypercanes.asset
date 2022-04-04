@@ -19,6 +19,7 @@ MonoBehaviour:
     Force scientists think it might be possible to create a \"weather machine\" which
     will help to keep these hurricanes in check. Weather control is enormously expensive
     but has the potentially to prevent an awful lot of grief."
+  Requirements: []
   Responses:
   - FlavorText: Invest in weather control
     ResourceEffects:
@@ -35,5 +36,6 @@ MonoBehaviour:
     SpecialEffects: []
     TurnDuration: 0
   FollowOnEvents: []
-  AgentCost: 1
+  SpecialEffects: []
+  AgentCost: 0
   IsOneShot: 0

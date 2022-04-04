@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5684745872250981714}
   - component: {fileID: 5684745872250981725}
+  - component: {fileID: 1012439535073038398}
   m_Layer: 0
   m_Name: Alert Manager
   m_TagString: Untagged
@@ -44,6 +45,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AlertTarget: {fileID: 0}
-  AlertWrapperPrefab: {fileID: 8299961216753220508, guid: f89d4cdabe7e3c74a99916fd41898cab,
-    type: 3}
+  AlertWrapperPrefab: {fileID: 8299961216753220508, guid: f89d4cdabe7e3c74a99916fd41898cab, type: 3}
   AudioSource: {fileID: 0}
+  prepends: 0
+--- !u!114 &1012439535073038398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684745872250981724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f292d19e8ac687f4796ed88f9f22cd01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

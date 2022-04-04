@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12d196fc4588ff94f802877b57abcb05, type: 3}
-  m_Name: Tutorial_3
+  m_Name: Tutorial_4
   m_EditorClassIdentifier: 
-  Title: Last Ditch Effort
+  Title: Hail Mary
   FlavorText: 'Director -
 
 
@@ -25,16 +25,17 @@ MonoBehaviour:
     resource acquisition facilities, and administrative staff across the globe.
 
 
-    The
-    world is panicking at the news of the recent climate report and states are beginning
-    to isolate themselves. Don''t expect any future help.'
+    Your
+    computer system has been updated. <b>Hover over your resources with the mouse
+    cursor to learn more about them.</b>'
   Requirements: []
   Responses:
   - FlavorText: Understood.
     ResourceEffects: []
-    SpecialEffects:
-    - Type: 2
+    SpecialEffects: []
     TurnDuration: 0
   FollowOnEvents: []
+  SpecialEffects:
+  - Type: 3
   AgentCost: 1
   IsOneShot: 1

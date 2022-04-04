@@ -36,6 +36,7 @@ public class RandomizerAgent : MonoBehaviour, IIntelligence
                          where e.Requirements.All(r =>
                          {
                              var value = _gm.GetValueForResourceType(r.AffectedResource, r.Mode, r.IsOneShotResourceType);
+                             Debug.Log("Value for " + r.AffectedResource + " = " + value + ", is met? " + r.IsMet(value));
                              return r.IsMet(value);
                          })
                          select e;

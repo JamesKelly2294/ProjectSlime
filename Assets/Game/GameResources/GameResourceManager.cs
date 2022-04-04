@@ -69,18 +69,10 @@ public class GameResourceManager : MonoBehaviour
     public int currentSeaLevels { get; private set; } = 0;
     public int maxSeaLevels { get; private set; } = 10;
     public int minSeaLevels { get; private set; } = 0;
-    // the higher the pressure, the greater the likelyhood of receiving a
-    // sea level rise event
-    public int seaLevelPressure { get; private set; } = 0;
-    public int maxSeaLevelPressure { get; private set; } = 10;
 
     public int currentBiodiversity { get; private set; } = 10;
     public int minBiodiversity { get; private set; } = 0;
     public int maxBiodiversity { get; private set; } = 10;
-    // the higher the pressure, the greater the likelyhood of receiving a
-    // biodiversity drop event
-    public int biodiversityPressure { get; private set; } = 0;
-    public int maxBiodiversityPressure { get; private set; } = 10;
 
     public int timeToExtinction { get; private set; } = 51;
 
@@ -107,11 +99,9 @@ public class GameResourceManager : MonoBehaviour
         currentSeaLevels = debug.currentSeaLevels;
         maxSeaLevels = debug.maxSeaLevels;
         minSeaLevels = debug.minSeaLevels;
-        seaLevelPressure = debug.seaLevelPressure;
         currentBiodiversity = debug.currentBiodiversity;
         minBiodiversity = debug.minBiodiversity;
         maxBiodiversity = debug.maxBiodiversity;
-        biodiversityPressure = debug.biodiversityPressure;
     }
 
     public int TurnsToExtinction
@@ -145,14 +135,11 @@ public class GameResourceManager : MonoBehaviour
             switch(resourceType)
             {
                 case ResourceType.Money:
-                    break;
-                case ResourceType.Research:
-                    // TODO
-                    break;
+                    return money;
                 case ResourceType.Biodiversity:
-                    break;
+                    return currentBiodiversity;
                 case ResourceType.SeaLevel:
-                    break;
+                    return currentSeaLevels;
                 case ResourceType.Pop:
                     break;
                 // Add time to extiction here.
@@ -176,8 +163,7 @@ public class GameResourceManager : MonoBehaviour
             case ResourceType.Biomass:
                 return isProduction ? biomassProduction : biomassConsumption;
             case ResourceType.Research:
-                // TODO:
-                break;
+                return isProduction ? scienceProduction : scienceConsumption;
         }
         return -1337; // user error
     }
@@ -296,10 +282,8 @@ public class GameResourceManager : MonoBehaviour
         steelProduction = 0;
         titaniumConsumption = 0;
         titaniumProduction = 0;
-        seaLevelPressure = 0;
-        biodiversityPressure = 0;
         currentSeaLevels = 0;
-        currentBiodiversity = 0;
+        currentBiodiversity = maxBiodiversity;
 
         List<ResourceEffect> activeResourceEffects = new List<ResourceEffect>();
 
@@ -412,19 +396,16 @@ public class GameResourceManager : MonoBehaviour
                 case ResourceType.Pop:
                     break;
                 case ResourceType.Biodiversity:
-                    currentBiodiversity += effect.EffectAmount;
-                    break;
-                case ResourceType.BiodiversityPressure:
-                    biodiversityPressure += effect.EffectAmount;
+                    currentBiodiversity -= effect.EffectAmount;
                     break;
                 case ResourceType.SeaLevel:
                     currentSeaLevels += effect.EffectAmount;
                     break;
-                case ResourceType.SeaLevelPressure:
-                    seaLevelPressure += effect.EffectAmount;
-                    break;
             }
         }
+
+        currentBiodiversity = Mathf.Min(Mathf.Max(currentBiodiversity, minBiodiversity), maxBiodiversity);
+        currentSeaLevels = Mathf.Min(Mathf.Max(currentSeaLevels, minSeaLevels), maxSeaLevels);
 
         _tm.ResourcesChanged();
     }
@@ -442,6 +423,22 @@ public class GameResourceManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void EventSummoned(PubSubListenerEvent e)
+    {
+        if (!(e.value is ClimateEvent))
+        {
+            return;
+        }
+
+        var climateEvent = (ClimateEvent)e.value;
+
+        var pubSubSender = GetComponent<PubSubSender>();
+        foreach (var specialEffect in climateEvent.SpecialEffects)
+        {
+            pubSubSender.Publish("special.event." + specialEffect.Type);
+        }
     }
 
     public void EventResponseSelected(PubSubListenerEvent e)

@@ -121,7 +121,6 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
                         if (chance >= 0.5)
                         {
                             Debug.Log("\tRandomly choose to check for biodiversity pressure events based on current biodiversity.");
-                            anyTargets = anyTargets || _agent.UsableEventsWithResourceTypeInResponse(ResourceType.BiodiversityPressure).Count() > 0;
                         }
                         else
                         {
@@ -133,7 +132,6 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
                         if (chance >= 0.5)
                         {
                             Debug.Log("\tRandomly choose to check for sea level pressure events.");
-                            anyTargets = anyTargets || _agent.UsableEventsWithResourceTypeInResponse(ResourceType.SeaLevelPressure).Count() > 0;
                         }
                         else
                         {
@@ -154,9 +152,7 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
     {
         Func<bool> evaluator = () =>
         {
-            var newTargets = targets
-                .Select(t => t == ResourceType.Biodiversity ? ResourceType.BiodiversityPressure : t)
-                .Select(t => t == ResourceType.SeaLevel ? ResourceType.SeaLevelPressure : t);
+            var newTargets = targets;
             var candidates = _agent.UsableEventsWithResourceTypeInResponse(newTargets.ToArray());
             var index = UnityEngine.Random.Range(0, candidates.Count());
             var next = new List<ClimateEvent>(candidates)[index];
@@ -173,7 +169,7 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
         Func<bool> evaluator = () =>
         {
             Debug.Assert(GuardClauses.IsNotEmpty(_agent.UsableEvents.ToList()), "No climate events to work with!");
-            var index = UnityEngine.Random.Range(0, _agent.UsableEvents.Count() - 1);
+            var index = UnityEngine.Random.Range(0, _agent.UsableEvents.Count());
             if(_agent.UsableEvents.Count() > 0)
             {
                 var next = _agent.UsableEvents.ToList()[index];

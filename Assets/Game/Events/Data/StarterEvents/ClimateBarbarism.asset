@@ -16,9 +16,11 @@ MonoBehaviour:
   FlavorText: 'Breakaway regions and provinces in more well off areas have pushed
     out refuges, closed their borders, and begun hoarding local resources and even
     threatening to '
+  Requirements: []
   Responses: []
   FollowOnEvents:
   - {fileID: 11400000, guid: 34aa427f712b35a4fab2d8631780942d, type: 2}
   - {fileID: 11400000, guid: 67f8f5a108fbf9945a79ea093bf5e688, type: 2}
-  AgentCost: 0.3
+  SpecialEffects: []
+  AgentCost: 0
   IsOneShot: 0

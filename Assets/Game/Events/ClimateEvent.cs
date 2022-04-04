@@ -37,6 +37,12 @@ public class ClimateEvent : ScriptableObject
     public List<ClimateEvent> FollowOnEvents;
 
     /**
+     * The result of an event appearing.
+     */
+    [SerializeField]
+    public List<SpecialEffect> SpecialEffects;
+
+    /**
      * Scales the cost of the event. Used by the AI to budget events.
      */
     [SerializeField]

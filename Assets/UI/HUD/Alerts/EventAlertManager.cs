@@ -39,6 +39,12 @@ public class EventAlertManager : MonoBehaviour
             GameObject gameObject = SummonEvent();
             EventAlert eventAlert = gameObject.GetComponentInChildren<EventAlert>();
             eventAlert.climateEvent = climateEventManager.CurrentClimateEvent;
+
+            var sender = GetComponent<PubSubSender>();
+            if (sender)
+            {
+                sender.Publish("event.summoned", eventAlert.climateEvent);
+            }
         }
     }
 }

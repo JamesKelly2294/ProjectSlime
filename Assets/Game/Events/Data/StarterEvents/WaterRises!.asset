@@ -16,6 +16,7 @@ MonoBehaviour:
   FlavorText: Climate change has resulted in water levels rising all over the globe.
     Millions have been displaced and thousands of miles of formerly habitable ocean
     has been inundated.
+  Requirements: []
   Responses:
   - FlavorText: Accept your Fate
     ResourceEffects:
@@ -32,5 +33,6 @@ MonoBehaviour:
     SpecialEffects: []
     TurnDuration: 3
   FollowOnEvents: []
-  AgentCost: 0.5
+  SpecialEffects: []
+  AgentCost: 0
   IsOneShot: 0

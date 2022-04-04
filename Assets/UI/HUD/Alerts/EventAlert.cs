@@ -56,9 +56,15 @@ public class EventAlert : MonoBehaviour
         if (yearDone > 0) {
             outcomeDurationTMP.gameObject.SetActive(true);
             int remaining = yearDone - turnManager.CurrentTurnAsYear;
-            if (remaining == 1) {
+            if (remaining > ClimateEventResponse.SentinelForInfinite)
+            {
+                outcomeDurationTMP.text = "";
+            }
+            else if (remaining == 1) {
                 outcomeDurationTMP.text = "Final Year";
-            } else {
+            }
+            else
+            {
                 outcomeDurationTMP.text = remaining.ToString() + " Years Remaining";
             }
         } else {
@@ -88,10 +94,17 @@ public class EventAlert : MonoBehaviour
             eventAlertButton.title.text = response.FlavorText;
             eventAlertButton.effectList.DisplayEffects(response.SortedResourceEffects);
             eventAlertButton.index = index;
-            eventAlertButton.durationTMP.gameObject.SetActive(response.TurnDuration > 0);
-            if (response.TurnDuration == 1) {
+            eventAlertButton.durationTMP.gameObject.SetActive(response.TurnDuration > 0 && response.TurnDuration < ClimateEventResponse.SentinelForInfinite);
+            if (response.TurnDuration > ClimateEventResponse.SentinelForInfinite)
+            {
+                eventAlertButton.durationTMP.text = "";
+            }
+            else if (response.TurnDuration == 1)
+            {
                 eventAlertButton.durationTMP.text = "Active for 1 year";
-            } else {
+            }
+            else
+            {
                 eventAlertButton.durationTMP.text = "Active for " + response.TurnDuration.ToString() + " years";
             }
 
@@ -107,9 +120,16 @@ public class EventAlert : MonoBehaviour
         outcomeEffects.DisplayEffects(response.SortedResourceEffects);
         outcomeTotalDurationTMP.gameObject.SetActive(response.TurnDuration > 0);
         outcomeYouChoose.text = "In " + turnManager.CurrentTurnAsYear + " you chose:";
-        if (response.TurnDuration == 1) {
+        if (response.TurnDuration > ClimateEventResponse.SentinelForInfinite)
+        {
+            outcomeTotalDurationTMP.text = "";
+        }
+        else if(response.TurnDuration == 1)
+        {
             outcomeTotalDurationTMP.text = "Active for 1 year";
-        } else {
+        }
+        else
+        {
             outcomeTotalDurationTMP.text = "Active for " + response.TurnDuration.ToString() + " years";
         }
     }
@@ -123,6 +143,7 @@ public class EventAlert : MonoBehaviour
         DisplayOutcome();
 
         GetComponent<PubSubSender>().Publish("event.response.selected", response);
+        GetComponent<PubSubSender>().Publish("event.responded", climateEvent);
     }
 
     public bool IsBlockingTurn() {

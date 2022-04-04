@@ -45,6 +45,7 @@ public class SpecialEffect
         Tutorial_1 = 1,
         Tutorial_2 = 2,
         Tutorial_3 = 3,
+        Tutorial_4 = 4,
     }
 
     [SerializeField]

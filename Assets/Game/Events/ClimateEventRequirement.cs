@@ -38,7 +38,6 @@ public class ClimateEventRequirement
     private static ResourceType[] _oneShots = new ResourceType[]
     {
         ResourceType.Money,
-        ResourceType.Research,
         ResourceType.Biodiversity,
         ResourceType.SeaLevel,
         ResourceType.Pop
@@ -49,15 +48,15 @@ public class ClimateEventRequirement
         switch (Condition)
         {
             case ClimateEventCondition.EqualTo:
-                return Value == value;
+                return value == Value;
             case ClimateEventCondition.GreaterThan:
-                return Value > value;
+                return value > Value;
             case ClimateEventCondition.GreatThanOrEqualTo:
-                return Value >= value;
+                return value >= Value;
             case ClimateEventCondition.LessThan:
-                return Value < value;
+                return value < Value;
             case ClimateEventCondition.LessThanOrEqualTo:
-                return Value <= value;
+                return value <= Value;
         }
         return false;
     }
