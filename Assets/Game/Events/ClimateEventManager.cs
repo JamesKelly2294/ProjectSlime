@@ -24,7 +24,6 @@ public class ClimateEventManager : MonoBehaviour
     public List<ClimateEvent> AllClimateEvents = new List<ClimateEvent>();
 
     public ClimateEvent CurrentClimateEvent;
-    public ClimateEvent NextClimateEvent;
     public List<ClimateEventChoice> ClimateDecisions = new List<ClimateEventChoice>();
 
     /**
@@ -112,15 +111,11 @@ public class ClimateEventManager : MonoBehaviour
         ClimateDecisions.Add(choice);
         LatestResponse = null;
 
-        // move next event to current event
-        CurrentClimateEvent = NextClimateEvent;
-        NextClimateEvent = null;
-
         // call the AI to make a choice about adding an event to the queue
-        // This will implicitly make NextClimateEvent equal to the next event that we want to run. 
+        // This will implicitly make CurrentClimateEvent equal to the next event that we want to run. 
         _agent.DoTheThing();
 
-        Debug.Assert(NextClimateEvent != null, "Morgan made a mistake.");
+        Debug.Assert(CurrentClimateEvent != null, "Morgan made a mistake.");
     }
 
     public void PlayerSelectedResponse(PubSubListenerEvent e) {

@@ -201,7 +201,7 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
 
     public void SelectNextEvent(ClimateEvent ce)
     {
-        climateEventManager.NextClimateEvent = ce;
+        climateEventManager.CurrentClimateEvent = ce;
 
         // Trigger the UI to do stuff?
     }

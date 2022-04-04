@@ -47,19 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda4753a09b411d408001baadc644df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllClimateEvents:
-  - {fileID: 11400000, guid: e23d092bcdc8db44180dd2f963a50a93, type: 2}
-  - {fileID: 11400000, guid: 5b9edaf2e8d578f45aea74c142aa27cc, type: 2}
-  - {fileID: 11400000, guid: 02f4d607994dac84b92f2856bc8d7924, type: 2}
-  - {fileID: 11400000, guid: 29fda6cddab34e54d8fcff4767b71907, type: 2}
-  - {fileID: 11400000, guid: 47a42b7331b9b2640b4cc45cbaba957e, type: 2}
-  - {fileID: 11400000, guid: 8caa0d86ef864374aa9507e0cba75922, type: 2}
-  - {fileID: 11400000, guid: 9f7034b7e3040de4fa595e5591809798, type: 2}
-  - {fileID: 11400000, guid: b02a8e33bc488f54c92d651291250f23, type: 2}
-  - {fileID: 11400000, guid: 34aa427f712b35a4fab2d8631780942d, type: 2}
-  - {fileID: 11400000, guid: a0e7e7f44bf6fd24793b3eab3e32c713, type: 2}
-  - {fileID: 11400000, guid: 67f8f5a108fbf9945a79ea093bf5e688, type: 2}
-  - {fileID: 11400000, guid: 35591450d89a6be4eba13116c1ebe205, type: 2}
+  AllClimateEvents: []
   CurrentClimateEvent: {fileID: 0}
   NextClimateEvent: {fileID: 0}
   LatestResponse:

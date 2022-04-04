@@ -8,6 +8,8 @@ public class TurnManager : MonoBehaviour
 
     public int CurrentTurn { get; private set; }
 
+    public List<ClimateEvent> tutorialEvents, realEvents;
+
     public int CurrentTurnAsYear
     {
         get
@@ -38,6 +40,9 @@ public class TurnManager : MonoBehaviour
 
     private void StartGame()
     {
+        climateEventManager.AllClimateEvents = new List<ClimateEvent>();
+        climateEventManager.AllClimateEvents.Add(tutorialEvents[0]);
+
         _gm.CalculateResources();
         climateEventManager.StepClimateState(CurrentTurn);
         PublishBeginTurnNotification();
@@ -58,12 +63,22 @@ public class TurnManager : MonoBehaviour
 
     }
 
+    private void PrepareEventSystem() {
+        // Make sure we onboard the player
+        if (CurrentTurn < tutorialEvents.Count) {
+            climateEventManager.AllClimateEvents = new List<ClimateEvent>();
+            climateEventManager.AllClimateEvents.Add(tutorialEvents[CurrentTurn]);
+        } else if (tutorialEvents.Count == CurrentTurn) {
+            climateEventManager.AllClimateEvents = realEvents;
+        }
+        climateEventManager.StepClimateState(CurrentTurn);
+    }
+
     private void AdvanceToNextTurn()
     {
-        climateEventManager.StepClimateState(CurrentTurn);
-
         CurrentTurn++;
 
+        PrepareEventSystem();
         _gm.CalculateResources();
 
         userDidHandleEvent = false;

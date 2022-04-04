@@ -31,7 +31,7 @@ public class RandomizerAgent : MonoBehaviour, IIntelligence
     {
         Budget += BudgetProductionPerTurn;
         decideNextUpcomingEvent.Decide();
-        var cost = Mathf.Clamp((float)_cem.NextClimateEvent.AgentCost, 0.0f, 1.0f);
+        var cost = Mathf.Clamp((float)_cem.CurrentClimateEvent.AgentCost, 0.0f, 1.0f);
         Budget -= cost;
     }
 }
