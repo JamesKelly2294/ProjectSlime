@@ -24,7 +24,7 @@ public class EffectList : MonoBehaviour
     public void DisplayEffects(List<ResourceEffect> effects) {
 
         // Make sure we need to update...
-        if (displayedEffects.Count == effects.Count) {
+        if (displayedEffects.Count == effects.Count && displayedEffects.Count != 0) {
             bool returnEarly = true;
             for(int i = 0; i < effects.Count; i++) {
                 if (displayedEffects[i].EffectAmount != effects[i].EffectAmount || displayedEffects[i].AffectedResource != effects[i].AffectedResource) {

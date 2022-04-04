@@ -49,7 +49,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllClimateEvents: []
   CurrentClimateEvent: {fileID: 0}
-  NextClimateEvent: {fileID: 0}
   LatestResponse:
     id: 0
   references:
@@ -595,13 +594,73 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameResourceManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2312483420157131359, guid: c23d089b9797147f08288db1649c0e55, type: 3}
+      propertyPath: Subscriptions.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312483420157131359, guid: c23d089b9797147f08288db1649c0e55, type: 3}
+      propertyPath: Subscriptions.Array.data[3].Key
+      value: event.response.selected
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312483420157131359, guid: c23d089b9797147f08288db1649c0e55, type: 3}
+      propertyPath: Subscriptions.Array.data[3].Delegate.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312483420157131359, guid: c23d089b9797147f08288db1649c0e55, type: 3}
+      propertyPath: Subscriptions.Array.data[3].Delegate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4040795380505976223}
+    - target: {fileID: 2312483420157131359, guid: c23d089b9797147f08288db1649c0e55, type: 3}
+      propertyPath: Subscriptions.Array.data[3].Delegate.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312483420157131359, guid: c23d089b9797147f08288db1649c0e55, type: 3}
+      propertyPath: Subscriptions.Array.data[3].Delegate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EventResponseSelected
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312483420157131359, guid: c23d089b9797147f08288db1649c0e55, type: 3}
+      propertyPath: Subscriptions.Array.data[3].Delegate.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameResourceManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312483420157131359, guid: c23d089b9797147f08288db1649c0e55, type: 3}
+      propertyPath: Subscriptions.Array.data[3].Delegate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c23d089b9797147f08288db1649c0e55, type: 3}
+--- !u!114 &4040795380505976223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1391367450955547963, guid: c23d089b9797147f08288db1649c0e55, type: 3}
+  m_PrefabInstance: {fileID: 3124628077576329380}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4040795380505976222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82065dcd5d62840c59f0e2691f520b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4040795380505976220 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1391367450955547960, guid: c23d089b9797147f08288db1649c0e55, type: 3}
   m_PrefabInstance: {fileID: 3124628077576329380}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4040795380505976222 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1391367450955547962, guid: c23d089b9797147f08288db1649c0e55, type: 3}
+  m_PrefabInstance: {fileID: 3124628077576329380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1815078460075657808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4040795380505976222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f292d19e8ac687f4796ed88f9f22cd01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3288405106707190321
 PrefabInstance:
   m_ObjectHideFlags: 0

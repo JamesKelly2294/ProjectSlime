@@ -12,6 +12,13 @@ public class TurnManager : MonoBehaviour
 
     public List<ClimateEvent> tutorialEvents, realEvents;
 
+    public bool PointOfInterestSelectionAvailable;
+    public bool NewBuildingButtonAvailable;
+    public bool StatsAvailable;
+    public bool YearAvailable;
+    public bool YearsUntilExtinctionAvailable;
+    public bool ExtendedResourceInfoAvailable;
+
     public int CurrentTurnAsYear
     {
         get

@@ -41,17 +41,14 @@ public class SpecialEffect
     {
         // NOTE: If you add or remove to this, do *not* change the values of other
         // enums. This will break all serialized scriptable objects.
-        EmptyBuilding = 0,
-        Test = 1,
-        KickoffTutorial = 2,
-        ExtremeWildfiresTutorial = 3
+        Unknown = 0,
+        Tutorial_1 = 1,
+        Tutorial_2 = 2,
+        Tutorial_3 = 3,
     }
 
-    public string Name;
-    public string Description;
-
     [SerializeField]
-    SpecialEffectType Type;
+    public SpecialEffectType Type;
 }
 
 public class ConstructedBuilding

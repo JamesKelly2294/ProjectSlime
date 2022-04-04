@@ -93,7 +93,7 @@ MonoBehaviour:
   tutorialEvents:
   - {fileID: 11400000, guid: e23d092bcdc8db44180dd2f963a50a93, type: 2}
   - {fileID: 11400000, guid: 5b9edaf2e8d578f45aea74c142aa27cc, type: 2}
-  - {fileID: 11400000, guid: 35591450d89a6be4eba13116c1ebe205, type: 2}
+  - {fileID: 11400000, guid: 421ea3efe008c4ad6a2452d66c712035, type: 2}
   realEvents:
   - {fileID: 11400000, guid: 02f4d607994dac84b92f2856bc8d7924, type: 2}
   - {fileID: 11400000, guid: 29fda6cddab34e54d8fcff4767b71907, type: 2}
@@ -105,6 +105,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a0e7e7f44bf6fd24793b3eab3e32c713, type: 2}
   - {fileID: 11400000, guid: 67f8f5a108fbf9945a79ea093bf5e688, type: 2}
   - {fileID: 11400000, guid: 35591450d89a6be4eba13116c1ebe205, type: 2}
+  PointOfInterestSelectionAvailable: 0
+  NewBuildingButtonAvailable: 0
+  StatsAvailable: 0
+  YearAvailable: 0
+  YearsUntilExtinctionAvailable: 0
+  ExtendedResourceInfoAvailable: 0
 --- !u!114 &3451217925623034159
 MonoBehaviour:
   m_ObjectHideFlags: 0

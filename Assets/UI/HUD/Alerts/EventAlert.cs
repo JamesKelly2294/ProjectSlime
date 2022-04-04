@@ -106,7 +106,7 @@ public class EventAlert : MonoBehaviour
         outcomeTMP.text = response.FlavorText;
         outcomeEffects.DisplayEffects(response.SortedResourceEffects);
         outcomeTotalDurationTMP.gameObject.SetActive(response.TurnDuration > 0);
-        outcomeYouChoose.text = "In " + turnManager.CurrentTurnAsYear + " you choose:";
+        outcomeYouChoose.text = "In " + turnManager.CurrentTurnAsYear + " you chose:";
         if (response.TurnDuration == 1) {
             outcomeTotalDurationTMP.text = "Active for 1 year";
         } else {

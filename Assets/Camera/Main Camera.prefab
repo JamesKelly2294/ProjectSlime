@@ -191,7 +191,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 63.6
+  field of view: 56
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -289,14 +289,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe705b26c43d40a1a6a7b7b09d4a41f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProcessCameraOrbit: 0
+  ProcessCameraScroll: 0
   mouseRotateSpeed: 5
   touchRotateSpeed: 10
   slerpSmoothValue: 0.1
   scrollSmoothTime: 0.12
   editorFOVSensitivity: 5
   touchFOVSensitivity: 5
-  minXRotAngle: -70
-  maxXRotAngle: 70
+  minXRotAngle: -50
+  maxXRotAngle: 35
   minCameraFieldOfView: 30
   maxCameraFieldOfView: 95
   target: {fileID: 0}

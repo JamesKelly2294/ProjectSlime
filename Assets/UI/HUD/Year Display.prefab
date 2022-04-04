@@ -423,7 +423,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentYear: {fileID: 7227578468568186110}
-  yearsRemaing: {fileID: 7227578467571878714}
+  yearsRemaining: {fileID: 7227578467571878714}
+  yearsUntilExtinctionLabel: {fileID: 7227578466935299107}
 --- !u!1 &7227578468568186083
 GameObject:
   m_ObjectHideFlags: 0

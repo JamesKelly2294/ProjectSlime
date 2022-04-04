@@ -55,6 +55,7 @@ public class ClimateEventManager : MonoBehaviour
         {
             var currentTurn = _tm.CurrentTurn;
             return from d in ClimateDecisions
+                   where d != null && d.choice != null
                    where (currentTurn - d.turn) > d.choice.TurnDuration
                    select d;
         }

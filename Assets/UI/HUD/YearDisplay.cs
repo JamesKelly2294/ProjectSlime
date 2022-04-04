@@ -7,7 +7,7 @@ using TMPro;
 public class YearDisplay : MonoBehaviour
 {
 
-    public TextMeshProUGUI currentYear, yearsRemaing;
+    public TextMeshProUGUI currentYear, yearsRemaining, yearsUntilExtinctionLabel;
 
     private TurnManager turnManager;
 
@@ -20,7 +20,7 @@ public class YearDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentYear.text = "Year: " + turnManager.CurrentTurnAsYear.ToString();
-        yearsRemaing.text = turnManager.TurnsUntilGameEndAsYear.ToString();
+        currentYear.text = turnManager.CurrentTurnAsYear.ToString() + " A.D.";
+        yearsRemaining.text = turnManager.TurnsUntilGameEndAsYear.ToString();
     }
 }

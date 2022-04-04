@@ -82,7 +82,7 @@ public class GameResourceManager : MonoBehaviour
     public int biodiversityPressure { get; private set; } = 0;
     public int maxBiodiversityPressure { get; private set; } = 10;
 
-    public int timeToExtinction { get; private set; } = 50;
+    public int timeToExtinction { get; private set; } = 51;
 
     private BuildingManager _bm;
     private PointOfInterestManager _poim;
@@ -91,6 +91,7 @@ public class GameResourceManager : MonoBehaviour
 
     public void SetDebugValues(GameResourceManagerDebug debug)
     {
+        if (debug == null) { return; }
         money = debug.money;
         moneyProduction = debug.moneyProduction;
         scienceProduction = debug.scienceProduction;
@@ -297,6 +298,8 @@ public class GameResourceManager : MonoBehaviour
         titaniumProduction = 0;
         seaLevelPressure = 0;
         biodiversityPressure = 0;
+        currentSeaLevels = 0;
+        currentBiodiversity = 0;
 
         List<ResourceEffect> activeResourceEffects = new List<ResourceEffect>();
 
@@ -314,7 +317,7 @@ public class GameResourceManager : MonoBehaviour
         }
 
 
-        // Step two, calculate effects from all active events
+        // Step two, calculate effects from all events
         foreach(var decision in _em.ActiveClimateDecisions)
         {
             foreach (var effect in decision.choice.ResourceEffects)
@@ -322,6 +325,18 @@ public class GameResourceManager : MonoBehaviour
                 activeResourceEffects.Add(effect);
             }
         }
+
+        foreach (var decision in _em.InactiveClimateDecisions)
+        {
+            foreach (var effect in decision.choice.ResourceEffects)
+            {
+                if (effect.AffectedResource == ResourceType.Biodiversity || effect.AffectedResource == ResourceType.SeaLevel)
+                {
+                    activeResourceEffects.Add(effect);
+                }
+            }
+        }
+
         Debug.Log("Latest Response:" + _em.LatestResponse);
         if(_em.LatestResponse != null) {
            foreach (var effect in _em.LatestResponse.ResourceEffects)
@@ -423,9 +438,25 @@ public class GameResourceManager : MonoBehaviour
         _tm = FindObjectOfType<TurnManager>();
     }
 
-    // Update is called once per frame
+    // Update is called once per framee
     void Update()
     {
         
+    }
+
+    public void EventResponseSelected(PubSubListenerEvent e)
+    {
+        if(!(e.value is ClimateEventResponse))
+        {
+            return;
+        }
+
+        var response = (ClimateEventResponse)e.value;
+
+        var pubSubSender = GetComponent<PubSubSender>();
+        foreach(var specialEffect in response.SpecialEffects)
+        {
+            pubSubSender.Publish("special.event." + specialEffect.Type);
+        }
     }
 }
