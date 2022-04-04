@@ -74,6 +74,7 @@ public class GameResourceManager : MonoBehaviour
     public int minBiodiversity { get; private set; } = 0;
     public int maxBiodiversity { get; private set; } = 10;
 
+    private int _baseTimeToExtinction = 51;
     public int timeToExtinction { get; private set; } = 51;
 
     private BuildingManager _bm;
@@ -284,6 +285,7 @@ public class GameResourceManager : MonoBehaviour
         titaniumProduction = 0;
         currentSeaLevels = 0;
         currentBiodiversity = maxBiodiversity;
+        timeToExtinction = _baseTimeToExtinction;
 
         List<ResourceEffect> activeResourceEffects = new List<ResourceEffect>();
 
@@ -314,7 +316,7 @@ public class GameResourceManager : MonoBehaviour
         {
             foreach (var effect in decision.choice.ResourceEffects)
             {
-                if (effect.AffectedResource == ResourceType.Biodiversity || effect.AffectedResource == ResourceType.SeaLevel)
+                if (effect.AffectedResource == ResourceType.Biodiversity || effect.AffectedResource == ResourceType.SeaLevel || effect.AffectedResource == ResourceType.TimeToExtiction)
                 {
                     activeResourceEffects.Add(effect);
                 }
@@ -332,6 +334,11 @@ public class GameResourceManager : MonoBehaviour
         // Step three, calculate stats from all active effects
         foreach(var effect in activeResourceEffects)
         {
+            if(effect.AffectsStockpile)
+            {
+                continue;
+            }
+
             switch (effect.AffectedResource)
             {
                 case ResourceType.Money:
@@ -396,10 +403,13 @@ public class GameResourceManager : MonoBehaviour
                 case ResourceType.Pop:
                     break;
                 case ResourceType.Biodiversity:
-                    currentBiodiversity -= effect.EffectAmount;
+                    currentBiodiversity += effect.EffectAmount;
                     break;
                 case ResourceType.SeaLevel:
                     currentSeaLevels += effect.EffectAmount;
+                    break;
+                case ResourceType.TimeToExtiction:
+                    timeToExtinction += effect.EffectAmount;
                     break;
             }
         }
@@ -455,5 +465,20 @@ public class GameResourceManager : MonoBehaviour
         {
             pubSubSender.Publish("special.event." + specialEffect.Type);
         }
+        foreach(var effect in response.ResourceEffects)
+        {
+            if(effect.AffectsStockpile)
+            {
+                if (effect.AffectedResource == ResourceType.Money)
+                {
+                    money += effect.EffectAmount;
+                }
+                else if (effect.AffectedResource == ResourceType.Research)
+                {
+                    science += effect.EffectAmount;
+                }
+            }
+        }
+        CalculateResources();
     }
 }

@@ -116,7 +116,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bfade1a0b574a49ed93c1b33f41a4d5e, type: 2}
   realEvents:
   - {fileID: 11400000, guid: 02f4d607994dac84b92f2856bc8d7924, type: 2}
-  - {fileID: 11400000, guid: 0e7d13e88f3ec49aaa4d61219c302b8f, type: 2}
+  - {fileID: 11400000, guid: c970726db7e8649028572771a1a4123f, type: 2}
   PointOfInterestSelectionAvailable: 0
   NewBuildingButtonAvailable: 0
   StatsAvailable: 0

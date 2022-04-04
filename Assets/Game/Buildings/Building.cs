@@ -30,8 +30,11 @@ public class ResourceEffect
     [SerializeField]
     public ResourceType AffectedResource;
 
-    [Range(-100, 100)]
+    [Range(-1000, 1000)]
     public int EffectAmount;
+
+    [SerializeField]
+    public bool AffectsStockpile = false;
 }
 
 [System.Serializable]

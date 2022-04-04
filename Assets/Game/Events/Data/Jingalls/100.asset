@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d196fc4588ff94f802877b57abcb05, type: 3}
+  m_Name: 100
+  m_EditorClassIdentifier: 
+  Title: Electricity Grid Surges
+  FlavorText: Due to the increased pressures on the electricity grid, transformer
+    boxes have started to explode around the world. This is starting fires in our
+    cities!
+  Requirements: []
+  Responses:
+  - FlavorText: Reduce Energy Usage
+    ResourceEffects:
+    - AffectedResource: 1
+      EffectAmount: -4
+      AffectsStockpile: 0
+    SpecialEffects: []
+    TurnDuration: 1000
+  - FlavorText: Increase firefighting budget
+    ResourceEffects:
+    - AffectedResource: 3
+      EffectAmount: 4
+      AffectsStockpile: 0
+    - AffectedResource: 0
+      EffectAmount: -30
+      AffectsStockpile: 0
+    SpecialEffects: []
+    TurnDuration: 1000
+  - FlavorText: Do Nothing
+    ResourceEffects:
+    - AffectedResource: 9
+      EffectAmount: -1
+      AffectsStockpile: 0
+    - AffectedResource: 1
+      EffectAmount: -1
+      AffectsStockpile: 0
+    - AffectedResource: 13
+      EffectAmount: -1
+      AffectsStockpile: 0
+    SpecialEffects: []
+    TurnDuration: 1000
+  FollowOnEvents: []
+  SpecialEffects: []
+  AgentCost: 0
+  IsOneShot: 1
