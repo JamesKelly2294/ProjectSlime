@@ -115,8 +115,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f6d9c2ceb56ab4934a8317d6c916041e, type: 2}
   - {fileID: 11400000, guid: bfade1a0b574a49ed93c1b33f41a4d5e, type: 2}
   realEvents:
-  - {fileID: 11400000, guid: 02f4d607994dac84b92f2856bc8d7924, type: 2}
+  - {fileID: 11400000, guid: 0e7d13e88f3ec49aaa4d61219c302b8f, type: 2}
+  - {fileID: 11400000, guid: 46072892540704b92947007d03e521ee, type: 2}
+  - {fileID: 11400000, guid: 16770e2c987e645d6b988f0fd6b06e4a, type: 2}
   - {fileID: 11400000, guid: c970726db7e8649028572771a1a4123f, type: 2}
+  - {fileID: 11400000, guid: 4bb44f049a19a4f71acd84736f6707de, type: 2}
+  - {fileID: 11400000, guid: 142eafc9167dc4e598e71663c8014831, type: 2}
+  - {fileID: 11400000, guid: 6f1f2faff1b02450fbf518d919a7639e, type: 2}
+  - {fileID: 11400000, guid: d6901818216574b11a6577ae54323460, type: 2}
+  - {fileID: 11400000, guid: 368bdd501f19a4e338cf8da9b315c90c, type: 2}
+  - {fileID: 11400000, guid: 12b54a515b2b14e1ba8b8b8e6f6e761a, type: 2}
+  - {fileID: 11400000, guid: bf92f4a3d7bd943cb8fd596769e2c83d, type: 2}
+  - {fileID: 11400000, guid: b7d7f56cbfcc849c494bab61deac22b8, type: 2}
+  - {fileID: 11400000, guid: 1f94890dde7994538b150c3351186982, type: 2}
+  - {fileID: 11400000, guid: 54e874eb9f1804d58863cb115dddd9d7, type: 2}
+  - {fileID: 11400000, guid: 4571bf39bf3654f15b05b86f4f58ab8a, type: 2}
+  - {fileID: 11400000, guid: b4f7a7198ca054167b1707dcc421919f, type: 2}
+  - {fileID: 11400000, guid: 686eac9fb3a1b4ed78d994b04226edba, type: 2}
   PointOfInterestSelectionAvailable: 0
   NewBuildingButtonAvailable: 0
   StatsAvailable: 0

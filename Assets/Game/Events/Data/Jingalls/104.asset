@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: 104
   m_EditorClassIdentifier: 
   Title: The Internet has Spoken
-  FlavorText: Workers Strike!
+  FlavorText: 'The internet has decided that you are not saving the environment in
+    the correct way.
+
+'
   Requirements: []
   Responses:
   - FlavorText: Agree

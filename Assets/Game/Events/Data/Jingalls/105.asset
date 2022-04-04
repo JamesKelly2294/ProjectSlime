@@ -54,4 +54,4 @@ MonoBehaviour:
   FollowOnEvents: []
   SpecialEffects: []
   AgentCost: 0
-  IsOneShot: 0
+  IsOneShot: 1
