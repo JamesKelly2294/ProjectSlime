@@ -36,6 +36,8 @@ public class ClimateEventManager : MonoBehaviour
     private TurnManager _tm;
     private IIntelligence _agent;
 
+    private GameResourceManager _gm;
+
     public IEnumerable<ClimateEventChoice> ActiveClimateDecisions
     {
         get
@@ -64,6 +66,7 @@ public class ClimateEventManager : MonoBehaviour
     {
         _tm = GameObject.FindObjectOfType<TurnManager>();
         _agent = GameObject.FindObjectOfType<RandomizerAgent>();
+        _gm = GameObject.FindObjectOfType<GameResourceManager>();
 
         Debug.Log("Climate Events:");
         foreach (var e in AllClimateEvents)
@@ -101,6 +104,7 @@ public class ClimateEventManager : MonoBehaviour
         // if current event has long-running stuff, move to active
         var choice = new ClimateEventChoice(CurrentClimateEvent, LatestResponse, turn);
         ClimateDecisions.Add(choice);
+        LatestResponse = null;
 
         // move next event to current event
         CurrentClimateEvent = NextClimateEvent;
@@ -111,5 +115,11 @@ public class ClimateEventManager : MonoBehaviour
         _agent.DoTheThing();
 
         Debug.Assert(NextClimateEvent != null, "Morgan made a mistake.");
+    }
+
+    public void PlayerSelectedResponse(PubSubListenerEvent e) {
+        ClimateEventResponse response = (ClimateEventResponse)e.value;
+        LatestResponse = response;
+        _gm.CalculateResources();
     }
 }

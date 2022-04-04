@@ -92,7 +92,10 @@ public class TurnManager : MonoBehaviour
             return;
         }
 
-
+        if (!_gm.ResourceManagerApprovesNextTurn()) {
+            PublishForbidNextTurnNotification("At least one resource over utilized!");
+            return;
+        }
 
         PublishAllowNextTurnNotification();
     }
@@ -120,6 +123,10 @@ public class TurnManager : MonoBehaviour
 
     public void UserDidHandleEvent() {
         userDidHandleEvent = true;
+        CheckAndSendValidNextTurnEvents();
+    }
+
+    public void ResourcesChanged() {
         CheckAndSendValidNextTurnEvents();
     }
 

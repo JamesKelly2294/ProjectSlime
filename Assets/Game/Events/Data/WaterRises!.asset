@@ -17,12 +17,18 @@ MonoBehaviour:
     Millions have been displaced and thousands of miles of formerly habitable ocean
     has been inundated.
   Responses:
-  - FlavorText: 
+  - FlavorText: Accept your Fate
     ResourceEffects:
+    - AffectedResource: 0
+      EffectAmount: -30
+    - AffectedResource: 2
+      EffectAmount: -2
+    - AffectedResource: 3
+      EffectAmount: -20
     - AffectedResource: 12
-      EffectAmount: 2
+      EffectAmount: 5
     SpecialEffects: []
-    TurnDuration: 0
+    TurnDuration: 3
   FollowOnEvents: []
   AgentCost: 0.5
   IsOneShot: 0

@@ -82,6 +82,7 @@ public class GameResourceManager : MonoBehaviour
     private BuildingManager _bm;
     private PointOfInterestManager _poim;
     private ClimateEventManager _em;
+    private TurnManager _tm;
 
     public void SetDebugValues(GameResourceManagerDebug debug)
     {
@@ -174,7 +175,10 @@ public class GameResourceManager : MonoBehaviour
 
     public bool ResourceManagerApprovesNextTurn()
     {
-        return true;
+        return  NetEnergyProduction >= 0 
+                && NetSteelProduction >= 0 
+                && NetTitaniumProduction >= 0 
+                && NetBiomassProduction >= 0;
     }
 
     public Sprite GetSpriteForResourceWithOneIndexedScale(ResourceType resourceType, int oneIndexedScale) {
@@ -258,7 +262,13 @@ public class GameResourceManager : MonoBehaviour
                 activeResourceEffects.Add(effect);
             }
         }
-
+        Debug.Log("Latest Response:" + _em.LatestResponse);
+        if(_em.LatestResponse != null) {
+           foreach (var effect in _em.LatestResponse.ResourceEffects)
+            {
+                activeResourceEffects.Add(effect);
+            }
+        }
 
         // Step three, calculate stats from all active effects
         foreach(var effect in activeResourceEffects)
@@ -333,6 +343,8 @@ public class GameResourceManager : MonoBehaviour
                     break;
             }
         }
+
+        _tm.ResourcesChanged();
     }
 
     // Start is called before the first frame update
@@ -341,6 +353,7 @@ public class GameResourceManager : MonoBehaviour
         _bm = FindObjectOfType<BuildingManager>();
         _poim = FindObjectOfType<PointOfInterestManager>();
         _em = FindObjectOfType<ClimateEventManager>();
+        _tm = FindObjectOfType<TurnManager>();
     }
 
     // Update is called once per frame
