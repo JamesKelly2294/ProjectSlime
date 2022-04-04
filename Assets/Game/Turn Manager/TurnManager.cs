@@ -102,12 +102,13 @@ public class TurnManager : MonoBehaviour
 
     private bool EndGameConditionIsReached()
     {
-        return false;
+        Debug.Log(TurnsUntilGameEndAsYear);
+        return _gm.currentBiodiversity <= _gm.minBiodiversity || _gm.currentSeaLevels >= _gm.maxSeaLevels || TurnsUntilGameEndAsYear <= 0;
     }
 
     private void EndGame()
     {
-
+        GameObject.FindObjectOfType<GameManager>().ShowLoseScreen();
     }
 
     private void PrepareEventSystem() {
@@ -140,14 +141,11 @@ public class TurnManager : MonoBehaviour
     public void EndTurn()
     {
         ProcessEndOfTurnEvents();
+        AdvanceToNextTurn();
 
         if (EndGameConditionIsReached())
         {
             EndGame();
-        }
-        else
-        {
-            AdvanceToNextTurn();
         }
     }
 
