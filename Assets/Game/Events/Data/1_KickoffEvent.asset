@@ -15,13 +15,14 @@ MonoBehaviour:
   Title: Climate Change
   FlavorText: 'Climate change has become a serious problem. You have been put in
     charge of the World Government''s Climate Change Task Force. '
+  Requirements: []
   Responses:
   - FlavorText: Lets get started
     ResourceEffects:
     - AffectedResource: 0
       EffectAmount: 20
     SpecialEffects: []
-    TurnDuration: 0
+    TurnDuration: 3
   FollowOnEvents: []
   AgentCost: 1
   IsOneShot: 1

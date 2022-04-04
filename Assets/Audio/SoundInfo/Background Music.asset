@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Background Music
   m_EditorClassIdentifier: 
   id: Music/Background
-  audioMixerGroup: {fileID: 1122707990295499701, guid: a0420a807fa813e4cb71d6b63902ac1c,
-    type: 2}
+  audioMixerGroup: {fileID: 1122707990295499701, guid: a0420a807fa813e4cb71d6b63902ac1c, type: 2}
   audioClips:
-  - {fileID: 8300000, guid: b1552410e3b2350408f774a5843c7e36, type: 3}
+  - {fileID: 8300000, guid: dc085eb58c15549c390704fd0f1c61c9, type: 3}
