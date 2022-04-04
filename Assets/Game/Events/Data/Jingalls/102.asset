@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d196fc4588ff94f802877b57abcb05, type: 3}
   m_Name: 102
   m_EditorClassIdentifier: 
-  Title: 
+  Title: Global Wildfires
   FlavorText: Due to the warmer atmosphere, wild fires are starting more frequently
     and lasting longer.
   Requirements: []

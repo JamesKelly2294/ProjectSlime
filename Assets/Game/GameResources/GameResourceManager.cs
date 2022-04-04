@@ -307,8 +307,12 @@ public class GameResourceManager : MonoBehaviour
 
 
         // Step two, calculate effects from all events
+        var currentTurn = _tm.CurrentTurn;
         foreach(var decision in _em.ActiveClimateDecisions)
         {
+            if (decision.choice == null) { continue; }
+            bool expiredThisTurn = (currentTurn - decision.turn - decision.choice.TurnDuration) == -1;
+            if (expiredThisTurn) { continue; } // handled by LatestResponse
             foreach (var effect in decision.choice.ResourceEffects)
             {
                 activeResourceEffects.Add(effect);
@@ -319,7 +323,9 @@ public class GameResourceManager : MonoBehaviour
         {
             foreach (var effect in decision.choice.ResourceEffects)
             {
-                if (effect.AffectedResource == ResourceType.Biodiversity || effect.AffectedResource == ResourceType.SeaLevel || effect.AffectedResource == ResourceType.TimeToExtiction)
+                if (effect.AffectedResource == ResourceType.Biodiversity
+                    || effect.AffectedResource == ResourceType.SeaLevel
+                    || effect.AffectedResource == ResourceType.TimeToExtiction)
                 {
                     activeResourceEffects.Add(effect);
                 }

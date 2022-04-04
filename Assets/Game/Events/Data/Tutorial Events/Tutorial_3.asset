@@ -13,10 +13,17 @@ MonoBehaviour:
   m_Name: Tutorial_3
   m_EditorClassIdentifier: 
   Title: Biodiversity and Sea Level
-  FlavorText: "Director -\n\nYour computer system is now tracking global biodiversity
+  FlavorText: 'Director -
+
+
+    Your computer system is now tracking global biodiversity
     and sea levels. Keeping these metrics under control will be critical to ensuring
-    the survival of humanity. \n\nWe just need a bit more time, and the UCTF will
-    be ready to act."
+    the survival of humanity. <b>Once these values degrade, they will not recover
+    on their own.</b>
+
+
+    We just need a bit more time, and the UCTF will be ready
+    to act.'
   Requirements: []
   Responses:
   - FlavorText: Understood.

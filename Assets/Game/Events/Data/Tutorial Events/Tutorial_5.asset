@@ -22,18 +22,20 @@ MonoBehaviour:
 
 
     Your computer system has been updated. <b>Select regions
-    on the globe to fund and manage UCTF projects.</b> This will be your primary
-    means of responding to climate events.
+    on the globe to fund and manage UCTF projects. Click and drag on the globe to
+    rotate the camera.</b> This will be your primary means of responding to climate
+    events.
 
 
-    The UCTF is now ready to act. For
-    all of humanity''s sake, don''t let us down.'
+    The UCTF is now ready to act. For all of humanity''s sake, don''t
+    let us down.'
   Requirements: []
   Responses:
   - FlavorText: We will persevere.
     ResourceEffects:
     - AffectedResource: 13
       EffectAmount: -10
+      AffectsStockpile: 0
     SpecialEffects: []
     TurnDuration: 0
   FollowOnEvents: []

@@ -123,13 +123,14 @@ public class TurnManager : MonoBehaviour
 
     private void AdvanceToNextTurn()
     {
+        _gm.CalculateResources();
+        _gm.ProcessEndOfTurnResourceUpdates();
+
         CurrentTurn++;
 
         PrepareEventSystem();
         _gm.DeductNextTurnCost();
         _gm.CalculateResources();
-
-        _gm.ProcessEndOfTurnResourceUpdates();
 
         userDidHandleEvent = false;
         PublishBeginTurnNotification();

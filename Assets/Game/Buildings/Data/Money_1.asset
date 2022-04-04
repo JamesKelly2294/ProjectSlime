@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4df319bb159b4cca95bd08a2a9cace2, type: 3}
+  m_Name: Money_1
+  m_EditorClassIdentifier: 
+  Name: Charity Organization
+  Description: A local charity organization operating in the region.
+  VisualsPrefab: {fileID: 3473304969274171468, guid: 683a14055e9a64e158813e6354372a4b, type: 3}
+  PreviewImage: {fileID: 21300000, guid: 968f0c1a9fcb247e3b86f68778effede, type: 3}
+  RegionCapital: 0
+  Buildable: 1
+  Disableable: 1
+  Deconstructable: 1
+  MoneyCost: -250
+  ResearchCost: 0
+  ResourceEffects:
+  - AffectedResource: 8
+    EffectAmount: -2
+    AffectsStockpile: 0
+  - AffectedResource: 1
+    EffectAmount: -1
+    AffectsStockpile: 0
+  - AffectedResource: 4
+    EffectAmount: -2
+    AffectsStockpile: 0
+  - AffectedResource: 0
+    EffectAmount: 100
+    AffectsStockpile: 0
+  SpecialEffects: []
