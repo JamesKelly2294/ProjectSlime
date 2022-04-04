@@ -62,9 +62,12 @@ public class ClimateEventRequirement
         return false;
     }
 
-    public bool IsOneShotResourceType()
+    public bool IsOneShotResourceType
     {
-        return _oneShots.Contains(AffectedResource);
+        get
+        {
+            return _oneShots.Contains(AffectedResource);
+        }
     }
 
     public override string ToString()

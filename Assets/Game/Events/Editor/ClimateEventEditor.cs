@@ -19,12 +19,12 @@ public class ClimateEventEditor : Editor
         base.OnInspectorGUI();
         if(_grm != null)
         {
-            using (var v = new EditorGUILayout.VerticalScope(""))
+            using (var v = new EditorGUILayout.VerticalScope("label"))
             {
                 EditorGUILayout.LabelField("== Debug ==");
                 foreach (var requirement in _script.Requirements)
                 {
-                    var value = _grm.GetValueForResourceType(requirement.AffectedResource, requirement.Mode, requirement.IsOneShotResourceType());
+                    var value = _grm.GetValueForResourceType(requirement.AffectedResource, requirement.Mode, requirement.IsOneShotResourceType);
                     EditorGUILayout.LabelField(requirement.ToString() + " [" + requirement.IsMet(value) + "]");
                 }
             }

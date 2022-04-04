@@ -67,7 +67,7 @@ public class ClimateEventManager : MonoBehaviour
         _agent = GameObject.FindObjectOfType<RandomizerAgent>();
         _gm = GameObject.FindObjectOfType<GameResourceManager>();
 
-        Debug.Log("Climate Events:");
+        Debug.Log("Climate Events: (" + AllClimateEvents.Count() + " total)");
         foreach (var e in AllClimateEvents)
         {
             Debug.Log(e.Title);
