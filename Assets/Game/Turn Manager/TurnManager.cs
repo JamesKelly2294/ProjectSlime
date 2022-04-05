@@ -103,7 +103,7 @@ public class TurnManager : MonoBehaviour
     private bool EndGameConditionIsReached()
     {
         Debug.Log(TurnsUntilGameEndAsYear);
-        return _gm.currentBiodiversity <= _gm.minBiodiversity || _gm.currentSeaLevels >= _gm.maxSeaLevels || TurnsUntilGameEndAsYear <= 0;
+        return _gm.currentBiodiversity <= _gm.minBiodiversity || _gm.currentSeaLevels >= _gm.maxSeaLevels || TurnsUntilGameEndAsYear <= 0 || _gm.money < 0;
     }
 
     private void EndGame()
@@ -162,7 +162,7 @@ public class TurnManager : MonoBehaviour
 
         var nextTurnCost = _gm.ResourceManagerApprovesNextTurn();
         if (nextTurnCost < 0) {
-            PublishAllowButNotRecommendNextTurnNotification("Will reduce Time Until Extiction by" + nextTurnCost.ToString());
+            PublishAllowButNotRecommendNextTurnNotification("Will reduce Time Until Extinction by" + nextTurnCost.ToString());
             return;
         }
 

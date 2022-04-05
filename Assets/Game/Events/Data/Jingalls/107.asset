@@ -20,17 +20,17 @@ MonoBehaviour:
     Condition: 2
     Value: 5
   Responses:
-  - FlavorText: 'Our efforts to switch to green energy are starting to pay dividends! '
+  - FlavorText: Good to Hear!
     ResourceEffects:
     - AffectedResource: 0
-      EffectAmount: 50
+      EffectAmount: 100
       AffectsStockpile: 0
     - AffectedResource: 2
       EffectAmount: 3
       AffectsStockpile: 0
     SpecialEffects: []
-    TurnDuration: 1000
+    TurnDuration: 3
   FollowOnEvents: []
   SpecialEffects: []
-  AgentCost: 0
-  IsOneShot: 0
+  AgentCost: 10
+  IsOneShot: 1

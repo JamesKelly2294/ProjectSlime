@@ -18,40 +18,49 @@ MonoBehaviour:
   - AffectedResource: 13
     Mode: 0
     Condition: 2
-    Value: 25
+    Value: 20
   Responses:
   - FlavorText: Cash Money, Please
     ResourceEffects:
     - AffectedResource: 1
       EffectAmount: 100
+      AffectsStockpile: 0
     SpecialEffects: []
     TurnDuration: 0
   - FlavorText: Drill a Large Hole in the Ocean
     ResourceEffects:
     - AffectedResource: 11
       EffectAmount: -1
+      AffectsStockpile: 0
     - AffectedResource: 4
       EffectAmount: 2
+      AffectsStockpile: 0
     - AffectedResource: 5
       EffectAmount: 4
+      AffectsStockpile: 0
     SpecialEffects: []
     TurnDuration: 1000
   - FlavorText: Invest in Zoos, Aquariums, and Ecologysts
     ResourceEffects:
     - AffectedResource: 9
       EffectAmount: 1
+      AffectsStockpile: 0
     - AffectedResource: 7
       EffectAmount: 6
+      AffectsStockpile: 0
     SpecialEffects: []
     TurnDuration: 1000
   - FlavorText: Invent new carbon-free burgers
     ResourceEffects:
     - AffectedResource: 6
       EffectAmount: 10
+      AffectsStockpile: 0
     - AffectedResource: 3
       EffectAmount: -1
+      AffectsStockpile: 0
     - AffectedResource: 0
       EffectAmount: 100
+      AffectsStockpile: 0
     SpecialEffects: []
     TurnDuration: 0
   FollowOnEvents:

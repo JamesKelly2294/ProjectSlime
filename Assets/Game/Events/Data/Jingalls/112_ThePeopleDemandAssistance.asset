@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 112_ThePeopleDemandAssistance
   m_EditorClassIdentifier: 
   Title: The People Demand Assistance
-  FlavorText: Look at the massive stock pile of money. No one, not even a government
-    tool like you, need 10 TRILLION dollars. We the people, demand it back, and we
-    will get competent people to run the show.
+  FlavorText: Look at that massive pile of money! No one, not even a government tool
+    like you, needs 10 TRILLION dollars. We the people, demand it back, and we will
+    get competent people to run the show.
   Requirements:
   - AffectedResource: 0
     Mode: 0
@@ -25,26 +25,27 @@ MonoBehaviour:
   - FlavorText: Attempt to Appease
     ResourceEffects:
     - AffectedResource: 0
-      EffectAmount: -100
+      EffectAmount: -1000
+      AffectsStockpile: 0
     - AffectedResource: 2
       EffectAmount: -2
+      AffectsStockpile: 0
     - AffectedResource: 3
       EffectAmount: 2
+      AffectsStockpile: 0
     SpecialEffects: []
     TurnDuration: 10
   - FlavorText: Give Them WhatThey Want
     ResourceEffects:
     - AffectedResource: 0
-      EffectAmount: -100
-    - AffectedResource: 2
-      EffectAmount: -1
-    - AffectedResource: 3
-      EffectAmount: 1
+      EffectAmount: -1000
+      AffectsStockpile: 1
     - AffectedResource: 13
-      EffectAmount: -1
+      EffectAmount: -3
+      AffectsStockpile: 0
     SpecialEffects: []
     TurnDuration: 0
   FollowOnEvents: []
   SpecialEffects: []
-  AgentCost: 0
+  AgentCost: 100
   IsOneShot: 1

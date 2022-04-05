@@ -19,9 +19,6 @@ MonoBehaviour:
   Responses:
   - FlavorText: I will help it
     ResourceEffects:
-    - AffectedResource: 0
-      EffectAmount: 500
-      AffectsStockpile: 0
     - AffectedResource: 1
       EffectAmount: -1
       AffectsStockpile: 0
@@ -31,9 +28,9 @@ MonoBehaviour:
     - AffectedResource: 11
       EffectAmount: 1
       AffectsStockpile: 0
-    - AffectedResource: 5
-      EffectAmount: 10
-      AffectsStockpile: 0
+    - AffectedResource: 0
+      EffectAmount: -500
+      AffectsStockpile: 1
     - AffectedResource: 13
       EffectAmount: 1
       AffectsStockpile: 0
@@ -42,8 +39,8 @@ MonoBehaviour:
   - FlavorText: Ignore it
     ResourceEffects:
     - AffectedResource: 0
-      EffectAmount: 100
-      AffectsStockpile: 0
+      EffectAmount: -100
+      AffectsStockpile: 1
     - AffectedResource: 1
       EffectAmount: -1
       AffectsStockpile: 0
@@ -54,9 +51,6 @@ MonoBehaviour:
       EffectAmount: -1
       AffectsStockpile: 0
     - AffectedResource: 5
-      EffectAmount: 1
-      AffectsStockpile: 0
-    - AffectedResource: 13
       EffectAmount: 1
       AffectsStockpile: 0
     SpecialEffects: []
@@ -79,5 +73,5 @@ MonoBehaviour:
     TurnDuration: 10
   FollowOnEvents: []
   SpecialEffects: []
-  AgentCost: 0
+  AgentCost: 100
   IsOneShot: 1

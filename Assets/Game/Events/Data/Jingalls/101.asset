@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d196fc4588ff94f802877b57abcb05, type: 3}
   m_Name: 101
   m_EditorClassIdentifier: 
-  Title: Environmentalists Demand Ban on Internal Combustion Engines
+  Title: Environmentalists Demand ICE Ban
   FlavorText: Environmental Thought-leader/Billionaires are advocating for customers
-    to switch to electric cars, and what you to ban ICE engines for them. Is now
-    the right time?
+    to switch to electric cars, and want you to ban Internal Combustion  Engines
+    for them. Is now the right time?
   Requirements: []
   Responses:
   - FlavorText: Yes
@@ -53,5 +53,5 @@ MonoBehaviour:
     TurnDuration: 0
   FollowOnEvents: []
   SpecialEffects: []
-  AgentCost: 0
-  IsOneShot: 0
+  AgentCost: 100
+  IsOneShot: 1

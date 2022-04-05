@@ -38,7 +38,14 @@ public class EffectItem : MonoBehaviour
             gameResourceManager = GameObject.FindObjectOfType<GameResourceManager>();
         }
         
-        amountTMP.text = effect.EffectAmount.ToString();
+        
+        if (effect.AffectsStockpile && (effect.AffectedResource == ResourceType.Money || effect.AffectedResource == ResourceType.Research)) {
+            amountTMP.text = "Imm. " + effect.EffectAmount.ToString();
+        } else {
+             amountTMP.text = effect.EffectAmount.ToString();
+        }
+
+
         image.sprite = gameResourceManager.GetSpriteForResourceWithOneIndexedScale(effect.AffectedResource, 3);
 
         if (effect.EffectAmount >= 0) {

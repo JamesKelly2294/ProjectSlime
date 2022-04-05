@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Running low on Fuel
   FlavorText: "We\u2019ve been burning so much fuel that we might have to transition
-    to lower quality, Bunkers brand bunker fuel! This stuff is dirty!"
+    to lower quality, Bunker's brand bunker fuel! This stuff is dirty!"
   Requirements:
   - AffectedResource: 3
     Mode: 0
     Condition: 2
-    Value: 30
+    Value: 20
   Responses:
   - FlavorText: Burn it Baby!
     ResourceEffects:
@@ -40,5 +40,5 @@ MonoBehaviour:
     TurnDuration: 1000
   FollowOnEvents: []
   SpecialEffects: []
-  AgentCost: 0
+  AgentCost: 10
   IsOneShot: 0

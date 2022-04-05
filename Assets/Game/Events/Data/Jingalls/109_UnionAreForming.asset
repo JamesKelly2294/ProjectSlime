@@ -25,21 +25,26 @@ MonoBehaviour:
     ResourceEffects:
     - AffectedResource: 0
       EffectAmount: -1
+      AffectsStockpile: 0
     SpecialEffects: []
     TurnDuration: 0
   - FlavorText: Ignore
     ResourceEffects:
     - AffectedResource: 4
       EffectAmount: 1
+      AffectsStockpile: 0
     - AffectedResource: 5
       EffectAmount: 1
+      AffectsStockpile: 0
     - AffectedResource: 6
       EffectAmount: 1
+      AffectsStockpile: 0
     - AffectedResource: 0
       EffectAmount: 1
+      AffectsStockpile: 0
     SpecialEffects: []
     TurnDuration: 1000
   FollowOnEvents: []
   SpecialEffects: []
-  AgentCost: 0
+  AgentCost: 100
   IsOneShot: 1

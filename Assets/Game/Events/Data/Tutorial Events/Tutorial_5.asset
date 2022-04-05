@@ -32,10 +32,7 @@ MonoBehaviour:
   Requirements: []
   Responses:
   - FlavorText: We will persevere.
-    ResourceEffects:
-    - AffectedResource: 13
-      EffectAmount: -10
-      AffectsStockpile: 0
+    ResourceEffects: []
     SpecialEffects: []
     TurnDuration: 0
   FollowOnEvents: []

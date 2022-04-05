@@ -13,30 +13,36 @@ MonoBehaviour:
   m_Name: 116_ANewSpeciesOfTicks
   m_EditorClassIdentifier: 
   Title: A New Species of Ticks!
-  FlavorText: "\"Despite our overall biodiversity being low, and seemingly getting
+  FlavorText: "Despite our overall biodiversity being low, and seemingly getting
     worse all the time, a new specious of tick has been identified.\n\nThe <i>Ixodes
     Gigantica </i> is a one meter long tick that grabs the back of the neck of humans,
-    and other large mammals. They don\u2019t seem to be ill-tolerated by the human.\""
+    and other large mammals. They don\u2019t seem to be ill-tolerated by the human."
   Requirements: []
   Responses:
   - FlavorText: Burn with fire
     ResourceEffects:
     - AffectedResource: 9
       EffectAmount: -1
+      AffectsStockpile: 0
     - AffectedResource: 6
       EffectAmount: -1
+      AffectsStockpile: 0
     SpecialEffects: []
     TurnDuration: 1000
   - FlavorText: Get Yours Today!
     ResourceEffects:
     - AffectedResource: 0
       EffectAmount: 10
+      AffectsStockpile: 0
     - AffectedResource: 9
       EffectAmount: 1
+      AffectsStockpile: 0
     - AffectedResource: 6
       EffectAmount: 1
+      AffectsStockpile: 0
     - AffectedResource: 13
       EffectAmount: -1
+      AffectsStockpile: 0
     SpecialEffects: []
     TurnDuration: 1000
   FollowOnEvents: []

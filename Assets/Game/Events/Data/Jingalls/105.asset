@@ -15,14 +15,14 @@ MonoBehaviour:
   Title: Astroid Mining Perfected
   FlavorText: "Scientists has perfected mineral collection and refinement in space!
     They\u2019ve invented robots that are sent into the Astroid Belt. They collect
-    and process minerals and send them back to earth."
+    and process minerals and shoot them back to earth. Efficient!"
   Requirements: []
   Responses:
   - FlavorText: Launch the Robots!
     ResourceEffects:
     - AffectedResource: 0
       EffectAmount: -1000
-      AffectsStockpile: 0
+      AffectsStockpile: 1
     - AffectedResource: 4
       EffectAmount: 25
       AffectsStockpile: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
     ResourceEffects:
     - AffectedResource: 0
       EffectAmount: -100
-      AffectsStockpile: 0
+      AffectsStockpile: 1
     - AffectedResource: 4
       EffectAmount: 2
       AffectsStockpile: 0
@@ -53,5 +53,5 @@ MonoBehaviour:
     TurnDuration: 0
   FollowOnEvents: []
   SpecialEffects: []
-  AgentCost: 0
+  AgentCost: 50
   IsOneShot: 1

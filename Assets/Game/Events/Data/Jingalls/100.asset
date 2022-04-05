@@ -14,24 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Electricity Grid Surges
   FlavorText: Due to the increased pressures on the electricity grid, transformer
-    boxes have started to explode around the world. This is starting fires in our
+    boxes have started to explode around the world. Fires are breaking out in our
     cities!
   Requirements: []
   Responses:
   - FlavorText: Reduce Energy Usage
     ResourceEffects:
     - AffectedResource: 1
-      EffectAmount: -4
+      EffectAmount: -20
       AffectsStockpile: 0
     SpecialEffects: []
     TurnDuration: 1000
   - FlavorText: Increase firefighting budget
     ResourceEffects:
-    - AffectedResource: 3
-      EffectAmount: 4
-      AffectsStockpile: 0
     - AffectedResource: 0
-      EffectAmount: -30
+      EffectAmount: -300
       AffectsStockpile: 0
     SpecialEffects: []
     TurnDuration: 1000
@@ -41,7 +38,7 @@ MonoBehaviour:
       EffectAmount: -1
       AffectsStockpile: 0
     - AffectedResource: 1
-      EffectAmount: -1
+      EffectAmount: -10
       AffectsStockpile: 0
     - AffectedResource: 13
       EffectAmount: -1
@@ -51,4 +48,4 @@ MonoBehaviour:
   FollowOnEvents: []
   SpecialEffects: []
   AgentCost: 0
-  IsOneShot: 1
+  IsOneShot: 0

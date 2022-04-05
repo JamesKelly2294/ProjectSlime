@@ -474,20 +474,20 @@ public class GameResourceManager : MonoBehaviour
         {
             pubSubSender.Publish("special.event." + specialEffect.Type);
         }
-        //foreach(var effect in response.ResourceEffects)
-        //{
-        //    if(effect.AffectsStockpile)
-        //    {
-        //        if (effect.AffectedResource == ResourceType.Money)
-        //        {
-        //            money += effect.EffectAmount;
-        //        }
-        //        else if (effect.AffectedResource == ResourceType.Research)
-        //        {
-        //            science += effect.EffectAmount;
-        //        }
-        //    }
-        //}
+        foreach(var effect in response.ResourceEffects)
+        {
+           if(effect.AffectsStockpile)
+           {
+               if (effect.AffectedResource == ResourceType.Money)
+               {
+                   money += effect.EffectAmount;
+               }
+               else if (effect.AffectedResource == ResourceType.Research)
+               {
+                   science += effect.EffectAmount;
+               }
+           }
+        }
         CalculateResources();
     }
 }
