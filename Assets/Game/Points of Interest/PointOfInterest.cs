@@ -94,6 +94,9 @@ public class PointOfInterest : MonoBehaviour
         ConstructedBuildings.Remove(b);
         UpdateBuildingVisuals();
 
+        const float REFUND_MULTIPLIER = 0.5f;
+        _rm.IncreaseMoney(Mathf.RoundToInt(b.Building.MoneyCost * REFUND_MULTIPLIER));
+
         PubSubSender sender = GetComponent<PubSubSender>();
         if (sender)
         {

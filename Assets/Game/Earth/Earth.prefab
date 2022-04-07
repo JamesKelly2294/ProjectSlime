@@ -86,6 +86,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Radius: 5
+  SeaLevelSprites:
+  - {fileID: 2800000, guid: 37c4cb76e7e646f4badacddea1c4ec4c, type: 3}
+  - {fileID: 2800000, guid: 574c52e3b05227f4291af3aab16681c1, type: 3}
+  - {fileID: 2800000, guid: 21d012378308ede4e9d07e5100973b96, type: 3}
+  - {fileID: 2800000, guid: 90305175b4b12604a95694679281651e, type: 3}
+  - {fileID: 2800000, guid: 3e91cff06fef83c4b9b0e792cadd892f, type: 3}
 --- !u!1 &7014085623990814479
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,12 +18,13 @@ MonoBehaviour:
 
     Your computer system is now tracking global biodiversity
     and sea levels. Keeping these metrics under control will be critical to ensuring
-    the survival of humanity. <b>Once these values degrade, they will not recover
-    on their own.</b>
+    the survival of humanity. <b>Once these values degrade they will not recover
+    on their own - and the worse they get, the higher liklihood of disaster climate
+    events.</b>
 
 
-    We just need a bit more time, and the UCTF will be ready
-    to act.'
+    We just need a bit more time, and the UCTF will be ready to
+    act.'
   Requirements: []
   Responses:
   - FlavorText: Understood.

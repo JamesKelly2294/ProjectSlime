@@ -20,13 +20,16 @@ MonoBehaviour:
   Buildable: 1
   Disableable: 1
   Deconstructable: 1
-  MoneyCost: -200
+  MoneyCost: 200
   ResearchCost: 0
   ResourceEffects:
   - AffectedResource: 8
     EffectAmount: -1
+    AffectsStockpile: 0
   - AffectedResource: 0
     EffectAmount: -10
+    AffectsStockpile: 0
   - AffectedResource: 6
     EffectAmount: 1
+    AffectsStockpile: 0
   SpecialEffects: []

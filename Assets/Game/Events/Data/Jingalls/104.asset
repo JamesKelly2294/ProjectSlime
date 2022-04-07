@@ -32,13 +32,13 @@ MonoBehaviour:
   - FlavorText: Disagree
     ResourceEffects:
     - AffectedResource: 0
-      EffectAmount: -2
+      EffectAmount: -20
       AffectsStockpile: 0
     - AffectedResource: 9
-      EffectAmount: 1
+      EffectAmount: -1
       AffectsStockpile: 0
     - AffectedResource: 11
-      EffectAmount: -1
+      EffectAmount: 1
       AffectsStockpile: 0
     SpecialEffects: []
     TurnDuration: 1000
@@ -51,5 +51,5 @@ MonoBehaviour:
     TurnDuration: 0
   FollowOnEvents: []
   SpecialEffects: []
-  AgentCost: 50
+  AgentCost: 0
   IsOneShot: 0

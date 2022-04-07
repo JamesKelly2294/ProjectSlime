@@ -49,16 +49,24 @@ public class NewBuildingPane : MonoBehaviour
         Display(null, null);
     }
 
+    public bool IsCurrentlyDisplayed()
+    {
+        return _isShowing;
+    }
+
+    private bool _isShowing;
     public void Display(PointOfInterest pointOfInterest, ConstructedBuilding existingBuilding) {
         displayedPOI = pointOfInterest;
         displayedExistingBuilding = existingBuilding;
         if (pointOfInterest == null) {
             content.SetActive(false);
             background.SetActive(false);
+            _isShowing = false;
             return;
         } else {
             content.SetActive(true);
             background.SetActive(true);
+            _isShowing = true;
         }
 
         if (existingBuilding != null)
@@ -71,8 +79,14 @@ public class NewBuildingPane : MonoBehaviour
         else
         {
             titleTMP.text = "Fund Project in" + (pointOfInterest.needsThe ? " the " : " ") + "<b>" + pointOfInterest.Name + "</b>";
-            existingBuildingRow.gameObject.SetActive(false);
-            filterButtonRow.gameObject.SetActive(true);
+            if (existingBuildingRow.gameObject != null)
+            {
+                existingBuildingRow.gameObject.SetActive(false);
+            }
+            if (filterButtonRow.gameObject != null)
+            {
+                filterButtonRow.gameObject.SetActive(true);
+            }
         }
 
         // Add the list of buildings
@@ -129,6 +143,11 @@ public class NewBuildingPane : MonoBehaviour
     public void DecommissionConstructedBuilding()
     {
         Debug.Log("DecommissionConstructedBuilding");
+        if(!displayedExistingBuilding.Building.Deconstructable)
+        {
+            return;
+        }
+
         displayedPOI.DecommissionBuilding(displayedExistingBuilding);
         Hide();
     }

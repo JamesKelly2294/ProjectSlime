@@ -5,14 +5,21 @@ using UnityEngine.EventSystems;
 
 public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    public enum TooltipDirection
+    {
+        Left,
+        Right
+    }
     public GameObject tooltipPrefab;
+
+    public TooltipDirection direction;
 
     private GameObject _instantiatedTooltip;
 
     private GameObject _hud;
     public void Start()
     {
-        _hud = FindObjectOfType<Canvas>().gameObject;
+        _hud = GameObject.Find("HUD");
     }
 
     public void OnPointerEnter(PointerEventData eventData)

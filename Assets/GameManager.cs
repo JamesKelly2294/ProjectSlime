@@ -68,7 +68,16 @@ public class GameManager : MonoBehaviour
     public void ShowMainWindow()
     {
         loadingScreen.SetActive(true);
-        scenesLoading.Add(SceneManager.UnloadSceneAsync(loadGameSceneName));
+
+        // Absolute fucking hack
+        if (SceneManager.GetSceneByName(loadGameSceneName).isLoaded)
+        {
+            scenesLoading.Add(SceneManager.UnloadSceneAsync(loadGameSceneName));
+        }
+        if (SceneManager.GetSceneByName("LoseScene").isLoaded)
+        {
+            scenesLoading.Add(SceneManager.UnloadSceneAsync("LoseScene"));
+        }
 
         scenesLoading.Add(SceneManager.LoadSceneAsync("TitleScene", LoadSceneMode.Additive));
 

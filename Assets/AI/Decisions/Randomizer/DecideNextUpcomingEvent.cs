@@ -115,29 +115,29 @@ public class DecideNextUpcomingEvent : MonoBehaviour, IDecision
             {
                 var chance = 0.0f;
                 switch (resource) {
-                    case ResourceType.Biodiversity:
-                        float inverseBiodiversity = Mathf.Clamp(_grm.maxBiodiversity - _grm.currentBiodiversity, _grm.minBiodiversity, _grm.maxBiodiversity);
-                        chance = BiodiversitySeaLevelProbability.Evaluate(inverseBiodiversity / _grm.maxBiodiversity);
-                        if (chance >= 0.5)
-                        {
-                            Debug.Log("\tRandomly choose to check for biodiversity pressure events based on current biodiversity.");
-                        }
-                        else
-                        {
-                            Debug.Log("\tBiodiversity pressure event may exist but we randomly decided to ignore that this time.");
-                        }
-                        break;
-                    case ResourceType.SeaLevel:
-                        chance = BiodiversitySeaLevelProbability.Evaluate((float)_grm.currentSeaLevels / _grm.maxSeaLevels);
-                        if (chance >= 0.5)
-                        {
-                            Debug.Log("\tRandomly choose to check for sea level pressure events.");
-                        }
-                        else
-                        {
-                            Debug.Log("\tSea level pressure event may exist but we randomly decided to ignore that this time.");
-                        }
-                        break;
+                    //case ResourceType.Biodiversity:
+                    //    float inverseBiodiversity = Mathf.Clamp(_grm.maxBiodiversity - _grm.currentBiodiversity, _grm.minBiodiversity, _grm.maxBiodiversity);
+                    //    chance = BiodiversitySeaLevelProbability.Evaluate(inverseBiodiversity / _grm.maxBiodiversity);
+                    //    if (chance >= 0.5)
+                    //    {
+                    //        Debug.Log("\tRandomly choose to check for biodiversity pressure events based on current biodiversity.");
+                    //    }
+                    //    else
+                    //    {
+                    //        Debug.Log("\tBiodiversity pressure event may exist but we randomly decided to ignore that this time.");
+                    //    }
+                    //    break;
+                    //case ResourceType.SeaLevel:
+                    //    chance = BiodiversitySeaLevelProbability.Evaluate((float)_grm.currentSeaLevels / _grm.maxSeaLevels);
+                    //    if (chance >= 0.5)
+                    //    {
+                    //        Debug.Log("\tRandomly choose to check for sea level pressure events.");
+                    //    }
+                    //    else
+                    //    {
+                    //        Debug.Log("\tSea level pressure event may exist but we randomly decided to ignore that this time.");
+                    //    }
+                    //    break;
                     default:
                         anyTargets = anyTargets || _agent.UsableEventsWithResourceTypeInResponse(resource).Count() > 0;
                         break;

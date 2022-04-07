@@ -162,7 +162,7 @@ public class TurnManager : MonoBehaviour
 
         var nextTurnCost = _gm.ResourceManagerApprovesNextTurn();
         if (nextTurnCost < 0) {
-            PublishAllowButNotRecommendNextTurnNotification("Will reduce Time Until Extinction by" + nextTurnCost.ToString());
+            PublishAllowButNotRecommendNextTurnNotification("Will reduce Years Until Extinction by " + nextTurnCost.ToString());
             return;
         }
 

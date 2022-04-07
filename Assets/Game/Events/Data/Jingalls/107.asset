@@ -32,5 +32,5 @@ MonoBehaviour:
     TurnDuration: 3
   FollowOnEvents: []
   SpecialEffects: []
-  AgentCost: 10
+  AgentCost: 0
   IsOneShot: 1

@@ -44,6 +44,8 @@ public class ExistingBuildingRow : MonoBehaviour
         flavorText.text = building.Description;
         effectList.DisplayEffects(building.SortedResourceEffects);
 
+        DecommissionButton.interactable = constructedBuilding.Building.Deconstructable;
+
         SetupPauseButton();
     }
 

@@ -251,6 +251,11 @@ public class GameResourceManager : MonoBehaviour
         }
     }
 
+    public void IncreaseMoney(int amount)
+    {
+        money += amount;
+    }
+
     public void SpendMoney(int amount)
     {
         amount = Mathf.Abs(amount);

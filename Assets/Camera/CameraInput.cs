@@ -19,12 +19,14 @@ public class CameraInput : MonoBehaviour
 
     private MouseOrbit _mouseOrbit;
     private PointOfInterestManager _poim;
+    private NewBuildingPane _newBuildingPane;
 
     // Start is called before the first frame update
     void Start()
     {
         _mouseOrbit = FindObjectOfType<MouseOrbit>();
         _poim = FindObjectOfType<PointOfInterestManager>();
+        _newBuildingPane = FindObjectOfType<NewBuildingPane>();
     }
 
     // Update is called once per frame
@@ -68,7 +70,14 @@ public class CameraInput : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            _poim.SetSelectedPointOfInterest(null);
+            if (_newBuildingPane && _newBuildingPane.IsCurrentlyDisplayed())
+            {
+                _newBuildingPane.Hide();
+            }
+            else
+            {
+                _poim.SetSelectedPointOfInterest(null);
+            }
         }
     }
 }

@@ -27,7 +27,8 @@ MonoBehaviour:
 
     Your
     computer system has been updated. <b>Hover over your resources with the mouse
-    cursor to learn more about them.</b>'
+    cursor to learn more about them.</b> Be sure to avoid a resource deficit - or
+    humanity will face extinction even faster than expected.'
   Requirements: []
   Responses:
   - FlavorText: Understood.
